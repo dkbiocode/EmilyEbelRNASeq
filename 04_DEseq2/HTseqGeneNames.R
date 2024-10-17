@@ -91,7 +91,6 @@ replaceGeneNameAedes = function(featLoc, namesLoc){
   #gzip(cutFeatLoc,overwrite=TRUE)
 }
 
-
 #Example Usage for Single File
 #featLoc is the HTseq output file which contains counts of the features
 #namesLoc is the Annotation file which contains the translation from the old

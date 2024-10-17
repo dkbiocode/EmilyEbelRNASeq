@@ -159,7 +159,7 @@ write.csv(res_tab,"AedesL4PlaqueTable.csv")
 
 res_tab=getDeseqResults("LifeStageSamplesTest.csv",lifestage="Adult",save=TRUE,summary=TRUE,saveName = "CulexAdultPlaque")
 head(res_tab,n=20)
-write.csv(res_tab,"CulexAdultPlaqueTable.csv")
+#write.csv(res_tab,"CulexAdultPlaqueTable.csv")
 
 res_tab=getDeseqResults("LifeStageSamplesAeAll.csv",lifestage="L4",save=TRUE,summary=TRUE,saveName = "AedesL4Plaque")
 head(res_tab,n=20)
@@ -186,6 +186,9 @@ head(res_tab,n=20)
 res_tab=getDeseqResults("LifeStageSamplesTest3.csv",lifestage="L4",byAnyPositive=TRUE,save=TRUE,summary=TRUE,saveName = "CulexL4Pos")
 head(res_tab,n=20)
 
+res_tab=getDeseqResults("LifeStageSamplesTest3.csv",lifestage="Pupae",save=TRUE,summary=TRUE,saveName = "CulexL4Pos")
+head(res_tab,n=20)
+
 res_tab=getDeseqResults("LifeStageSamplesAeAll.csv",byLifestage = TRUE,vsLarvae=TRUE,save=TRUE,summary=TRUE,saveName = "AedesPupaevsLarvae")
 head(res_tab,n=10)
 
@@ -195,11 +198,15 @@ head(res_tab,n=10)
 
 #Example of Plotting Specific Genes Across Samples using a saved DEseq2 object
 
-htdds=readRDS(file="Exampledds.RDS")
+htdds=readRDS(file="AedesPupaevsAdult.RDS")
 
 head(htdds)
 
-htdds["AAEL006966",]$ID
+htdds["MT-ND1",]$ID
+
+plotCounts(htdds, gene="GPROP2", intgroup="PlaqueAssay")
+plotCounts(htdds, gene="gene4787", intgroup="PlaqueAssay")
+
 
 plotCounts(htdds, gene="AAEL006966", intgroup="PlaqueAssay")
 plotCounts(htdds, gene="AAEL005646", intgroup="PlaqueAssay")

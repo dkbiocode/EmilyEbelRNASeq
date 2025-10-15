@@ -1,8 +1,8 @@
-#!/bin/bash
-#SBATCH --partition=day-long-cpu
+#!/usr/bin/env bash
+#SBATCH --partition=short-cpu
 #SBATCH --job-name=fastpDeDupLoop
 #SBATCH --output=%x.%A_%a.log 
-#SBATCH --time=2:00:00
+#SBATCH --time=0:10:00
 #SBATCH --qos=normal
 #SBATCH --nodes=1
 #SBATCH --ntasks=16

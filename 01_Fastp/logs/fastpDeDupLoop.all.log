@@ -1,0 +1,1008 @@
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.399s
+user	0m0.552s
+sys	0m0.608s
+JOB ARRAY TASK: 0, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.22_mock_A_S4_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.22_mock_A_S4_L003_R2_001.fastq.gz
+OUT=22_mock_A_S4_L003_R2_001
+fastp -i RawFastq/22_mock_A_S4_L003_R1_001.fastq.gz -I RawFastq/22_mock_A_S4_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_mock_A_S4_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_mock_A_S4_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_mock_A_S4_L003_R2_001.json -h DeDupFastqHTMLs/22_mock_A_S4_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 25867482
+total bases: 3905989782
+Q20 bases: 3785409862(96.9129%)
+Q30 bases: 3639767669(93.1843%)
+
+Read2 before filtering:
+total reads: 25867482
+total bases: 3905989782
+Q20 bases: 3730063323(95.496%)
+Q30 bases: 3560136879(91.1456%)
+
+Read1 after filtering:
+total reads: 12891625
+total bases: 1524505489
+Q20 bases: 1485120714(97.4166%)
+Q30 bases: 1418385706(93.0391%)
+
+Read2 after filtering:
+total reads: 12891625
+total bases: 1524505489
+Q20 bases: 1489115116(97.6786%)
+Q30 bases: 1429249920(93.7517%)
+
+Filtering result:
+reads passed filter: 51163548
+reads failed due to low quality: 567390
+reads failed due to too many N: 4026
+reads failed due to too short: 0
+reads with adapter trimmed: 31433876
+bases trimmed due to adapters: 1104437642
+
+Duplication rate: 49.0607%
+
+Insert size peak (evaluated by paired-end reads): 130
+
+JSON report: DeDupFastqJSONs/22_mock_A_S4_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/22_mock_A_S4_L003_R2_001.html
+
+fastp -i RawFastq/22_mock_A_S4_L003_R1_001.fastq.gz -I RawFastq/22_mock_A_S4_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_mock_A_S4_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_mock_A_S4_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_mock_A_S4_L003_R2_001.json -h DeDupFastqHTMLs/22_mock_A_S4_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 57 seconds
+
+real	0m57.203s
+user	7m46.631s
+sys	0m20.913s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.567s
+user	0m0.563s
+sys	0m0.756s
+JOB ARRAY TASK: 10, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.26_WNV_B_S8_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.26_WNV_B_S8_L003_R2_001.fastq.gz
+OUT=26_WNV_B_S8_L003_R2_001
+fastp -i RawFastq/26_WNV_B_S8_L003_R1_001.fastq.gz -I RawFastq/26_WNV_B_S8_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_WNV_B_S8_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_WNV_B_S8_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_WNV_B_S8_L003_R2_001.json -h DeDupFastqHTMLs/26_WNV_B_S8_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 23671977
+total bases: 3574468527
+Q20 bases: 3378028072(94.5043%)
+Q30 bases: 3111794764(87.0562%)
+
+Read2 before filtering:
+total reads: 23671977
+total bases: 3574468527
+Q20 bases: 3467579274(97.0096%)
+Q30 bases: 3318969748(92.8521%)
+
+Read1 after filtering:
+total reads: 8207518
+total bases: 984722922
+Q20 bases: 932015438(94.6475%)
+Q30 bases: 850463824(86.3658%)
+
+Read2 after filtering:
+total reads: 8207518
+total bases: 984722922
+Q20 bases: 953612181(96.8407%)
+Q30 bases: 902206687(91.6204%)
+
+Filtering result:
+reads passed filter: 46666648
+reads failed due to low quality: 673374
+reads failed due to too many N: 3932
+reads failed due to too short: 0
+reads with adapter trimmed: 16478258
+bases trimmed due to adapters: 674201956
+
+Duplication rate: 63.9004%
+
+Insert size peak (evaluated by paired-end reads): 124
+
+JSON report: DeDupFastqJSONs/26_WNV_B_S8_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/26_WNV_B_S8_L003_R2_001.html
+
+fastp -i RawFastq/26_WNV_B_S8_L003_R1_001.fastq.gz -I RawFastq/26_WNV_B_S8_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_WNV_B_S8_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_WNV_B_S8_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_WNV_B_S8_L003_R2_001.json -h DeDupFastqHTMLs/26_WNV_B_S8_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 42 seconds
+
+real	0m41.350s
+user	6m22.052s
+sys	0m12.402s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.410s
+user	0m0.560s
+sys	0m0.617s
+JOB ARRAY TASK: 11, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.26_WNV_C_S9_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.26_WNV_C_S9_L003_R2_001.fastq.gz
+OUT=26_WNV_C_S9_L003_R2_001
+fastp -i RawFastq/26_WNV_C_S9_L003_R1_001.fastq.gz -I RawFastq/26_WNV_C_S9_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_WNV_C_S9_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_WNV_C_S9_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_WNV_C_S9_L003_R2_001.json -h DeDupFastqHTMLs/26_WNV_C_S9_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 29971136
+total bases: 4525641536
+Q20 bases: 4408770227(97.4176%)
+Q30 bases: 4257519922(94.0755%)
+
+Read2 before filtering:
+total reads: 29971136
+total bases: 4525641536
+Q20 bases: 4406183829(97.3604%)
+Q30 bases: 4242601877(93.7459%)
+
+Read1 after filtering:
+total reads: 13212439
+total bases: 1653446632
+Q20 bases: 1612773648(97.5401%)
+Q30 bases: 1541988088(93.259%)
+
+Read2 after filtering:
+total reads: 13212439
+total bases: 1653446632
+Q20 bases: 1615565824(97.709%)
+Q30 bases: 1548958531(93.6806%)
+
+Filtering result:
+reads passed filter: 59402064
+reads failed due to low quality: 535526
+reads failed due to too many N: 4682
+reads failed due to too short: 0
+reads with adapter trimmed: 28534926
+bases trimmed due to adapters: 964450260
+
+Duplication rate: 55.0178%
+
+Insert size peak (evaluated by paired-end reads): 126
+
+JSON report: DeDupFastqJSONs/26_WNV_C_S9_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/26_WNV_C_S9_L003_R2_001.html
+
+fastp -i RawFastq/26_WNV_C_S9_L003_R1_001.fastq.gz -I RawFastq/26_WNV_C_S9_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_WNV_C_S9_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_WNV_C_S9_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_WNV_C_S9_L003_R2_001.json -h DeDupFastqHTMLs/26_WNV_C_S9_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 55 seconds
+
+real	0m54.727s
+user	8m37.922s
+sys	0m15.013s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.591s
+user	0m0.526s
+sys	0m0.688s
+JOB ARRAY TASK: 12, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.30_mock_A_S16_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.30_mock_A_S16_L003_R2_001.fastq.gz
+OUT=30_mock_A_S16_L003_R2_001
+fastp -i RawFastq/30_mock_A_S16_L003_R1_001.fastq.gz -I RawFastq/30_mock_A_S16_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_mock_A_S16_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_mock_A_S16_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_mock_A_S16_L003_R2_001.json -h DeDupFastqHTMLs/30_mock_A_S16_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 23699379
+total bases: 3578606229
+Q20 bases: 3464764903(96.8188%)
+Q30 bases: 3299136586(92.1905%)
+
+Read2 before filtering:
+total reads: 23699379
+total bases: 3578606229
+Q20 bases: 3458953761(96.6565%)
+Q30 bases: 3305476559(92.3677%)
+
+Read1 after filtering:
+total reads: 9120635
+total bases: 1089860360
+Q20 bases: 1050401825(96.3795%)
+Q30 bases: 986081155(90.4778%)
+
+Read2 after filtering:
+total reads: 9120635
+total bases: 1089860360
+Q20 bases: 1056188326(96.9104%)
+Q30 bases: 1001025036(91.8489%)
+
+Filtering result:
+reads passed filter: 46814382
+reads failed due to low quality: 580482
+reads failed due to too many N: 3894
+reads failed due to too short: 0
+reads with adapter trimmed: 21498692
+bases trimmed due to adapters: 816888820
+
+Duplication rate: 60.2856%
+
+Insert size peak (evaluated by paired-end reads): 135
+
+JSON report: DeDupFastqJSONs/30_mock_A_S16_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/30_mock_A_S16_L003_R2_001.html
+
+fastp -i RawFastq/30_mock_A_S16_L003_R1_001.fastq.gz -I RawFastq/30_mock_A_S16_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_mock_A_S16_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_mock_A_S16_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_mock_A_S16_L003_R2_001.json -h DeDupFastqHTMLs/30_mock_A_S16_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 42 seconds
+
+real	0m41.230s
+user	6m34.325s
+sys	0m11.917s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.463s
+user	0m0.536s
+sys	0m0.687s
+JOB ARRAY TASK: 13, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.30_mock_B_S17_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.30_mock_B_S17_L003_R2_001.fastq.gz
+OUT=30_mock_B_S17_L003_R2_001
+fastp -i RawFastq/30_mock_B_S17_L003_R1_001.fastq.gz -I RawFastq/30_mock_B_S17_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_mock_B_S17_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_mock_B_S17_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_mock_B_S17_L003_R2_001.json -h DeDupFastqHTMLs/30_mock_B_S17_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 37372413
+total bases: 5643234363
+Q20 bases: 5435130641(96.3123%)
+Q30 bases: 5150672955(91.2716%)
+
+Read2 before filtering:
+total reads: 37372413
+total bases: 5643234363
+Q20 bases: 5462241207(96.7927%)
+Q30 bases: 5230482780(92.6859%)
+
+Read1 after filtering:
+total reads: 13266372
+total bases: 1571987924
+Q20 bases: 1505837025(95.7919%)
+Q30 bases: 1399825454(89.0481%)
+
+Read2 after filtering:
+total reads: 13266372
+total bases: 1571987924
+Q20 bases: 1522841195(96.8736%)
+Q30 bases: 1442276202(91.7486%)
+
+Filtering result:
+reads passed filter: 73867248
+reads failed due to low quality: 871400
+reads failed due to too many N: 6178
+reads failed due to too short: 0
+reads with adapter trimmed: 36569334
+bases trimmed due to adapters: 1331640494
+
+Duplication rate: 63.3304%
+
+Insert size peak (evaluated by paired-end reads): 116
+
+JSON report: DeDupFastqJSONs/30_mock_B_S17_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/30_mock_B_S17_L003_R2_001.html
+
+fastp -i RawFastq/30_mock_B_S17_L003_R1_001.fastq.gz -I RawFastq/30_mock_B_S17_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_mock_B_S17_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_mock_B_S17_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_mock_B_S17_L003_R2_001.json -h DeDupFastqHTMLs/30_mock_B_S17_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 58 seconds
+
+real	0m57.298s
+user	9m31.127s
+sys	0m12.997s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m1.994s
+user	0m0.544s
+sys	0m0.520s
+JOB ARRAY TASK: 14, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.30_mock_C_S18_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.30_mock_C_S18_L003_R2_001.fastq.gz
+OUT=30_mock_C_S18_L003_R2_001
+fastp -i RawFastq/30_mock_C_S18_L003_R1_001.fastq.gz -I RawFastq/30_mock_C_S18_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_mock_C_S18_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_mock_C_S18_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_mock_C_S18_L003_R2_001.json -h DeDupFastqHTMLs/30_mock_C_S18_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 69155986
+total bases: 10442553886
+Q20 bases: 10127141121(96.9795%)
+Q30 bases: 9701324683(92.9018%)
+
+Read2 before filtering:
+total reads: 69155986
+total bases: 10442553886
+Q20 bases: 10130669240(97.0133%)
+Q30 bases: 9736751588(93.2411%)
+
+Read1 after filtering:
+total reads: 26269478
+total bases: 3206916142
+Q20 bases: 3104615183(96.81%)
+Q30 bases: 2933412343(91.4714%)
+
+Read2 after filtering:
+total reads: 26269478
+total bases: 3206916142
+Q20 bases: 3123595524(97.4018%)
+Q30 bases: 2981664108(92.9761%)
+
+Filtering result:
+reads passed filter: 136832816
+reads failed due to low quality: 1468066
+reads failed due to too many N: 11090
+reads failed due to too short: 0
+reads with adapter trimmed: 69574176
+bases trimmed due to adapters: 2401085210
+
+Duplication rate: 60.9489%
+
+Insert size peak (evaluated by paired-end reads): 130
+
+JSON report: DeDupFastqJSONs/30_mock_C_S18_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/30_mock_C_S18_L003_R2_001.html
+
+fastp -i RawFastq/30_mock_C_S18_L003_R1_001.fastq.gz -I RawFastq/30_mock_C_S18_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_mock_C_S18_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_mock_C_S18_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_mock_C_S18_L003_R2_001.json -h DeDupFastqHTMLs/30_mock_C_S18_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 139 seconds
+
+real	2m19.277s
+user	19m21.202s
+sys	0m17.184s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.271s
+user	0m0.558s
+sys	0m0.549s
+JOB ARRAY TASK: 15, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.30_WNV_A_S13_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.30_WNV_A_S13_L003_R2_001.fastq.gz
+OUT=30_WNV_A_S13_L003_R2_001
+fastp -i RawFastq/30_WNV_A_S13_L003_R1_001.fastq.gz -I RawFastq/30_WNV_A_S13_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_WNV_A_S13_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_WNV_A_S13_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_WNV_A_S13_L003_R2_001.json -h DeDupFastqHTMLs/30_WNV_A_S13_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 61647461
+total bases: 9308766611
+Q20 bases: 8989265362(96.5677%)
+Q30 bases: 8568098687(92.0433%)
+
+Read2 before filtering:
+total reads: 61647461
+total bases: 9308766611
+Q20 bases: 8948983068(96.135%)
+Q30 bases: 8531283548(91.6478%)
+
+Read1 after filtering:
+total reads: 25757284
+total bases: 3091958804
+Q20 bases: 2988209145(96.6445%)
+Q30 bases: 2818384273(91.1521%)
+
+Read2 after filtering:
+total reads: 25757284
+total bases: 3091958804
+Q20 bases: 3003551687(97.1407%)
+Q30 bases: 2858649595(92.4543%)
+
+Filtering result:
+reads passed filter: 121703246
+reads failed due to low quality: 1581922
+reads failed due to too many N: 9754
+reads failed due to too short: 0
+reads with adapter trimmed: 63536292
+bases trimmed due to adapters: 2327375310
+
+Duplication rate: 56.9329%
+
+Insert size peak (evaluated by paired-end reads): 103
+
+JSON report: DeDupFastqJSONs/30_WNV_A_S13_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/30_WNV_A_S13_L003_R2_001.html
+
+fastp -i RawFastq/30_WNV_A_S13_L003_R1_001.fastq.gz -I RawFastq/30_WNV_A_S13_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_WNV_A_S13_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_WNV_A_S13_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_WNV_A_S13_L003_R2_001.json -h DeDupFastqHTMLs/30_WNV_A_S13_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 141 seconds
+
+real	2m21.074s
+user	18m27.403s
+sys	0m19.269s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.238s
+user	0m0.518s
+sys	0m0.644s
+JOB ARRAY TASK: 16, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.30_WNV_B_S14_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.30_WNV_B_S14_L003_R2_001.fastq.gz
+OUT=30_WNV_B_S14_L003_R2_001
+fastp -i RawFastq/30_WNV_B_S14_L003_R1_001.fastq.gz -I RawFastq/30_WNV_B_S14_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_WNV_B_S14_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_WNV_B_S14_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_WNV_B_S14_L003_R2_001.json -h DeDupFastqHTMLs/30_WNV_B_S14_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 26328662
+total bases: 3975627962
+Q20 bases: 3857587922(97.0309%)
+Q30 bases: 3714346342(93.4279%)
+
+Read2 before filtering:
+total reads: 26328662
+total bases: 3975627962
+Q20 bases: 3831505077(96.3748%)
+Q30 bases: 3664033573(92.1624%)
+
+Read1 after filtering:
+total reads: 12260070
+total bases: 1463252204
+Q20 bases: 1424577010(97.3569%)
+Q30 bases: 1358986830(92.8744%)
+
+Read2 after filtering:
+total reads: 12260070
+total bases: 1463252204
+Q20 bases: 1428647065(97.6351%)
+Q30 bases: 1369539147(93.5956%)
+
+Filtering result:
+reads passed filter: 52131712
+reads failed due to low quality: 521468
+reads failed due to too many N: 4144
+reads failed due to too short: 0
+reads with adapter trimmed: 30042422
+bases trimmed due to adapters: 1062400476
+
+Duplication rate: 52.4381%
+
+Insert size peak (evaluated by paired-end reads): 116
+
+JSON report: DeDupFastqJSONs/30_WNV_B_S14_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/30_WNV_B_S14_L003_R2_001.html
+
+fastp -i RawFastq/30_WNV_B_S14_L003_R1_001.fastq.gz -I RawFastq/30_WNV_B_S14_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_WNV_B_S14_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_WNV_B_S14_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_WNV_B_S14_L003_R2_001.json -h DeDupFastqHTMLs/30_WNV_B_S14_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 58 seconds
+
+real	0m58.288s
+user	7m40.407s
+sys	0m11.773s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.257s
+user	0m0.510s
+sys	0m0.540s
+JOB ARRAY TASK: 17, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.30_WNV_C_S15_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.30_WNV_C_S15_L003_R2_001.fastq.gz
+OUT=30_WNV_C_S15_L003_R2_001
+fastp -i RawFastq/30_WNV_C_S15_L003_R1_001.fastq.gz -I RawFastq/30_WNV_C_S15_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_WNV_C_S15_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_WNV_C_S15_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_WNV_C_S15_L003_R2_001.json -h DeDupFastqHTMLs/30_WNV_C_S15_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 41871943
+total bases: 6322663393
+Q20 bases: 6156454476(97.3712%)
+Q30 bases: 5924586053(93.704%)
+
+Read2 before filtering:
+total reads: 41871943
+total bases: 6322663393
+Q20 bases: 6097381181(96.4369%)
+Q30 bases: 5830820102(92.2209%)
+
+Read1 after filtering:
+total reads: 17333542
+total bases: 2089477592
+Q20 bases: 2029351190(97.1224%)
+Q30 bases: 1927619522(92.2537%)
+
+Read2 after filtering:
+total reads: 17333542
+total bases: 2089477592
+Q20 bases: 2033636357(97.3275%)
+Q30 bases: 1939615333(92.8278%)
+
+Filtering result:
+reads passed filter: 82867152
+reads failed due to low quality: 869926
+reads failed due to too many N: 6808
+reads failed due to too short: 0
+reads with adapter trimmed: 45508218
+bases trimmed due to adapters: 1601032720
+
+Duplication rate: 57.5588%
+
+Insert size peak (evaluated by paired-end reads): 116
+
+JSON report: DeDupFastqJSONs/30_WNV_C_S15_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/30_WNV_C_S15_L003_R2_001.html
+
+fastp -i RawFastq/30_WNV_C_S15_L003_R1_001.fastq.gz -I RawFastq/30_WNV_C_S15_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_WNV_C_S15_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_WNV_C_S15_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_WNV_C_S15_L003_R2_001.json -h DeDupFastqHTMLs/30_WNV_C_S15_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 78 seconds
+
+real	1m17.653s
+user	12m9.583s
+sys	0m14.572s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.512s
+user	0m0.561s
+sys	0m0.676s
+JOB ARRAY TASK: 1, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.22_mock_B_S5_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.22_mock_B_S5_L003_R2_001.fastq.gz
+OUT=22_mock_B_S5_L003_R2_001
+fastp -i RawFastq/22_mock_B_S5_L003_R1_001.fastq.gz -I RawFastq/22_mock_B_S5_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_mock_B_S5_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_mock_B_S5_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_mock_B_S5_L003_R2_001.json -h DeDupFastqHTMLs/22_mock_B_S5_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 40195937
+total bases: 6069586487
+Q20 bases: 5896827421(97.1537%)
+Q30 bases: 5652369777(93.1261%)
+
+Read2 before filtering:
+total reads: 40195937
+total bases: 6069586487
+Q20 bases: 5819372310(95.8776%)
+Q30 bases: 5555623516(91.5322%)
+
+Read1 after filtering:
+total reads: 16794480
+total bases: 2030599956
+Q20 bases: 1971444187(97.0868%)
+Q30 bases: 1870286686(92.1051%)
+
+Read2 after filtering:
+total reads: 16794480
+total bases: 2030599956
+Q20 bases: 1971138383(97.0717%)
+Q30 bases: 1872402958(92.2093%)
+
+Filtering result:
+reads passed filter: 79385860
+reads failed due to low quality: 999500
+reads failed due to too many N: 6514
+reads failed due to too short: 0
+reads with adapter trimmed: 36263734
+bases trimmed due to adapters: 1335838986
+
+Duplication rate: 56.9751%
+
+Insert size peak (evaluated by paired-end reads): 135
+
+JSON report: DeDupFastqJSONs/22_mock_B_S5_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/22_mock_B_S5_L003_R2_001.html
+
+fastp -i RawFastq/22_mock_B_S5_L003_R1_001.fastq.gz -I RawFastq/22_mock_B_S5_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_mock_B_S5_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_mock_B_S5_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_mock_B_S5_L003_R2_001.json -h DeDupFastqHTMLs/22_mock_B_S5_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 78 seconds
+
+real	1m17.969s
+user	11m10.682s
+sys	0m21.205s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.563s
+user	0m0.525s
+sys	0m0.687s
+JOB ARRAY TASK: 2, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.22_mock_C_S6_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.22_mock_C_S6_L003_R2_001.fastq.gz
+OUT=22_mock_C_S6_L003_R2_001
+fastp -i RawFastq/22_mock_C_S6_L003_R1_001.fastq.gz -I RawFastq/22_mock_C_S6_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_mock_C_S6_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_mock_C_S6_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_mock_C_S6_L003_R2_001.json -h DeDupFastqHTMLs/22_mock_C_S6_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 17578671
+total bases: 2654379321
+Q20 bases: 2534649303(95.4893%)
+Q30 bases: 2356594241(88.7814%)
+
+Read2 before filtering:
+total reads: 17578671
+total bases: 2654379321
+Q20 bases: 2568362508(96.7594%)
+Q30 bases: 2447258077(92.197%)
+
+Read1 after filtering:
+total reads: 6433907
+total bases: 763287433
+Q20 bases: 728206236(95.4039%)
+Q30 bases: 672511893(88.1073%)
+
+Read2 after filtering:
+total reads: 6433907
+total bases: 763287433
+Q20 bases: 738691914(96.7777%)
+Q30 bases: 697978248(91.4437%)
+
+Filtering result:
+reads passed filter: 34649698
+reads failed due to low quality: 504760
+reads failed due to too many N: 2884
+reads failed due to too short: 0
+reads with adapter trimmed: 11358790
+bases trimmed due to adapters: 515800506
+
+Duplication rate: 61.9601%
+
+Insert size peak (evaluated by paired-end reads): 124
+
+JSON report: DeDupFastqJSONs/22_mock_C_S6_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/22_mock_C_S6_L003_R2_001.html
+
+fastp -i RawFastq/22_mock_C_S6_L003_R1_001.fastq.gz -I RawFastq/22_mock_C_S6_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_mock_C_S6_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_mock_C_S6_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_mock_C_S6_L003_R2_001.json -h DeDupFastqHTMLs/22_mock_C_S6_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 38 seconds
+
+real	0m37.700s
+user	5m10.636s
+sys	0m19.031s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.376s
+user	0m0.507s
+sys	0m0.678s
+JOB ARRAY TASK: 3, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.22_WNV_A_S1_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.22_WNV_A_S1_L003_R2_001.fastq.gz
+OUT=22_WNV_A_S1_L003_R2_001
+fastp -i RawFastq/22_WNV_A_S1_L003_R1_001.fastq.gz -I RawFastq/22_WNV_A_S1_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_WNV_A_S1_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_WNV_A_S1_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_WNV_A_S1_L003_R2_001.json -h DeDupFastqHTMLs/22_WNV_A_S1_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 61681814
+total bases: 9313953914
+Q20 bases: 9065871155(97.3364%)
+Q30 bases: 8716407443(93.5844%)
+
+Read2 before filtering:
+total reads: 61681814
+total bases: 9313953914
+Q20 bases: 8904329469(95.602%)
+Q30 bases: 8504036435(91.3043%)
+
+Read1 after filtering:
+total reads: 28889659
+total bases: 3432301741
+Q20 bases: 3342735966(97.3905%)
+Q30 bases: 3190621334(92.9586%)
+
+Read2 after filtering:
+total reads: 28889659
+total bases: 3432301741
+Q20 bases: 3347531926(97.5302%)
+Q30 bases: 3207062435(93.4377%)
+
+Filtering result:
+reads passed filter: 121943046
+reads failed due to low quality: 1410922
+reads failed due to too many N: 9660
+reads failed due to too short: 0
+reads with adapter trimmed: 67565868
+bases trimmed due to adapters: 2477772980
+
+Duplication rate: 52.0154%
+
+Insert size peak (evaluated by paired-end reads): 116
+
+JSON report: DeDupFastqJSONs/22_WNV_A_S1_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/22_WNV_A_S1_L003_R2_001.html
+
+fastp -i RawFastq/22_WNV_A_S1_L003_R1_001.fastq.gz -I RawFastq/22_WNV_A_S1_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_WNV_A_S1_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_WNV_A_S1_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_WNV_A_S1_L003_R2_001.json -h DeDupFastqHTMLs/22_WNV_A_S1_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 100 seconds
+
+real	1m40.313s
+user	16m54.187s
+sys	0m9.721s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.526s
+user	0m0.533s
+sys	0m0.662s
+JOB ARRAY TASK: 4, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.22_WNV_B_S2_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.22_WNV_B_S2_L003_R2_001.fastq.gz
+OUT=22_WNV_B_S2_L003_R2_001
+fastp -i RawFastq/22_WNV_B_S2_L003_R1_001.fastq.gz -I RawFastq/22_WNV_B_S2_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_WNV_B_S2_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_WNV_B_S2_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_WNV_B_S2_L003_R2_001.json -h DeDupFastqHTMLs/22_WNV_B_S2_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 65449240
+total bases: 9882835240
+Q20 bases: 9602066141(97.159%)
+Q30 bases: 9226869073(93.3626%)
+
+Read2 before filtering:
+total reads: 65449240
+total bases: 9882835240
+Q20 bases: 9471282981(95.8357%)
+Q30 bases: 9061595273(91.6902%)
+
+Read1 after filtering:
+total reads: 30869634
+total bases: 3731306232
+Q20 bases: 3632422206(97.3499%)
+Q30 bases: 3465067349(92.8647%)
+
+Read2 after filtering:
+total reads: 30869634
+total bases: 3731306232
+Q20 bases: 3642962728(97.6324%)
+Q30 bases: 3495183618(93.6719%)
+
+Filtering result:
+reads passed filter: 129345838
+reads failed due to low quality: 1542182
+reads failed due to too many N: 10460
+reads failed due to too short: 0
+reads with adapter trimmed: 70508810
+bases trimmed due to adapters: 2500830656
+
+Duplication rate: 51.6519%
+
+Insert size peak (evaluated by paired-end reads): 116
+
+JSON report: DeDupFastqJSONs/22_WNV_B_S2_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/22_WNV_B_S2_L003_R2_001.html
+
+fastp -i RawFastq/22_WNV_B_S2_L003_R1_001.fastq.gz -I RawFastq/22_WNV_B_S2_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_WNV_B_S2_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_WNV_B_S2_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_WNV_B_S2_L003_R2_001.json -h DeDupFastqHTMLs/22_WNV_B_S2_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 108 seconds
+
+real	1m47.267s
+user	17m52.203s
+sys	0m7.515s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.493s
+user	0m0.513s
+sys	0m0.744s
+JOB ARRAY TASK: 5, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.22_WNV_C_S3_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.22_WNV_C_S3_L003_R2_001.fastq.gz
+OUT=22_WNV_C_S3_L003_R2_001
+fastp -i RawFastq/22_WNV_C_S3_L003_R1_001.fastq.gz -I RawFastq/22_WNV_C_S3_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_WNV_C_S3_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_WNV_C_S3_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_WNV_C_S3_L003_R2_001.json -h DeDupFastqHTMLs/22_WNV_C_S3_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 73868156
+total bases: 11154091556
+Q20 bases: 10842523235(97.2067%)
+Q30 bases: 10416277231(93.3853%)
+
+Read2 before filtering:
+total reads: 73868156
+total bases: 11154091556
+Q20 bases: 10759947024(96.4664%)
+Q30 bases: 10345480674(92.7505%)
+
+Read1 after filtering:
+total reads: 30302245
+total bases: 3781309556
+Q20 bases: 3669717376(97.0488%)
+Q30 bases: 3483077050(92.113%)
+
+Read2 after filtering:
+total reads: 30302245
+total bases: 3781309556
+Q20 bases: 3681178554(97.3519%)
+Q30 bases: 3517143199(93.0139%)
+
+Filtering result:
+reads passed filter: 145962426
+reads failed due to low quality: 1761480
+reads failed due to too many N: 12406
+reads failed due to too short: 0
+reads with adapter trimmed: 66936000
+bases trimmed due to adapters: 2229614852
+
+Duplication rate: 57.7817%
+
+Insert size peak (evaluated by paired-end reads): 135
+
+JSON report: DeDupFastqJSONs/22_WNV_C_S3_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/22_WNV_C_S3_L003_R2_001.html
+
+fastp -i RawFastq/22_WNV_C_S3_L003_R1_001.fastq.gz -I RawFastq/22_WNV_C_S3_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_WNV_C_S3_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_WNV_C_S3_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_WNV_C_S3_L003_R2_001.json -h DeDupFastqHTMLs/22_WNV_C_S3_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 129 seconds
+
+real	2m9.037s
+user	20m47.261s
+sys	0m23.153s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.574s
+user	0m0.533s
+sys	0m0.627s
+JOB ARRAY TASK: 6, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.26_mock_A_S10_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.26_mock_A_S10_L003_R2_001.fastq.gz
+OUT=26_mock_A_S10_L003_R2_001
+fastp -i RawFastq/26_mock_A_S10_L003_R1_001.fastq.gz -I RawFastq/26_mock_A_S10_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_mock_A_S10_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_mock_A_S10_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_mock_A_S10_L003_R2_001.json -h DeDupFastqHTMLs/26_mock_A_S10_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 48380791
+total bases: 7305499441
+Q20 bases: 7142227153(97.7651%)
+Q30 bases: 6901672473(94.4723%)
+
+Read2 before filtering:
+total reads: 48380791
+total bases: 7305499441
+Q20 bases: 7103632788(97.2368%)
+Q30 bases: 6824905343(93.4215%)
+
+Read1 after filtering:
+total reads: 19015198
+total bases: 2392113180
+Q20 bases: 2329239092(97.3716%)
+Q30 bases: 2218207888(92.7301%)
+
+Read2 after filtering:
+total reads: 19015198
+total bases: 2392113180
+Q20 bases: 2328615245(97.3455%)
+Q30 bases: 2216622662(92.6638%)
+
+Filtering result:
+reads passed filter: 95735106
+reads failed due to low quality: 1018712
+reads failed due to too many N: 7764
+reads failed due to too short: 0
+reads with adapter trimmed: 45835510
+bases trimmed due to adapters: 1539249790
+
+Duplication rate: 59.6446%
+
+Insert size peak (evaluated by paired-end reads): 135
+
+JSON report: DeDupFastqJSONs/26_mock_A_S10_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/26_mock_A_S10_L003_R2_001.html
+
+fastp -i RawFastq/26_mock_A_S10_L003_R1_001.fastq.gz -I RawFastq/26_mock_A_S10_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_mock_A_S10_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_mock_A_S10_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_mock_A_S10_L003_R2_001.json -h DeDupFastqHTMLs/26_mock_A_S10_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 91 seconds
+
+real	1m31.046s
+user	14m39.320s
+sys	0m28.861s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.441s
+user	0m0.521s
+sys	0m0.675s
+JOB ARRAY TASK: 7, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.26_mock_B_S11_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.26_mock_B_S11_L003_R2_001.fastq.gz
+OUT=26_mock_B_S11_L003_R2_001
+fastp -i RawFastq/26_mock_B_S11_L003_R1_001.fastq.gz -I RawFastq/26_mock_B_S11_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_mock_B_S11_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_mock_B_S11_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_mock_B_S11_L003_R2_001.json -h DeDupFastqHTMLs/26_mock_B_S11_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 36852899
+total bases: 5564787749
+Q20 bases: 5398227544(97.0069%)
+Q30 bases: 5141654457(92.3962%)
+
+Read2 before filtering:
+total reads: 36852899
+total bases: 5564787749
+Q20 bases: 5388013036(96.8233%)
+Q30 bases: 5161725151(92.7569%)
+
+Read1 after filtering:
+total reads: 12464031
+total bases: 1554135800
+Q20 bases: 1495008036(96.1955%)
+Q30 bases: 1397019174(89.8904%)
+
+Read2 after filtering:
+total reads: 12464031
+total bases: 1554135800
+Q20 bases: 1500323379(96.5375%)
+Q30 bases: 1412107992(90.8613%)
+
+Filtering result:
+reads passed filter: 72779026
+reads failed due to low quality: 920548
+reads failed due to too many N: 6224
+reads failed due to too short: 0
+reads with adapter trimmed: 28495426
+bases trimmed due to adapters: 981120880
+
+Duplication rate: 64.9293%
+
+Insert size peak (evaluated by paired-end reads): 135
+
+JSON report: DeDupFastqJSONs/26_mock_B_S11_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/26_mock_B_S11_L003_R2_001.html
+
+fastp -i RawFastq/26_mock_B_S11_L003_R1_001.fastq.gz -I RawFastq/26_mock_B_S11_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_mock_B_S11_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_mock_B_S11_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_mock_B_S11_L003_R2_001.json -h DeDupFastqHTMLs/26_mock_B_S11_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 64 seconds
+
+real	1m4.264s
+user	9m19.161s
+sys	0m14.961s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.653s
+user	0m0.540s
+sys	0m0.647s
+JOB ARRAY TASK: 8, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.26_mock_C_S12_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.26_mock_C_S12_L003_R2_001.fastq.gz
+OUT=26_mock_C_S12_L003_R2_001
+fastp -i RawFastq/26_mock_C_S12_L003_R1_001.fastq.gz -I RawFastq/26_mock_C_S12_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_mock_C_S12_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_mock_C_S12_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_mock_C_S12_L003_R2_001.json -h DeDupFastqHTMLs/26_mock_C_S12_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 17646242
+total bases: 2664582542
+Q20 bases: 2484596725(93.2453%)
+Q30 bases: 2239585183(84.0501%)
+
+Read2 before filtering:
+total reads: 17646242
+total bases: 2664582542
+Q20 bases: 2544116167(95.479%)
+Q30 bases: 2395380163(89.897%)
+
+Read1 after filtering:
+total reads: 6553179
+total bases: 729166451
+Q20 bases: 683994995(93.8051%)
+Q30 bases: 614911566(84.3308%)
+
+Read2 after filtering:
+total reads: 6553179
+total bases: 729166451
+Q20 bases: 698908035(95.8503%)
+Q30 bases: 653369952(89.605%)
+
+Filtering result:
+reads passed filter: 34760022
+reads failed due to low quality: 529570
+reads failed due to too many N: 2892
+reads failed due to too short: 0
+reads with adapter trimmed: 10883502
+bases trimmed due to adapters: 588435812
+
+Duplication rate: 61.3574%
+
+Insert size peak (evaluated by paired-end reads): 116
+
+JSON report: DeDupFastqJSONs/26_mock_C_S12_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/26_mock_C_S12_L003_R2_001.html
+
+fastp -i RawFastq/26_mock_C_S12_L003_R1_001.fastq.gz -I RawFastq/26_mock_C_S12_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_mock_C_S12_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_mock_C_S12_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_mock_C_S12_L003_R2_001.json -h DeDupFastqHTMLs/26_mock_C_S12_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 40 seconds
+
+real	0m40.137s
+user	4m41.228s
+sys	0m12.565s
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.515s
+user	0m0.512s
+sys	0m0.711s
+JOB ARRAY TASK: 9, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.26_WNV_A_S7_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.26_WNV_A_S7_L003_R2_001.fastq.gz
+OUT=26_WNV_A_S7_L003_R2_001
+fastp -i RawFastq/26_WNV_A_S7_L003_R1_001.fastq.gz -I RawFastq/26_WNV_A_S7_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_WNV_A_S7_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_WNV_A_S7_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_WNV_A_S7_L003_R2_001.json -h DeDupFastqHTMLs/26_WNV_A_S7_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 63957051
+total bases: 9657514701
+Q20 bases: 9464155391(97.9978%)
+Q30 bases: 9183056599(95.0872%)
+
+Read2 before filtering:
+total reads: 63957051
+total bases: 9657514701
+Q20 bases: 9408423200(97.4207%)
+Q30 bases: 9064237661(93.8568%)
+
+Read1 after filtering:
+total reads: 27388229
+total bases: 3567656894
+Q20 bases: 3488130717(97.7709%)
+Q30 bases: 3344322878(93.74%)
+
+Read2 after filtering:
+total reads: 27388229
+total bases: 3567656894
+Q20 bases: 3482729395(97.6195%)
+Q30 bases: 3331259464(93.3739%)
+
+Filtering result:
+reads passed filter: 126489670
+reads failed due to low quality: 1413862
+reads failed due to too many N: 10570
+reads failed due to too short: 0
+reads with adapter trimmed: 54289634
+bases trimmed due to adapters: 1784278350
+
+Duplication rate: 56.0727%
+
+Insert size peak (evaluated by paired-end reads): 125
+
+JSON report: DeDupFastqJSONs/26_WNV_A_S7_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/26_WNV_A_S7_L003_R2_001.html
+
+fastp -i RawFastq/26_WNV_A_S7_L003_R1_001.fastq.gz -I RawFastq/26_WNV_A_S7_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_WNV_A_S7_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_WNV_A_S7_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_WNV_A_S7_L003_R2_001.json -h DeDupFastqHTMLs/26_WNV_A_S7_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 134 seconds
+
+real	2m14.081s
+user	18m59.126s
+sys	0m21.950s

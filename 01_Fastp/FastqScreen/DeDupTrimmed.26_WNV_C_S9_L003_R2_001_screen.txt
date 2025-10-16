@@ -1,0 +1,9 @@
+#Fastq_screen version: 0.16.0	#Aligner: bowtie2	#Processing all reads in FASTQ files
+Genome	#Reads_processed	#Unmapped	%Unmapped	#One_hit_one_genome	%One_hit_one_genome	#Multiple_hits_one_genome	%Multiple_hits_one_genome	#One_hit_multiple_genomes	%One_hit_multiple_genomes	Multiple_hits_multiple_genomes	%Multiple_hits_multiple_genomes
+CulexT_KNWR	13212439	10143285	76.78	12223	0.09	5903	0.04	131219	0.99	2919809	22.10
+CulexT_yunfei	13212439	10112139	76.54	30358	0.23	13690	0.10	117230	0.89	2939022	22.24
+WNV-1	13212439	4856500	36.75	8275808	62.64	71206	0.54	8914	0.07	11	0.00
+Adapters	13212439	13130001	99.38	43	0.00	3157	0.02	6096	0.05	73142	0.55
+Ecoli	13212439	13205412	99.95	104	0.00	519	0.00	8	0.00	6396	0.05
+
+%Hit_no_genomes: 13.18

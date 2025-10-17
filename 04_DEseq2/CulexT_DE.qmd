@@ -80,3 +80,31 @@ log_norm_counts <- log2(norm_counts + 1)
 ```{r compare-w-hunter}
 max(norm_counts - hunter_norm_counts) # extremely small value
 ```
+
+```{r all-pairwise}
+# Get all levels of the condition factor
+conds <- levels(colData(dds)$condition)
+
+# Generate all unique pairwise combinations
+comparisons <- combn(conds, 2, simplify = FALSE)
+
+# For each pairwise contrast, extract results
+res_list <- lapply(comparisons, function(x) {
+  contrast_name <- paste(x[1], "vs", x[2])
+  res <- results(dds, contrast = c("condition", x[1], x[2]))
+  res_df <- as.data.frame(res) %>%
+    rownames_to_column("gene_id") %>%
+    mutate(comparison = contrast_name,
+           compare_from = x[1], 
+        compare_to = x[2])
+  return(res_df)
+})
+
+# Combine all results into one tidy dataframe
+all_res <- bind_rows(res_list)
+
+# tabulate number of "significant" genes
+all_res %>%
+  filter(padj < 0.1) %>%
+  count(comparison, sort = TRUE)
+```

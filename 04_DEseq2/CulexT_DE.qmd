@@ -1,0 +1,28 @@
+---
+title: "CulexT DE"
+format: html
+---
+# Setup
+## Dependencies
+```{r setup}
+library(BiocManager)
+Biocpackages = c("DESeq2")
+for (pkg in Biocpackages) {
+    if (!require(pkg,quietly=T,character.only = T)) {
+        BiocManager::install(pkg)
+        library(pkg,character.only = T)
+    }
+}
+library(tidyverse)
+library(dplyr)
+```
+
+## Data
+cleanUpNames <- function(colnames) {
+    
+}
+```{r read-csvs}
+countfile = "Hunter_Results/EG_Raw_Counts.csv"
+x = read.table(countfile, sep=',', header=T,row.names=1)
+DESeqDataSetFromMatrix(countfile)
+```

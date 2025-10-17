@@ -73,11 +73,7 @@ resultsNames(dds)
 
 ```{r norm counts}
 dds <- estimateSizeFactors(dds)
-
-# Step 1: Get normalized counts
 norm_counts <- counts(dds, normalized = TRUE)
-
-# Step 2: Log-transform (log2 scale, add pseudocount for zeros)
 log_norm_counts <- log2(norm_counts + 1)
 ```
 

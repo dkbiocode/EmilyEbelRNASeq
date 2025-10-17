@@ -34,6 +34,9 @@ df = read.table(countfile, sep=',', header=T,row.names=1)
 colnames(df) <- cleanUpNames(colnames(df))
 count_mat <- df %>% as.matrix()
 storage.mode(count_mat) <- "integer"
+
+hunter_norm_counts = read.table("Hunter_Results/EG_Normalized_Counts.csv", sep = ',', header=T, row.names=1)
+colnames(hunter_norm_counts) <- cleanUpNames(colnames(hunter_norm_counts))
 ```
 
 ### Build metadata table with factors
@@ -66,4 +69,18 @@ dds <- DESeqDataSetFromMatrix(
 dds <- DESeq(dds)
 
 resultsNames(dds)
+```
+
+```{r norm counts}
+dds <- estimateSizeFactors(dds)
+
+# Step 1: Get normalized counts
+norm_counts <- counts(dds, normalized = TRUE)
+
+# Step 2: Log-transform (log2 scale, add pseudocount for zeros)
+log_norm_counts <- log2(norm_counts + 1)
+```
+
+```{r compare-w-hunter}
+max(norm_counts - hunter_norm_counts) # extremely small value
 ```

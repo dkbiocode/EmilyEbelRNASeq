@@ -15,14 +15,55 @@ for (pkg in Biocpackages) {
 }
 library(tidyverse)
 library(dplyr)
+library(stringr)
+library(magrittr)
 ```
 
 ## Data
+```{r }
 cleanUpNames <- function(colnames) {
-    
+  colnames %>%
+    str_replace("^X", "T") %>%                  # Replace leading "X" → "T"
+    str_remove("_S\\d+HSCounts\\.txt$")         # Remove suffix "_S5HSCounts.txt"
+  
 }
+```
 ```{r read-csvs}
 countfile = "Hunter_Results/EG_Raw_Counts.csv"
-x = read.table(countfile, sep=',', header=T,row.names=1)
-DESeqDataSetFromMatrix(countfile)
+df = read.table(countfile, sep=',', header=T,row.names=1)
+colnames(df) <- cleanUpNames(colnames(df))
+count_mat <- df %>% as.matrix()
+storage.mode(count_mat) <- "integer"
+```
+
+### Build metadata table with factors
+```{r build-sample-metadata}
+coldata <- tibble(sample = colnames(count_mat)) %>%
+  mutate( # extract the factor values from the column names
+    temperature = str_extract(sample, "(?<=T)\\d+"),     # 22, 26, 30
+    infection   = str_extract(sample, "mock|WNV"),       # infection type
+    replicate   = str_extract(sample, "[A-Z]$")          # replicate ID (A, B, C)
+  ) %>%
+  mutate( # make factors out of the levels
+    temperature = factor(temperature, levels = c("26", "22", "30")), 
+    infection = factor(infection, levels = c("mock", "WNV"))
+  ) %>%
+  mutate( # make the combined factor variable
+    condition = factor(paste0("T", temperature, "_", infection))
+  ) %>%
+  column_to_rownames("sample")
+
+coldata
+```
+
+### DESeq2 object
+```{r create-object}
+dds <- DESeqDataSetFromMatrix(
+  countData = count_mat,
+  colData   = coldata,
+  design    = ~ condition
+)
+dds <- DESeq(dds)
+
+resultsNames(dds)
 ```

@@ -3,24 +3,38 @@ title: "CulexT DE"
 format: html
 ---
 # Setup
+
 ## Dependencies
-```{r setup}
+
+1. Change directory to repo root in order for relative paths to be shorter.
+2. Bioconductor packages must be checked explicitly for installation.
+3. RStudio should detect standard packages being loaded via `library()`, and give you the option to install.  
+
+
+```{r setup, message=F, warning=F}
+knitr::opts_knit$set(root.dir = normalizePath("..")) # assuming wd is this file's directory: 04_DEseq2
 library(BiocManager)
 Biocpackages = c("DESeq2")
+# check for installation, of packages
 for (pkg in Biocpackages) {
-    if (!require(pkg,quietly=T,character.only = T)) {
+    if (!require(pkg,character.only = T, quietly=T)) {
         BiocManager::install(pkg)
-        library(pkg,character.only = T)
+        library(pkg, character.only = T, quietly = T)
     }
 }
-library(tidyverse)
-library(dplyr)
-library(stringr)
-library(magrittr)
+
+# pipes, data and string manipulation
+library(tidyverse, quietly=T)
+library(dplyr, quietly=T)
+library(stringr, quietly=T)
+library(magrittr, quietly=T)
 ```
 
 ## Data
-```{r }
+
+1. Function to handle column names in Hunter's data files.
+2. Read Raw-counts to process data. Read Normalized counts for comparison.
+```{r cleanUpNames function}
 cleanUpNames <- function(colnames) {
   colnames %>%
     str_replace("^X", "T") %>%                  # Replace leading "X" → "T"
@@ -28,6 +42,7 @@ cleanUpNames <- function(colnames) {
   
 }
 ```
+
 ```{r read-csvs}
 countfile = "Hunter_Results/EG_Raw_Counts.csv"
 df = read.table(countfile, sep=',', header=T,row.names=1)
@@ -40,6 +55,11 @@ colnames(hunter_norm_counts) <- cleanUpNames(colnames(hunter_norm_counts))
 ```
 
 ### Build metadata table with factors
+
+1. Parse Temperature (22,26,30), Infection (mock or WNV), and replicate (A,B,C) from column names.
+2. Make variables into factors
+3. Make `condition` as the combined factor levels of temperature and infection
+
 ```{r build-sample-metadata}
 coldata <- tibble(sample = colnames(count_mat)) %>%
   mutate( # extract the factor values from the column names
@@ -59,7 +79,12 @@ coldata <- tibble(sample = colnames(count_mat)) %>%
 coldata
 ```
 
-### DESeq2 object
+# Analysis
+
+1. Pass count matrix, column data, and formula into DESeq2. This does the basic model fitting.
+2. Get the normalized counts to compare with Hunter's.
+
+## DESeq2 object
 ```{r create-object}
 dds <- DESeqDataSetFromMatrix(
   countData = count_mat,
@@ -80,6 +105,11 @@ log_norm_counts <- log2(norm_counts + 1)
 ```{r compare-w-hunter}
 max(abs(norm_counts - hunter_norm_counts)) # extremely small value
 ```
+
+## Create a result object with all-pairwise comparisons between conditions
+
+Given the factor levels of the combined variables (named "condition"), compute all the
+pairwise contrasts of those values.
 
 ```{r all-pairwise}
 # Get all levels of the condition factor
@@ -104,6 +134,10 @@ res_list <- lapply(comparisons, function(x) {
 all_res <- bind_rows(res_list)
 ```
 
+### How many genes are significant for each condition/comparison
+
+A p-adjust threshold of 0.1 was used uniformly on this dataset.
+
 ```{r global results}
 # tabulate number of "significant" genes
 all_res %>%
@@ -111,7 +145,15 @@ all_res %>%
   count(comparison, sort = TRUE)
 ```
 
+### Load and compare Hunter's output
+
+Each of Hunter's comparisons are in a different file, so loop over them and compare
+log2FoldChange, padj, and the number of significant genes with the ones computed above.
+
 ```{r compare results with Hunters}
+
+comparison_df = data.frame()
+
 root_dir = 'Hunter_Results/geneID_DifferentialExpressionResults'
 for (Hfile in list.files(root_dir, pattern="*_FC.csv")) {
     filename_noext = str_remove(Hfile, "_DE_FC\\.csv$")
@@ -125,15 +167,30 @@ for (Hfile in list.files(root_dir, pattern="*_FC.csv")) {
     # lowercase 'mock' only
     condition_from = str_replace(condition_from, "Mock", "mock")
     condition_to   = str_replace(condition_to, "Mock", "mock")
-    cat(paste(condition_from, condition_to, sep=" ")," ")
+
     Hdata = read.table(file.path(root_dir, Hfile), sep=',', header=T, row.names=1) %>%
         rownames_to_column("gene_id") %>% 
         arrange(gene_id)
     Ddata = all_res %>% filter(compare_from == condition_from & compare_to == condition_to) %>% 
             arrange(gene_id)
-    cat(max(abs(Hdata$log2FoldChange - Ddata$log2FoldChange), na.rm=T),"   ")
-    cat(max(abs(Hdata$padj - Ddata$padj), na.rm=T),"   ")
-    cat(sum(Hdata$padj < .1,na.rm=T),"   ", sum(Ddata$padj < .1,na.rm=T))
-    cat("\n")
+
+    largest_l2fc_diff = max(abs(Hdata$log2FoldChange - Ddata$log2FoldChange), na.rm=T)
+    largest_padj_diff = max(abs(Hdata$padj - Ddata$padj), na.rm=T)
+    n_Hunter_sig = sum(Hdata$padj < .1,na.rm=T)
+    n_David_sig = sum(Ddata$padj < .1,na.rm=T)
+
+    comparison_df <- rbind(
+                    comparison_df,
+                    data.frame(condition_from=condition_from,
+                               condition_to=condition_to,
+                               largest_l2fc_diff=largest_l2fc_diff,
+                               largest_padj_diff=largest_padj_diff,
+                               n_Hunter_sig=n_Hunter_sig,
+                               n_David_sig=n_David_sig
+                               )
+    )
+
 }
+
+comparison_df
 ```

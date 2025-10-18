@@ -132,7 +132,8 @@ for (Hfile in list.files(root_dir, pattern="*_FC.csv")) {
     Ddata = all_res %>% filter(compare_from == condition_from & compare_to == condition_to) %>% 
             arrange(gene_id)
     cat(max(abs(Hdata$log2FoldChange - Ddata$log2FoldChange), na.rm=T),"   ")
-    cat(max(abs(Hdata$padj - Ddata$padj), na.rm=T))
+    cat(max(abs(Hdata$padj - Ddata$padj), na.rm=T),"   ")
+    cat(sum(Hdata$padj < .1,na.rm=T),"   ", sum(Ddata$padj < .1,na.rm=T))
     cat("\n")
 }
 ```

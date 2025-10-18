@@ -78,7 +78,7 @@ log_norm_counts <- log2(norm_counts + 1)
 ```
 
 ```{r compare-w-hunter}
-max(norm_counts - hunter_norm_counts) # extremely small value
+max(abs(norm_counts - hunter_norm_counts)) # extremely small value
 ```
 
 ```{r all-pairwise}
@@ -102,9 +102,37 @@ res_list <- lapply(comparisons, function(x) {
 
 # Combine all results into one tidy dataframe
 all_res <- bind_rows(res_list)
+```
 
+```{r global results}
 # tabulate number of "significant" genes
 all_res %>%
   filter(padj < 0.1) %>%
   count(comparison, sort = TRUE)
+```
+
+```{r compare results with Hunters}
+root_dir = 'Hunter_Results/geneID_DifferentialExpressionResults'
+for (Hfile in list.files(root_dir, pattern="*_FC.csv")) {
+    filename_noext = str_remove(Hfile, "_DE_FC\\.csv$")
+    # split on underscore
+    parts = str_split(filename_noext, "_")
+    condition_from = map_chr(parts, 1)
+    condition_to   = map_chr(parts, 2)
+    # convert to your target naming style (T22_mock, etc.)
+    condition_from = str_replace(condition_from, "(\\D+)(\\d+)", "T\\2_\\1")
+    condition_to   = str_replace(condition_to, "(\\D+)(\\d+)", "T\\2_\\1")
+    # lowercase 'mock' only
+    condition_from = str_replace(condition_from, "Mock", "mock")
+    condition_to   = str_replace(condition_to, "Mock", "mock")
+    cat(paste(condition_from, condition_to, sep=" ")," ")
+    Hdata = read.table(file.path(root_dir, Hfile), sep=',', header=T, row.names=1) %>%
+        rownames_to_column("gene_id") %>% 
+        arrange(gene_id)
+    Ddata = all_res %>% filter(compare_from == condition_from & compare_to == condition_to) %>% 
+            arrange(gene_id)
+    cat(max(abs(Hdata$log2FoldChange - Ddata$log2FoldChange), na.rm=T),"   ")
+    cat(max(abs(Hdata$padj - Ddata$padj), na.rm=T))
+    cat("\n")
+}
 ```

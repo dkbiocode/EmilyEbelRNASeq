@@ -167,8 +167,27 @@ sig_table_mask[!is.finite(sig_table_mask)] <- FALSE
 sig_table_l2FC[!sig_table_mask] <- NA
 
 # save these files
-write.table(all_res, "04_DEseq2/DCK_results/EG_all_results_DCK.tsv", sep="\t", quote=F)
-all_table %>% round(digits=7) %>% write.table("04_DEseq2/DCK_results/EG_all_results_table_DCK.tsv", sep="\t", quote=F)
+
+all_res_trunc <- all_res %>% mutate( # long format file doesn't need so much
+    baseMean = round(baseMean, digits = 9),
+    log2FoldChange = round(log2FoldChange, digits = 9),
+    lfcSE = round(lfcSE, digits = 9),
+    stat = round(stat, digits = 9),
+    pvalue = round(pvalue, digits = 9),
+    padj = round(padj, digits = 9)
+)
+DATADIR= "04_DEseq2/DCK_results"
+path = file.path(DATADIR, "EG_all_results_DCK.tsv")
+all_res_trunc %>% write.table(path, sep="\t", row.names=F, quote=F)
+
+path = file.path(DATADIR, "EG_all_results_table_DCK.tsv")
+all_table %>% write.table(path, sep="\t", quote=F)
+
+path = file.path(DATADIR, "EG_sig_padj_DCK.tsv")
+sig_table_padj %>% write.table(path, sep="\t", quote=F)
+
+path = file.path(DATADIR, "EG_sig_l2fc_DCK.tsv")
+sig_table_l2FC %>% write.table(path, sep="\t", quote=F)
 ```
 
 ### Load and compare Hunter's output

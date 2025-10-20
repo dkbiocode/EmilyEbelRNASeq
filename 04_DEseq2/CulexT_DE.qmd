@@ -141,8 +141,34 @@ A p-adjust threshold of 0.1 was used uniformly on this dataset.
 ```{r global results}
 # tabulate number of "significant" genes
 all_res %>%
-  filter(padj < 0.1) %>%
+  filter(is.finite(padj) & padj < 0.1) %>%
   count(comparison, sort = TRUE)
+```
+
+```{r gene lists}
+sig_rows <- all_res %>% filter(is.finite(padj) & padj < .1)
+sig_table <- pivot_wider(sig_rows, id_cols=gene_id, names_from = comparison, values_from = padj) %>% column_to_rownames('gene_id')
+
+all_table_padj <- pivot_wider(all_res, id_cols=gene_id, names_from = comparison, values_from = padj) %>% column_to_rownames('gene_id')
+all_table_l2FC <- pivot_wider(all_res, id_cols=gene_id, names_from = comparison, values_from = log2FoldChange) %>% column_to_rownames('gene_id')
+
+safe_min <- function(x) {
+    if (any(is.finite(x))) {
+        return(min(x, na.rm=T) < .1)
+    } else {
+        return(FALSE)
+    }
+}
+which_sig_rows <- apply(all_table_padj, 1, safe_min) 
+sig_table_padj <- all_table_padj[which_sig_rows,]
+sig_table_l2FC <- all_table_l2FC[which_sig_rows,]
+sig_table_mask <- sig_table_padj < .1
+sig_table_mask[!is.finite(sig_table_mask)] <- FALSE
+sig_table_l2FC[!sig_table_mask] <- NA
+
+# save these files
+write.table(all_res, "04_DEseq2/DCK_results/EG_all_results_DCK.tsv", sep="\t", quote=F)
+all_table %>% round(digits=7) %>% write.table("04_DEseq2/DCK_results/EG_all_results_table_DCK.tsv", sep="\t", quote=F)
 ```
 
 ### Load and compare Hunter's output

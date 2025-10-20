@@ -7,6 +7,8 @@ MAplot <- function(res, qthreshold=.1) {
   if (! "gene_id" %in% colnames(res_df)) {
     res_df %<>% rownames_to_column("gene_id")
   }
+
+  # filter for any kind of NAs that make the value undefined in the plotting range, or the color aes.
   res_df %<>% filter(is.finite(log(baseMean+1)) & is.finite(log2FoldChange))
   res_df %<>% mutate(sig = is.finite(padj) & (padj < qthreshold))
   
@@ -17,5 +19,9 @@ MAplot <- function(res, qthreshold=.1) {
         color=sig,
       )) + geom_point() +
       scale_color_manual(values=c("grey", "blue")) +
-      geom_hline(yintercept=0)
+      geom_hline(yintercept=0) -> maplot
+  
+  maplot
+  return(maplot)
+  
 }

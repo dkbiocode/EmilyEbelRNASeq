@@ -52,6 +52,6 @@ Number of samples: 18
 
 ## References
 
-1. Fastp ref
-2. Multiqc ref
+1. Shifu Chen. 2023. Ultrafast one-pass FASTQ data preprocessing, quality control, and deduplication using **fastp**. iMeta 2: e107
+2. Philip Ewels, Måns Magnusson, Sverker Lundin, Max Käller, **MultiQC:** summarize analysis results for multiple tools and samples in a single report, Bioinformatics, Volume 32, Issue 19, October 2016, Pages 3047–3048, [https://doi.org/10.1093/bioinformatics/btw354](https://doi.org/10.1093/bioinformatics/btw354)
 

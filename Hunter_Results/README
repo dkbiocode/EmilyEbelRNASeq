@@ -1,0 +1,32 @@
+These are the results Hunter gave me in a shared folder location (OneDrive).
+
+EG_Raw_Counts.csv - (Assumed) Counts aggregated from htseq-counts.
+EG_Normalized_Counts.csv - Normalized counts after model fitting.
+
+Directories:
+
+They seem to be the same analysis results differing either in ID versus gene name, 
+or for differential expression results, the column used to sort the data file.
+
+Gene names are not available for all genes, so gene IDs are used when necessary 
+(most of the time).
+
+geneID_DifferentialExpressionResults - 
+    Using gene IDs instead of gene names.
+
+    Each file of the type columns: 
+        gene_id  baseMean log2FoldChange     lfcSE        stat    pvalue      padj
+
+    Rows are each gene. The factor level comparison is in the file name. 
+    The column being sorted is also included: _FC for fold change; _PVal for pvalue.
+    The contents appear to be the same otherwise.
+
+GeneIDs -
+    HS Counts files with Gene IDs.
+
+Gene Names -
+    HS Counts files with Gene Names.
+    DifferentialCSVs -
+        Same as geneID_DifferentialExpressionResults, but with gene Names as described
+        above. FC/FDR are the columns used to sort the indicated file.
+        R rds files also available.

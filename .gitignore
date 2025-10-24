@@ -1,1 +1,3 @@
 *.fastq.gz
+.DS_Store
+CulexT_DE_files/

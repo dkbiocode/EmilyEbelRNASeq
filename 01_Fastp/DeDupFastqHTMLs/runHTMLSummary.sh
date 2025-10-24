@@ -10,9 +10,9 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=haogg@colostate.edu
 
-module purge
-source activate base
-conda activate rnaPseudo
+#module purge
+#source activate base
+#conda activate rnaPseudo
 
 outfile="HTMLOutput.tsv"
 #echo "Duplication Rate  Reads Passed  Total Reads Q20 Bases Q30 Bases" > ${outfile}

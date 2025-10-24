@@ -18,7 +18,7 @@ Three replicates each of paired-end RNA-seq at three temperatures: 22, 26, and 3
 
 ## Analysis 
 
-Raw fastq files &rarr; 1. trim/filter &rarr; 2. align &rarr; 3. count &rarr; 4. differential expression
+Raw fastq files &rarr; [1. trim/filter](#1-trimmingfiltering) &rarr; [2. align](#2-alignment) &rarr; [3. count](#3-counts) &rarr; [4. differential expression](#4-differential-expression-analysis)
 
 Genome: KNWR ref
 

@@ -1,6 +1,6 @@
 # 1 trimming and filtering
 
-**Software:**
+## Software:
 
 | Name             |        Version      |    Build     |       Channel | 
 |---|---|---|---|
@@ -8,7 +8,7 @@ fastp       |               0.24.1     |      heae3180_0    |   bioconda
 |multiqc    |                1.30   |          pyhdfd78af_0   |  bioconda |
 
 
-1. Fastp version 
+1. **fastp 0.24.1**
 2. Deduplication [conducted here.](https://github.com/dkbiocode/EmilyEbelRNASeq/blob/c839675868222c5aedcc3ac256c8d47b281f0d8a/01_Fastp/runDeDupFastpHTML.sh#L28)
 
 ## multiqc figures and tables

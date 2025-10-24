@@ -6,6 +6,8 @@
 
 Number of samples: 18
 
+<img src="DeDupMultiQC/fastp_filtered_reads_plot.png">
+
 **Metrics:**
 - % Duplication - Duplication rate before filtering
 - Reads After Filtering - Total reads after filtering (millions)

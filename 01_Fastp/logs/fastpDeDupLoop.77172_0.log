@@ -1,0 +1,56 @@
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.399s
+user	0m0.552s
+sys	0m0.608s
+JOB ARRAY TASK: 0, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.22_mock_A_S4_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.22_mock_A_S4_L003_R2_001.fastq.gz
+OUT=22_mock_A_S4_L003_R2_001
+fastp -i RawFastq/22_mock_A_S4_L003_R1_001.fastq.gz -I RawFastq/22_mock_A_S4_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_mock_A_S4_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_mock_A_S4_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_mock_A_S4_L003_R2_001.json -h DeDupFastqHTMLs/22_mock_A_S4_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 25867482
+total bases: 3905989782
+Q20 bases: 3785409862(96.9129%)
+Q30 bases: 3639767669(93.1843%)
+
+Read2 before filtering:
+total reads: 25867482
+total bases: 3905989782
+Q20 bases: 3730063323(95.496%)
+Q30 bases: 3560136879(91.1456%)
+
+Read1 after filtering:
+total reads: 12891625
+total bases: 1524505489
+Q20 bases: 1485120714(97.4166%)
+Q30 bases: 1418385706(93.0391%)
+
+Read2 after filtering:
+total reads: 12891625
+total bases: 1524505489
+Q20 bases: 1489115116(97.6786%)
+Q30 bases: 1429249920(93.7517%)
+
+Filtering result:
+reads passed filter: 51163548
+reads failed due to low quality: 567390
+reads failed due to too many N: 4026
+reads failed due to too short: 0
+reads with adapter trimmed: 31433876
+bases trimmed due to adapters: 1104437642
+
+Duplication rate: 49.0607%
+
+Insert size peak (evaluated by paired-end reads): 130
+
+JSON report: DeDupFastqJSONs/22_mock_A_S4_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/22_mock_A_S4_L003_R2_001.html
+
+fastp -i RawFastq/22_mock_A_S4_L003_R1_001.fastq.gz -I RawFastq/22_mock_A_S4_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_mock_A_S4_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_mock_A_S4_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_mock_A_S4_L003_R2_001.json -h DeDupFastqHTMLs/22_mock_A_S4_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 57 seconds
+
+real	0m57.203s
+user	7m46.631s
+sys	0m20.913s

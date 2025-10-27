@@ -1,0 +1,27 @@
+[2025-10-15_16:01:33] multiqc 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.582s
+user	0m0.851s
+sys	0m0.411s
+multiqc --export --outdir DeDupMultiQC --title emily_WNV DeDupFastq{HTML,JSON}s
+
+/// MultiQC 🔍 v1.30
+
+     update_config | Report title: emily_WNV
+     version_check | MultiQC Version v1.31 now available!
+       file_search | Search path: /nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/RVFVLifeStageRNASeq/01_Fastp/DeDupFastqHTMLs
+       file_search | Search path: /nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/RVFVLifeStageRNASeq/01_Fastp/DeDupFastqJSONs
+
+             fastp | Found 18 reports
+     write_results | Rendering plots. Export plots to formats png, svg, pdf is requested, so it might take a while. To disable plot export, set `export_plots: false` in config, or remove the `--export-plots` command line flag
+
+
+     write_results | Data        : DeDupMultiQC/emily_WNV_multiqc_report_data
+     write_results | Report      : DeDupMultiQC/emily_WNV_multiqc_report.html
+     write_results | Plots       : DeDupMultiQC/emily_WNV_multiqc_report_plots
+           multiqc | MultiQC complete
+
+real	0m37.906s
+user	0m9.456s
+sys	0m0.719s

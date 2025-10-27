@@ -1,0 +1,56 @@
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.238s
+user	0m0.518s
+sys	0m0.644s
+JOB ARRAY TASK: 16, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.30_WNV_B_S14_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.30_WNV_B_S14_L003_R2_001.fastq.gz
+OUT=30_WNV_B_S14_L003_R2_001
+fastp -i RawFastq/30_WNV_B_S14_L003_R1_001.fastq.gz -I RawFastq/30_WNV_B_S14_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_WNV_B_S14_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_WNV_B_S14_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_WNV_B_S14_L003_R2_001.json -h DeDupFastqHTMLs/30_WNV_B_S14_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 26328662
+total bases: 3975627962
+Q20 bases: 3857587922(97.0309%)
+Q30 bases: 3714346342(93.4279%)
+
+Read2 before filtering:
+total reads: 26328662
+total bases: 3975627962
+Q20 bases: 3831505077(96.3748%)
+Q30 bases: 3664033573(92.1624%)
+
+Read1 after filtering:
+total reads: 12260070
+total bases: 1463252204
+Q20 bases: 1424577010(97.3569%)
+Q30 bases: 1358986830(92.8744%)
+
+Read2 after filtering:
+total reads: 12260070
+total bases: 1463252204
+Q20 bases: 1428647065(97.6351%)
+Q30 bases: 1369539147(93.5956%)
+
+Filtering result:
+reads passed filter: 52131712
+reads failed due to low quality: 521468
+reads failed due to too many N: 4144
+reads failed due to too short: 0
+reads with adapter trimmed: 30042422
+bases trimmed due to adapters: 1062400476
+
+Duplication rate: 52.4381%
+
+Insert size peak (evaluated by paired-end reads): 116
+
+JSON report: DeDupFastqJSONs/30_WNV_B_S14_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/30_WNV_B_S14_L003_R2_001.html
+
+fastp -i RawFastq/30_WNV_B_S14_L003_R1_001.fastq.gz -I RawFastq/30_WNV_B_S14_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.30_WNV_B_S14_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.30_WNV_B_S14_L003_R2_001.fastq.gz -j DeDupFastqJSONs/30_WNV_B_S14_L003_R2_001.json -h DeDupFastqHTMLs/30_WNV_B_S14_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 58 seconds
+
+real	0m58.288s
+user	7m40.407s
+sys	0m11.773s

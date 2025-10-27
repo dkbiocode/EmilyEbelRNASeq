@@ -1,0 +1,56 @@
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.563s
+user	0m0.525s
+sys	0m0.687s
+JOB ARRAY TASK: 2, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.22_mock_C_S6_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.22_mock_C_S6_L003_R2_001.fastq.gz
+OUT=22_mock_C_S6_L003_R2_001
+fastp -i RawFastq/22_mock_C_S6_L003_R1_001.fastq.gz -I RawFastq/22_mock_C_S6_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_mock_C_S6_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_mock_C_S6_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_mock_C_S6_L003_R2_001.json -h DeDupFastqHTMLs/22_mock_C_S6_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 17578671
+total bases: 2654379321
+Q20 bases: 2534649303(95.4893%)
+Q30 bases: 2356594241(88.7814%)
+
+Read2 before filtering:
+total reads: 17578671
+total bases: 2654379321
+Q20 bases: 2568362508(96.7594%)
+Q30 bases: 2447258077(92.197%)
+
+Read1 after filtering:
+total reads: 6433907
+total bases: 763287433
+Q20 bases: 728206236(95.4039%)
+Q30 bases: 672511893(88.1073%)
+
+Read2 after filtering:
+total reads: 6433907
+total bases: 763287433
+Q20 bases: 738691914(96.7777%)
+Q30 bases: 697978248(91.4437%)
+
+Filtering result:
+reads passed filter: 34649698
+reads failed due to low quality: 504760
+reads failed due to too many N: 2884
+reads failed due to too short: 0
+reads with adapter trimmed: 11358790
+bases trimmed due to adapters: 515800506
+
+Duplication rate: 61.9601%
+
+Insert size peak (evaluated by paired-end reads): 124
+
+JSON report: DeDupFastqJSONs/22_mock_C_S6_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/22_mock_C_S6_L003_R2_001.html
+
+fastp -i RawFastq/22_mock_C_S6_L003_R1_001.fastq.gz -I RawFastq/22_mock_C_S6_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_mock_C_S6_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_mock_C_S6_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_mock_C_S6_L003_R2_001.json -h DeDupFastqHTMLs/22_mock_C_S6_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 38 seconds
+
+real	0m37.700s
+user	5m10.636s
+sys	0m19.031s

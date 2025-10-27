@@ -1,0 +1,56 @@
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.376s
+user	0m0.507s
+sys	0m0.678s
+JOB ARRAY TASK: 3, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.22_WNV_A_S1_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.22_WNV_A_S1_L003_R2_001.fastq.gz
+OUT=22_WNV_A_S1_L003_R2_001
+fastp -i RawFastq/22_WNV_A_S1_L003_R1_001.fastq.gz -I RawFastq/22_WNV_A_S1_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_WNV_A_S1_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_WNV_A_S1_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_WNV_A_S1_L003_R2_001.json -h DeDupFastqHTMLs/22_WNV_A_S1_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 61681814
+total bases: 9313953914
+Q20 bases: 9065871155(97.3364%)
+Q30 bases: 8716407443(93.5844%)
+
+Read2 before filtering:
+total reads: 61681814
+total bases: 9313953914
+Q20 bases: 8904329469(95.602%)
+Q30 bases: 8504036435(91.3043%)
+
+Read1 after filtering:
+total reads: 28889659
+total bases: 3432301741
+Q20 bases: 3342735966(97.3905%)
+Q30 bases: 3190621334(92.9586%)
+
+Read2 after filtering:
+total reads: 28889659
+total bases: 3432301741
+Q20 bases: 3347531926(97.5302%)
+Q30 bases: 3207062435(93.4377%)
+
+Filtering result:
+reads passed filter: 121943046
+reads failed due to low quality: 1410922
+reads failed due to too many N: 9660
+reads failed due to too short: 0
+reads with adapter trimmed: 67565868
+bases trimmed due to adapters: 2477772980
+
+Duplication rate: 52.0154%
+
+Insert size peak (evaluated by paired-end reads): 116
+
+JSON report: DeDupFastqJSONs/22_WNV_A_S1_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/22_WNV_A_S1_L003_R2_001.html
+
+fastp -i RawFastq/22_WNV_A_S1_L003_R1_001.fastq.gz -I RawFastq/22_WNV_A_S1_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.22_WNV_A_S1_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.22_WNV_A_S1_L003_R2_001.fastq.gz -j DeDupFastqJSONs/22_WNV_A_S1_L003_R2_001.json -h DeDupFastqHTMLs/22_WNV_A_S1_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 100 seconds
+
+real	1m40.313s
+user	16m54.187s
+sys	0m9.721s

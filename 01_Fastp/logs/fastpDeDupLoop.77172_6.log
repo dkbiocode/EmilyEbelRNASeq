@@ -1,0 +1,56 @@
+[2025-10-15_15:59:09] fastpDeDupLoop 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m2.574s
+user	0m0.533s
+sys	0m0.627s
+JOB ARRAY TASK: 6, SLURM_NTASKS=16
+TRIM1=DeDupTrimmed/DeDupTrimmed.26_mock_A_S10_L003_R1_001.fastq.gz
+TRIM2=DeDupTrimmed/DeDupTrimmed.26_mock_A_S10_L003_R2_001.fastq.gz
+OUT=26_mock_A_S10_L003_R2_001
+fastp -i RawFastq/26_mock_A_S10_L003_R1_001.fastq.gz -I RawFastq/26_mock_A_S10_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_mock_A_S10_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_mock_A_S10_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_mock_A_S10_L003_R2_001.json -h DeDupFastqHTMLs/26_mock_A_S10_L003_R2_001.html -w 16 --dedup
+Read1 before filtering:
+total reads: 48380791
+total bases: 7305499441
+Q20 bases: 7142227153(97.7651%)
+Q30 bases: 6901672473(94.4723%)
+
+Read2 before filtering:
+total reads: 48380791
+total bases: 7305499441
+Q20 bases: 7103632788(97.2368%)
+Q30 bases: 6824905343(93.4215%)
+
+Read1 after filtering:
+total reads: 19015198
+total bases: 2392113180
+Q20 bases: 2329239092(97.3716%)
+Q30 bases: 2218207888(92.7301%)
+
+Read2 after filtering:
+total reads: 19015198
+total bases: 2392113180
+Q20 bases: 2328615245(97.3455%)
+Q30 bases: 2216622662(92.6638%)
+
+Filtering result:
+reads passed filter: 95735106
+reads failed due to low quality: 1018712
+reads failed due to too many N: 7764
+reads failed due to too short: 0
+reads with adapter trimmed: 45835510
+bases trimmed due to adapters: 1539249790
+
+Duplication rate: 59.6446%
+
+Insert size peak (evaluated by paired-end reads): 135
+
+JSON report: DeDupFastqJSONs/26_mock_A_S10_L003_R2_001.json
+HTML report: DeDupFastqHTMLs/26_mock_A_S10_L003_R2_001.html
+
+fastp -i RawFastq/26_mock_A_S10_L003_R1_001.fastq.gz -I RawFastq/26_mock_A_S10_L003_R2_001.fastq.gz -o DeDupTrimmed/DeDupTrimmed.26_mock_A_S10_L003_R1_001.fastq.gz -O DeDupTrimmed/DeDupTrimmed.26_mock_A_S10_L003_R2_001.fastq.gz -j DeDupFastqJSONs/26_mock_A_S10_L003_R2_001.json -h DeDupFastqHTMLs/26_mock_A_S10_L003_R2_001.html -w 16 --dedup 
+fastp v0.24.1, time used: 91 seconds
+
+real	1m31.046s
+user	14m39.320s
+sys	0m28.861s

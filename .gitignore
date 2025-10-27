@@ -1,3 +1,4 @@
 *.fastq.gz
 .DS_Store
 CulexT_DE_files/
+WNV_virus_comparison/

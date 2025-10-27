@@ -1,0 +1,21 @@
+[2025-10-27_13:38:39] build-splice-sites 
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m1.861s
+user	0m0.549s
+sys	0m0.677s
+hisat2_extract_splice_sites.py --verbose mrna_filtered.gtf > CtarK1.ss
+genes: 14727, genes with multiple isoforms: 337
+transcripts: 15153, transcript avg. length: 1266
+exons: 44271, exon avg. length: 433
+introns: 29118, intron avg. length: 1480
+average number of exons per transcript: 2
+
+real	0m0.319s
+user	0m0.247s
+sys	0m0.025s
+hisat2_extract_exons.py --verbose mrna_filtered.gtf > CtarK1.exon
+
+real	0m0.341s
+user	0m0.254s
+sys	0m0.017s

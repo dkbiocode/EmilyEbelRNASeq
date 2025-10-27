@@ -1,0 +1,219 @@
+                            10/27/2025 at 13h37m21s                             
+
+
+ ------------------------------------------------------------------------------
+|   Another GFF Analysis Toolkit (AGAT) - Version: v1.5.1                      |
+|   https://github.com/NBISweden/AGAT                                          |
+|   National Bioinformatics Infrastructure Sweden (NBIS) - www.nbis.se         |
+ ------------------------------------------------------------------------------
+                                        
+                                       
+                          ------ Start parsing ------                           
+-------------------------- parse options and metadata --------------------------
+=> Accessing the feature_levels YAML file
+Using standard /nfs/home/dking/miniconda3/envs/ebel/lib/perl5/site_perl/auto/share/dist/AGAT/feature_levels.yaml file
+=> Attribute used to group features when no Parent/ID relationship exists (i.e common tag):
+	* locus_tag
+	* gene_id
+=> merge_loci option deactivated
+=> Machine information:
+	This script is being run by perl v5.32.1
+	Bioperl location being used: /nfs/home/dking/miniconda3/envs/ebel/lib/perl5/site_perl/Bio/
+	Operating system being used: linux 
+=> Accessing Ontology
+	No ontology accessible from the gff file header!
+	We use the SOFA ontology distributed with AGAT:
+		/nfs/home/dking/miniconda3/envs/ebel/lib/perl5/site_perl/auto/share/dist/AGAT/so.obo
+	Read ontology /nfs/home/dking/miniconda3/envs/ebel/lib/perl5/site_perl/auto/share/dist/AGAT/so.obo:
+		4 root terms, and 2596 total terms, and 1516 leaf terms
+	Filtering ontology:
+The feature type (3rd column) is constrained to be either a term from the Sequence Ontology or an SO accession number. The latter alternative is distinguished using the syntax SO:000000. In either case, it must be sequence_feature (SO:0000110) or an is_a child of it.
+We filter the ontology to apply this rule.		We found 1861 terms that are sequence_feature or is_a child of it.
+--------------------------------- parsing file ---------------------------------
+=> Number of line in file: 117949
+=> Number of comment lines: 0
+=> Fasta included: No
+=> Number of features lines: 117949
+=> Number of feature type (3rd column): 6
+	* Level1: 1 => gene
+	* level2: 1 => mRNA
+	* level3: 4 => CDS exon five_prime_UTR three_prime_UTR
+	* unknown: 0 => 
+=> Version of the Bioperl GFF parser selected by AGAT: 3
+WARNING level3: No Parent attribute found @ for the feature: Mt	Geneious	CDS	209	1231	.	+	0	ID "agat-cds-1"  ; Name "ND2 CDS" 
+WARNING gff3 reader: Hmmm, be aware that your feature doesn't contain any Parent and locus tag. No worries, we will handle it by considering it as strictly sequential. If you disagree, please provide an ID or a comon tag by locus. @ the feature is:
+Mt	Geneious	CDS	209	1231	.	+	0	ID "agat-cds-1"  ; Name "ND2 CDS" 
+gff3 reader error level1: No ID attribute found @ for the feature: Mt	Geneious	gene	209	1231	.	+	.	Name "ND2 gene" 
+WARNING level3: No Parent attribute found @ for the feature: Mt	Geneious	CDS	1432	2968	.	+	0	ID "agat-cds-2"  ; Name "COX1 CDS" 
+WARNING gff3 reader: Hmmm, be aware that your feature doesn't contain any Parent and locus tag. No worries, we will handle it by considering it as strictly sequential. If you disagree, please provide an ID or a comon tag by locus. @ the feature is:
+Mt	Geneious	CDS	1432	2968	.	+	0	ID "agat-cds-2"  ; Name "COX1 CDS" 
+gff3 reader error level1: No ID attribute found @ for the feature: Mt	Geneious	gene	1432	2968	.	+	.	Name "COX1 gene" 
+WARNING level3: No Parent attribute found @ for the feature: Mt	Geneious	CDS	3043	3727	.	+	0	ID "agat-cds-3"  ; Name "COX2 CDS" 
+WARNING gff3 reader: Hmmm, be aware that your feature doesn't contain any Parent and locus tag. No worries, we will handle it by considering it as strictly sequential. If you disagree, please provide an ID or a comon tag by locus. @ the feature is:
+Mt	Geneious	CDS	3043	3727	.	+	0	ID "agat-cds-3"  ; Name "COX2 CDS" 
+gff3 reader error level1: No ID attribute found @ for the feature: Mt	Geneious	gene	3043	3727	.	+	.	Name "COX2 gene" 
+WARNING level3: No Parent attribute found @ for the feature: Mt	Geneious	CDS	3886	4038	.	+	0	ID "agat-cds-4"  ; Name "ATP8 CDS" 
+WARNING gff3 reader: Hmmm, be aware that your feature doesn't contain any Parent and locus tag. No worries, we will handle it by considering it as strictly sequential. If you disagree, please provide an ID or a comon tag by locus. @ the feature is:
+Mt	Geneious	CDS	3886	4038	.	+	0	ID "agat-cds-4"  ; Name "ATP8 CDS" 
+gff3 reader error level1: No ID attribute found @ for the feature: Mt	Geneious	gene	3886	4038	.	+	.	Name "ATP8 gene" 
+WARNING level3: No Parent attribute found @ for the feature: Mt	Geneious	CDS	4032	4712	.	+	0	ID "agat-cds-5"  ; Name "ATP6 CDS" 
+WARNING gff3 reader: Hmmm, be aware that your feature doesn't contain any Parent and locus tag. No worries, we will handle it by considering it as strictly sequential. If you disagree, please provide an ID or a comon tag by locus. @ the feature is:
+Mt	Geneious	CDS	4032	4712	.	+	0	ID "agat-cds-5"  ; Name "ATP6 CDS" 
+gff3 reader error level1: No ID attribute found @ for the feature: Mt	Geneious	gene	4032	4712	.	+	.	Name "ATP6 gene" 
+WARNING level3: No Parent attribute found @ for the feature: Mt	Geneious	CDS	4712	5499	.	+	0	ID "agat-cds-6"  ; Name "COX3 CDS" 
+WARNING gff3 reader: Hmmm, be aware that your feature doesn't contain any Parent and locus tag. No worries, we will handle it by considering it as strictly sequential. If you disagree, please provide an ID or a comon tag by locus. @ the feature is:
+Mt	Geneious	CDS	4712	5499	.	+	0	ID "agat-cds-6"  ; Name "COX3 CDS" 
+gff3 reader error level1: No ID attribute found @ for the feature: Mt	Geneious	gene	4712	5499	.	+	.	Name "COX3 gene" 
+WARNING level3: No Parent attribute found @ for the feature: Mt	Geneious	CDS	5564	5918	.	+	0	ID "agat-cds-7"  ; Name "ND3 CDS" 
+WARNING gff3 reader: Hmmm, be aware that your feature doesn't contain any Parent and locus tag. No worries, we will handle it by considering it as strictly sequential. If you disagree, please provide an ID or a comon tag by locus. @ the feature is:
+Mt	Geneious	CDS	5564	5918	.	+	0	ID "agat-cds-7"  ; Name "ND3 CDS" 
+gff3 reader error level1: No ID attribute found @ for the feature: Mt	Geneious	gene	5564	5918	.	+	.	Name "ND3 gene" 
+WARNING level3: No Parent attribute found @ for the feature: Mt	Geneious	CDS	6318	8063	.	-	0	ID "agat-cds-8"  ; Name "ND5 CDS" 
+WARNING gff3 reader: Hmmm, be aware that your feature doesn't contain any Parent and locus tag. No worries, we will handle it by considering it as strictly sequential. If you disagree, please provide an ID or a comon tag by locus. @ the feature is:
+Mt	Geneious	CDS	6318	8063	.	-	0	ID "agat-cds-8"  ; Name "ND5 CDS" 
+gff3 reader error level1: No ID attribute found @ for the feature: Mt	Geneious	gene	6318	8063	.	-	.	Name "ND5 gene" 
+WARNING level3: No Parent attribute found @ for the feature: Mt	Geneious	CDS	8127	9469	.	-	0	ID "agat-cds-9"  ; Name "ND4 CDS" 
+WARNING gff3 reader: Hmmm, be aware that your feature doesn't contain any Parent and locus tag. No worries, we will handle it by considering it as strictly sequential. If you disagree, please provide an ID or a comon tag by locus. @ the feature is:
+Mt	Geneious	CDS	8127	9469	.	-	0	ID "agat-cds-9"  ; Name "ND4 CDS" 
+gff3 reader error level1: No ID attribute found @ for the feature: Mt	Geneious	gene	8127	9469	.	-	.	Name "ND4 gene" 
+WARNING level3: No Parent attribute found @ for the feature: Mt	Geneious	CDS	9463	9756	.	-	0	ID "agat-cds-10"  ; Name "ND4L CDS" 
+WARNING level3: No Parent attribute found  ************** Too much WARNING message we skip the next **************
+WARNING gff3 reader: Hmmm, be aware that your feature doesn't contain any Parent and locus tag. No worries, we will handle it by considering it as strictly sequential. If you disagree, please provide an ID or a comon tag by locus. @ the feature is:
+Mt	Geneious	CDS	9463	9756	.	-	0	ID "agat-cds-10"  ; Name "ND4L CDS" 
+WARNING gff3 reader: Hmmm, be aware that your feature doesn't contain any Parent and locus tag. No worries, we will handle it by considering it as strictly sequential. If you disagree, please provide an ID or a comon tag by locus.  ************** Too much WARNING message we skip the next **************
+gff3 reader error level1: No ID attribute found @ for the feature: Mt	Geneious	gene	9463	9756	.	-	.	Name "ND4L gene" 
+gff3 reader error level1: No ID attribute found  ************** Too much WARNING message we skip the next **************
+
+13 warning messages: WARNING level3: No Parent attribute found 
+13 warning messages: gff3 reader error level1: No ID attribute found 
+13 warning messages: WARNING gff3 reader: Hmmm, be aware that your feature doesn't contain any Parent and locus tag. No worries, we will handle it by considering it as strictly sequential. If you disagree, please provide an ID or a comon tag by locus. 
+                  ------ End parsing (done in 17 second) ------                 
+
+
+                           ------ Start checks ------                           
+---------------------------- Check1: feature types -----------------------------
+----------------------------------- ontology -----------------------------------
+All feature types in agreement with the Ontology.
+------------------------------------- agat -------------------------------------
+AGAT can deal with all the encountered feature types (3rd column)
+------------------------------ done in 0 seconds -------------------------------
+
+------------------------------ Check2: duplicates ------------------------------
+None found
+------------------------------ done in 0 seconds -------------------------------
+
+-------------------------- Check3: sequential bucket ---------------------------
+feature level2 created: Mt	AGAT	mRNA	209	1231	.	+	.	ID "agat-rna-1"  ; Name "ND2 CDS"  ; Parent "agat-gene-15" 
+feature level2 created: Mt	AGAT	mRNA	1432	2968	.	+	.	ID "agat-rna-2"  ; Name "COX1 CDS"  ; Parent "agat-gene-2" 
+feature level2 created: Mt	AGAT	mRNA	3043	3727	.	+	.	ID "agat-rna-3"  ; Name "COX2 CDS"  ; Parent "agat-gene-3" 
+feature level2 created: Mt	AGAT	mRNA	3886	4038	.	+	.	ID "agat-rna-4"  ; Name "ATP8 CDS"  ; Parent "agat-gene-4" 
+feature level2 created: Mt	AGAT	mRNA	4032	4712	.	+	.	ID "agat-rna-5"  ; Name "ATP6 CDS"  ; Parent "agat-gene-5" 
+feature level2 created: Mt	AGAT	mRNA	4712	5499	.	+	.	ID "agat-rna-6"  ; Name "COX3 CDS"  ; Parent "agat-gene-6" 
+feature level2 created: Mt	AGAT	mRNA	5564	5918	.	+	.	ID "agat-rna-7"  ; Name "ND3 CDS"  ; Parent "agat-gene-7" 
+feature level2 created: Mt	AGAT	mRNA	6318	8063	.	-	.	ID "agat-rna-8"  ; Name "ND5 CDS"  ; Parent "agat-gene-8" 
+feature level2 created: Mt	AGAT	mRNA	8127	9469	.	-	.	ID "agat-rna-9"  ; Name "ND4 CDS"  ; Parent "agat-gene-9" 
+feature level2 created: Mt	AGAT	mRNA	9463	9756	.	-	.	ID "agat-rna-10"  ; Name "ND4L CDS"  ; Parent "agat-gene-10" 
+feature level2 created: Mt	AGAT	mRNA	9902	10417	.	+	.	ID "agat-rna-11"  ; Name "ND6 CDS"  ; Parent "agat-gene-11" 
+feature level2 created: Mt	AGAT	mRNA	10417	11551	.	+	.	ID "agat-rna-12"  ; Name "CYTB CDS"  ; Parent "agat-gene-12" 
+feature level2 created: Mt	AGAT	mRNA	11637	12591	.	-	.	ID "agat-rna-13"  ; Name "ND1 CDS"  ; Parent "agat-gene-13" 
+We found 13 level3 sequential cases.
+------------------------------ done in 0 seconds -------------------------------
+
+--------------------------- Check4: l2 linked to l3 ----------------------------
+L1 and L2 created: 
+tig00032677	AGAT	gene	17778	28881	.	+	.	ID "agat-cds-3538"  ; Name "CPIJ007595-RA-E1_62.4%" 
+tig00032677	AGAT	mRNA	17778	28881	.	+	.	ID "B48Tg8jRKED9npoImKliLdEzuu0.1591058107083.194707"  ; Name "CPIJ007595-RA-E1_62.4%"  ; Parent "agat-cds-3538" 
+1 cases fixed where L3 features have parent feature(s) missing
+------------------------------ done in 0 seconds -------------------------------
+
+--------------------------- Check5: l1 linked to l2 ----------------------------
+
+--------------------- WARNING ---------------------
+MSG: Removing score value(s)
+---------------------------------------------------
+No Parent feature found for agat-rna-1. We create one: Mt	AGAT	gene	209	1231	.	+	.	ID "agat-gene-15"  ; Name "ND2 CDS" 
+1 cases fixed where L2 features have parent features missing
+------------------------------ done in 0 seconds -------------------------------
+
+--------------------------- Check6: remove orphan l1 ---------------------------
+We remove only those not supposed to be orphan
+removing Mt	Geneious	gene	11637	12630	.	-	.	ID "agat-gene-14"  ; Name "ND1 gene" 
+1 cases removed where L1 features do not have children (while they are suposed to have children).
+------------------------------ done in 0 seconds -------------------------------
+
+------------------------- Check7: all level3 locations -------------------------
+------------------------------ done in 2 seconds -------------------------------
+
+------------------------------ Check8: check cds -------------------------------
+No problem found
+------------------------------ done in 0 seconds -------------------------------
+
+----------------------------- Check9: check exons ------------------------------
+Create one Exon for agat-rna-1
+:Mt	AGAT	exon	209	1231	.	+	.	ID "agat-exon-42654"  ; Name "ND2 CDS"  ; Parent "agat-rna-1" 
+Create one Exon for agat-rna-10
+:Mt	AGAT	exon	9463	9756	.	-	.	ID "agat-exon-42655"  ; Name "ND4L CDS"  ; Parent "agat-rna-10" 
+Create one Exon for agat-rna-11
+:Mt	AGAT	exon	9902	10417	.	+	.	ID "agat-exon-42656"  ; Name "ND6 CDS"  ; Parent "agat-rna-11" 
+Create one Exon for agat-rna-12
+:Mt	AGAT	exon	10417	11551	.	+	.	ID "agat-exon-42657"  ; Name "CYTB CDS"  ; Parent "agat-rna-12" 
+Create one Exon for agat-rna-13
+:Mt	AGAT	exon	11637	12591	.	-	.	ID "agat-exon-42658"  ; Name "ND1 CDS"  ; Parent "agat-rna-13" 
+Create one Exon for agat-rna-2
+:Mt	AGAT	exon	1432	2968	.	+	.	ID "agat-exon-42659"  ; Name "COX1 CDS"  ; Parent "agat-rna-2" 
+Create one Exon for agat-rna-3
+:Mt	AGAT	exon	3043	3727	.	+	.	ID "agat-exon-42660"  ; Name "COX2 CDS"  ; Parent "agat-rna-3" 
+Create one Exon for agat-rna-4
+:Mt	AGAT	exon	3886	4038	.	+	.	ID "agat-exon-42661"  ; Name "ATP8 CDS"  ; Parent "agat-rna-4" 
+Create one Exon for agat-rna-5
+:Mt	AGAT	exon	4032	4712	.	+	.	ID "agat-exon-42662"  ; Name "ATP6 CDS"  ; Parent "agat-rna-5" 
+Create one Exon for agat-rna-6
+:Mt	AGAT	exon	4712	5499	.	+	.	ID "agat-exon-42663"  ; Name "COX3 CDS"  ; Parent "agat-rna-6" 
+Create one Exon for agat-rna-7
+:Mt	AGAT	exon	5564	5918	.	+	.	ID "agat-exon-42664"  ; Name "ND3 CDS"  ; Parent "agat-rna-7" 
+Create one Exon for agat-rna-8
+:Mt	AGAT	exon	6318	8063	.	-	.	ID "agat-exon-42665"  ; Name "ND5 CDS"  ; Parent "agat-rna-8" 
+Create one Exon for agat-rna-9
+:Mt	AGAT	exon	8127	9469	.	-	.	ID "agat-exon-42666"  ; Name "ND4 CDS"  ; Parent "agat-rna-9" 
+Create one Exon for b48tg8jrked9npoimklildezuu0.1591058107083.194707
+:tig00032677	AGAT	exon	17778	17869	.	+	.	ID "agat-exon-42667"  ; Name "CPIJ007595-RA-E1_62.4%"  ; Parent "B48Tg8jRKED9npoImKliLdEzuu0.1591058107083.194707" 
+Create one Exon for b48tg8jrked9npoimklildezuu0.1591058107083.194707
+:tig00032677	AGAT	exon	18064	18557	.	+	.	ID "agat-exon-42668"  ; Name "CPIJ007595-RA-E1_62.4%"  ; Parent "B48Tg8jRKED9npoImKliLdEzuu0.1591058107083.194707" 
+Create one Exon for b48tg8jrked9npoimklildezuu0.1591058107083.194707
+:tig00032677	AGAT	exon	18701	18864	.	+	.	ID "agat-exon-42669"  ; Name "CPIJ007595-RA-E1_62.4%"  ; Parent "B48Tg8jRKED9npoImKliLdEzuu0.1591058107083.194707" 
+Create one Exon for b48tg8jrked9npoimklildezuu0.1591058107083.194707
+:tig00032677	AGAT	exon	18995	19101	.	+	.	ID "agat-exon-42670"  ; Name "CPIJ007595-RA-E1_62.4%"  ; Parent "B48Tg8jRKED9npoImKliLdEzuu0.1591058107083.194707" 
+Create one Exon for b48tg8jrked9npoimklildezuu0.1591058107083.194707
+:tig00032677	AGAT	exon	19372	19534	.	+	.	ID "agat-exon-42671"  ; Name "CPIJ007595-RA-E1_62.4%"  ; Parent "B48Tg8jRKED9npoImKliLdEzuu0.1591058107083.194707" 
+Create one Exon for b48tg8jrked9npoimklildezuu0.1591058107083.194707
+:tig00032677	AGAT	exon	23566	23753	.	+	.	ID "agat-exon-42672"  ; Name "CPIJ007595-RA-E1_62.4%"  ; Parent "B48Tg8jRKED9npoImKliLdEzuu0.1591058107083.194707" 
+Create one Exon for b48tg8jrked9npoimklildezuu0.1591058107083.194707
+:tig00032677	AGAT	exon	24342	24549	.	+	.	ID "agat-exon-42673"  ; Name "CPIJ007595-RA-E1_62.4%"  ; Parent "B48Tg8jRKED9npoImKliLdEzuu0.1591058107083.194707" 
+Create one Exon for b48tg8jrked9npoimklildezuu0.1591058107083.194707
+:tig00032677	AGAT	exon	28700	28881	.	+	.	ID "agat-exon-42674"  ; Name "CPIJ007595-RA-E1_62.4%"  ; Parent "B48Tg8jRKED9npoImKliLdEzuu0.1591058107083.194707" 
+21 exons created that were missing
+No exons locations modified
+No supernumerary exons removed
+No level2 locations modified
+------------------------------ done in 1 seconds -------------------------------
+
+----------------------------- Check10: check utrs ------------------------------
+No UTRs created
+No UTRs locations modified
+No supernumerary UTRs removed
+------------------------------ done in 1 seconds -------------------------------
+
+------------------------ Check11: all level2 locations -------------------------
+No problem found
+------------------------------ done in 1 seconds -------------------------------
+
+------------------------ Check12: all level1 locations -------------------------
+We fixed 12 wrong level1 location cases
+------------------------------ done in 0 seconds -------------------------------
+
+---------------------- Check13: remove identical isoforms ----------------------
+None found
+------------------------------ done in 0 seconds -------------------------------
+                  ------ End checks (done in 5 second) ------                   
+
+

@@ -7,18 +7,23 @@
 #SBATCH --job-name=BamConvert
 #SBATCH --mail-user=$USER
 #SBATCH --mail-type=all
-#SBATCH --output=%x.%A.log # gives slurm.ID.log
+#SBATCH --output=%x.%j.log # gives slurm.ID.log
+source $HOME/templates/common.rc
+echo "Using SLURM_NTASKS=${SLURM_NTASKS:=1} SLURM_NTASKS"
+ADDED_NTASKS=$((SLURM_NTASKS - 1))
+#conda_activate ebel
 
-module purge
-source activate base
-conda activate rnaPseudo
-
-date # timestamp
-
-linenum=0
-for file in CxtCondordant/*.sam
+for SAM in CxtConcordant/*.sam
 do
-  TWO=${file/.sam/.bam}
-  echo ${TWO}
-  samtools view -bS -@15 $file > $TWO
+  BAM=${SAM/.fastq.gz.sam/.bam}
+  echo "$SAM => ${BAM}"
+  cmd="samtools view -bS -@${ADDED_NTASKS} $SAM > $BAM"
+  echo $cmd
+  time eval "$cmd"
+
+  rm_cmd="samtools quickcheck "$BAM" && rm -v $SAM"
+  echo $rm_cmd
+  eval "$rm_cmd"
+
+  echo
 done

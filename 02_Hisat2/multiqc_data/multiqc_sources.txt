@@ -1,0 +1,19 @@
+Module	Section	Sample Name	Source
+Bowtie 2 / HiSAT2	all_sections	22_WNV_A_S1	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/22_WNV_A_S1.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	22_WNV_B_S2	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/22_WNV_B_S2.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	22_WNV_C_S3	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/22_WNV_C_S3.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	22_mock_A_S4	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/22_mock_A_S4.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	22_mock_B_S5	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/22_mock_B_S5.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	22_mock_C_S6	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/22_mock_C_S6.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	26_WNV_A_S7	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/26_WNV_A_S7.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	26_WNV_B_S8	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/26_WNV_B_S8.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	26_WNV_C_S9	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/26_WNV_C_S9.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	26_mock_A_S10	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/26_mock_A_S10.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	26_mock_B_S11	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/26_mock_B_S11.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	26_mock_C_S12	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/26_mock_C_S12.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	30_WNV_A_S13	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/30_WNV_A_S13.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	30_WNV_B_S14	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/30_WNV_B_S14.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	30_WNV_C_S15	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/30_WNV_C_S15.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	30_mock_A_S16	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/30_mock_A_S16.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	30_mock_B_S17	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/30_mock_B_S17.hisat2.log
+Bowtie 2 / HiSAT2	all_sections	30_mock_C_S18	/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/30_mock_C_S18.hisat2.log

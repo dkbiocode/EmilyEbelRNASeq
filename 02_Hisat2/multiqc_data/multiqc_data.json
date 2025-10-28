@@ -1,0 +1,1845 @@
+{
+    "report_multiqc_command": "/nfs/home/dking/miniconda3/envs/ebel/bin/multiqc --force logs",
+    "report_data_sources": {
+        "Bowtie 2 / HiSAT2": {
+            "all_sections": {
+                "22_WNV_A_S1": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/22_WNV_A_S1.hisat2.log",
+                "22_WNV_B_S2": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/22_WNV_B_S2.hisat2.log",
+                "22_WNV_C_S3": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/22_WNV_C_S3.hisat2.log",
+                "22_mock_A_S4": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/22_mock_A_S4.hisat2.log",
+                "22_mock_B_S5": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/22_mock_B_S5.hisat2.log",
+                "22_mock_C_S6": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/22_mock_C_S6.hisat2.log",
+                "26_WNV_A_S7": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/26_WNV_A_S7.hisat2.log",
+                "26_WNV_B_S8": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/26_WNV_B_S8.hisat2.log",
+                "26_WNV_C_S9": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/26_WNV_C_S9.hisat2.log",
+                "26_mock_A_S10": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/26_mock_A_S10.hisat2.log",
+                "26_mock_B_S11": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/26_mock_B_S11.hisat2.log",
+                "26_mock_C_S12": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/26_mock_C_S12.hisat2.log",
+                "30_WNV_A_S13": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/30_WNV_A_S13.hisat2.log",
+                "30_WNV_B_S14": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/30_WNV_B_S14.hisat2.log",
+                "30_WNV_C_S15": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/30_WNV_C_S15.hisat2.log",
+                "30_mock_A_S16": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/30_mock_A_S16.hisat2.log",
+                "30_mock_B_S17": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/30_mock_B_S17.hisat2.log",
+                "30_mock_C_S18": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs/30_mock_C_S18.hisat2.log"
+            }
+        }
+    },
+    "report_general_stats_data": {
+        "bowtie2": {
+            "22_WNV_A_S1": {
+                "total_reads": 28889659,
+                "paired_total": 28889659,
+                "paired_aligned_none": 16620684,
+                "paired_aligned_one": 3680303,
+                "paired_aligned_multi": 8588672,
+                "paired_aligned_mate_none": 32154315,
+                "paired_aligned_mate_one": 588822,
+                "paired_aligned_mate_multi": 498231,
+                "overall_alignment_rate": 44.35,
+                "paired_aligned_mate_multi_halved": 249115.5,
+                "paired_aligned_mate_none_halved": 16077157.5,
+                "paired_aligned_mate_one_halved": 294411.0
+            },
+            "22_WNV_B_S2": {
+                "total_reads": 30869634,
+                "paired_total": 30869634,
+                "paired_aligned_none": 17204411,
+                "paired_aligned_one": 4491843,
+                "paired_aligned_multi": 9173380,
+                "paired_aligned_mate_none": 32949781,
+                "paired_aligned_mate_one": 798226,
+                "paired_aligned_mate_multi": 660815,
+                "overall_alignment_rate": 46.63,
+                "paired_aligned_mate_multi_halved": 330407.5,
+                "paired_aligned_mate_none_halved": 16474890.5,
+                "paired_aligned_mate_one_halved": 399113.0
+            },
+            "22_WNV_C_S3": {
+                "total_reads": 30302245,
+                "paired_total": 30302245,
+                "paired_aligned_none": 19868763,
+                "paired_aligned_one": 3674500,
+                "paired_aligned_multi": 6758982,
+                "paired_aligned_mate_none": 38262636,
+                "paired_aligned_mate_one": 840041,
+                "paired_aligned_mate_multi": 634849,
+                "overall_alignment_rate": 36.87,
+                "paired_aligned_mate_multi_halved": 317424.5,
+                "paired_aligned_mate_none_halved": 19131318.0,
+                "paired_aligned_mate_one_halved": 420020.5
+            },
+            "22_mock_A_S4": {
+                "total_reads": 12891625,
+                "paired_total": 12891625,
+                "paired_aligned_none": 3977482,
+                "paired_aligned_one": 2317929,
+                "paired_aligned_multi": 6596214,
+                "paired_aligned_mate_none": 7345391,
+                "paired_aligned_mate_one": 304610,
+                "paired_aligned_mate_multi": 304963,
+                "overall_alignment_rate": 71.51,
+                "paired_aligned_mate_multi_halved": 152481.5,
+                "paired_aligned_mate_none_halved": 3672695.5,
+                "paired_aligned_mate_one_halved": 152305.0
+            },
+            "22_mock_B_S5": {
+                "total_reads": 16794480,
+                "paired_total": 16794480,
+                "paired_aligned_none": 10193590,
+                "paired_aligned_one": 1937070,
+                "paired_aligned_multi": 4663820,
+                "paired_aligned_mate_none": 19805915,
+                "paired_aligned_mate_one": 309393,
+                "paired_aligned_mate_multi": 271872,
+                "overall_alignment_rate": 41.03,
+                "paired_aligned_mate_multi_halved": 135936.0,
+                "paired_aligned_mate_none_halved": 9902957.5,
+                "paired_aligned_mate_one_halved": 154696.5
+            },
+            "22_mock_C_S6": {
+                "total_reads": 6433907,
+                "paired_total": 6433907,
+                "paired_aligned_none": 5559556,
+                "paired_aligned_one": 225692,
+                "paired_aligned_multi": 648659,
+                "paired_aligned_mate_none": 11022384,
+                "paired_aligned_mate_one": 50682,
+                "paired_aligned_mate_multi": 46046,
+                "overall_alignment_rate": 14.34,
+                "paired_aligned_mate_multi_halved": 23023.0,
+                "paired_aligned_mate_none_halved": 5511192.0,
+                "paired_aligned_mate_one_halved": 25341.0
+            },
+            "26_WNV_A_S7": {
+                "total_reads": 27388229,
+                "paired_total": 27388229,
+                "paired_aligned_none": 23446839,
+                "paired_aligned_one": 1541296,
+                "paired_aligned_multi": 2400094,
+                "paired_aligned_mate_none": 46324193,
+                "paired_aligned_mate_one": 331696,
+                "paired_aligned_mate_multi": 237789,
+                "overall_alignment_rate": 15.43,
+                "paired_aligned_mate_multi_halved": 118894.5,
+                "paired_aligned_mate_none_halved": 23162096.5,
+                "paired_aligned_mate_one_halved": 165848.0
+            },
+            "26_WNV_B_S8": {
+                "total_reads": 8207518,
+                "paired_total": 8207518,
+                "paired_aligned_none": 7215696,
+                "paired_aligned_one": 301090,
+                "paired_aligned_multi": 690732,
+                "paired_aligned_mate_none": 14211884,
+                "paired_aligned_mate_one": 121494,
+                "paired_aligned_mate_multi": 98014,
+                "overall_alignment_rate": 13.42,
+                "paired_aligned_mate_multi_halved": 49007.0,
+                "paired_aligned_mate_none_halved": 7105942.0,
+                "paired_aligned_mate_one_halved": 60747.0
+            },
+            "26_WNV_C_S9": {
+                "total_reads": 13212439,
+                "paired_total": 13212439,
+                "paired_aligned_none": 10999346,
+                "paired_aligned_one": 703092,
+                "paired_aligned_multi": 1510001,
+                "paired_aligned_mate_none": 21774673,
+                "paired_aligned_mate_one": 127702,
+                "paired_aligned_mate_multi": 96317,
+                "overall_alignment_rate": 17.6,
+                "paired_aligned_mate_multi_halved": 48158.5,
+                "paired_aligned_mate_none_halved": 10887336.5,
+                "paired_aligned_mate_one_halved": 63851.0
+            },
+            "26_mock_A_S10": {
+                "total_reads": 19015198,
+                "paired_total": 19015198,
+                "paired_aligned_none": 10894237,
+                "paired_aligned_one": 2718012,
+                "paired_aligned_multi": 5402949,
+                "paired_aligned_mate_none": 21015304,
+                "paired_aligned_mate_one": 427894,
+                "paired_aligned_mate_multi": 345276,
+                "overall_alignment_rate": 44.74,
+                "paired_aligned_mate_multi_halved": 172638.0,
+                "paired_aligned_mate_none_halved": 10507652.0,
+                "paired_aligned_mate_one_halved": 213947.0
+            },
+            "26_mock_B_S11": {
+                "total_reads": 12464031,
+                "paired_total": 12464031,
+                "paired_aligned_none": 7558269,
+                "paired_aligned_one": 1398903,
+                "paired_aligned_multi": 3506859,
+                "paired_aligned_mate_none": 14605713,
+                "paired_aligned_mate_one": 284194,
+                "paired_aligned_mate_multi": 226631,
+                "overall_alignment_rate": 41.41,
+                "paired_aligned_mate_multi_halved": 113315.5,
+                "paired_aligned_mate_none_halved": 7302856.5,
+                "paired_aligned_mate_one_halved": 142097.0
+            },
+            "26_mock_C_S12": {
+                "total_reads": 6553179,
+                "paired_total": 6553179,
+                "paired_aligned_none": 5508704,
+                "paired_aligned_one": 321294,
+                "paired_aligned_multi": 723181,
+                "paired_aligned_mate_none": 10841430,
+                "paired_aligned_mate_one": 97309,
+                "paired_aligned_mate_multi": 78669,
+                "overall_alignment_rate": 17.28,
+                "paired_aligned_mate_multi_halved": 39334.5,
+                "paired_aligned_mate_none_halved": 5420715.0,
+                "paired_aligned_mate_one_halved": 48654.5
+            },
+            "30_WNV_A_S13": {
+                "total_reads": 25757284,
+                "paired_total": 25757284,
+                "paired_aligned_none": 10446649,
+                "paired_aligned_one": 4518944,
+                "paired_aligned_multi": 10791691,
+                "paired_aligned_mate_none": 19342779,
+                "paired_aligned_mate_one": 815899,
+                "paired_aligned_mate_multi": 734620,
+                "overall_alignment_rate": 62.45,
+                "paired_aligned_mate_multi_halved": 367310.0,
+                "paired_aligned_mate_none_halved": 9671389.5,
+                "paired_aligned_mate_one_halved": 407949.5
+            },
+            "30_WNV_B_S14": {
+                "total_reads": 12260070,
+                "paired_total": 12260070,
+                "paired_aligned_none": 5822373,
+                "paired_aligned_one": 1733458,
+                "paired_aligned_multi": 4704239,
+                "paired_aligned_mate_none": 11193886,
+                "paired_aligned_mate_one": 231077,
+                "paired_aligned_mate_multi": 219783,
+                "overall_alignment_rate": 54.35,
+                "paired_aligned_mate_multi_halved": 109891.5,
+                "paired_aligned_mate_none_halved": 5596943.0,
+                "paired_aligned_mate_one_halved": 115538.5
+            },
+            "30_WNV_C_S15": {
+                "total_reads": 17333542,
+                "paired_total": 17333542,
+                "paired_aligned_none": 7805391,
+                "paired_aligned_one": 2750599,
+                "paired_aligned_multi": 6777552,
+                "paired_aligned_mate_none": 14735317,
+                "paired_aligned_mate_one": 469829,
+                "paired_aligned_mate_multi": 405636,
+                "overall_alignment_rate": 57.49,
+                "paired_aligned_mate_multi_halved": 202818.0,
+                "paired_aligned_mate_none_halved": 7367658.5,
+                "paired_aligned_mate_one_halved": 234914.5
+            },
+            "30_mock_A_S16": {
+                "total_reads": 9120635,
+                "paired_total": 9120635,
+                "paired_aligned_none": 5055495,
+                "paired_aligned_one": 1158315,
+                "paired_aligned_multi": 2906825,
+                "paired_aligned_mate_none": 9723344,
+                "paired_aligned_mate_one": 209464,
+                "paired_aligned_mate_multi": 178182,
+                "overall_alignment_rate": 46.7,
+                "paired_aligned_mate_multi_halved": 89091.0,
+                "paired_aligned_mate_none_halved": 4861672.0,
+                "paired_aligned_mate_one_halved": 104732.0
+            },
+            "30_mock_B_S17": {
+                "total_reads": 13266372,
+                "paired_total": 13266372,
+                "paired_aligned_none": 4432094,
+                "paired_aligned_one": 2528002,
+                "paired_aligned_multi": 6306276,
+                "paired_aligned_mate_none": 7924494,
+                "paired_aligned_mate_one": 510405,
+                "paired_aligned_mate_multi": 429289,
+                "overall_alignment_rate": 70.13,
+                "paired_aligned_mate_multi_halved": 214644.5,
+                "paired_aligned_mate_none_halved": 3962247.0,
+                "paired_aligned_mate_one_halved": 255202.5
+            },
+            "30_mock_C_S18": {
+                "total_reads": 26269478,
+                "paired_total": 26269478,
+                "paired_aligned_none": 9380318,
+                "paired_aligned_one": 5507639,
+                "paired_aligned_multi": 11381521,
+                "paired_aligned_mate_none": 16773996,
+                "paired_aligned_mate_one": 1139271,
+                "paired_aligned_mate_multi": 847369,
+                "overall_alignment_rate": 68.07,
+                "paired_aligned_mate_multi_halved": 423684.5,
+                "paired_aligned_mate_none_halved": 8386998.0,
+                "paired_aligned_mate_one_halved": 569635.5
+            }
+        }
+    },
+    "report_general_stats_headers": {
+        "bowtie2": {
+            "overall_alignment_rate": {
+                "title": "% Aligned",
+                "description": "overall alignment rate",
+                "max": 100,
+                "min": 0,
+                "suffix": "%",
+                "scale": "YlGn",
+                "namespace": "Bowtie 2 / HiSAT2",
+                "clean_rid": "bowtie_2_hisat2-overall_alignment_rate",
+                "rid": "bowtie_2_hisat2-overall_alignment_rate",
+                "placement": 1000
+            }
+        }
+    },
+    "report_creation_date": "2025-10-28, 12:57 MDT",
+    "report_plot_data": {
+        "bowtie2_pe_plot": {
+            "id": "bowtie2_pe_plot",
+            "anchor": "bowtie2_pe_plot",
+            "plot_type": "bar plot",
+            "layout": {
+                "autosize": true,
+                "height": 590,
+                "hoverlabel": {
+                    "namelength": -1,
+                    "bgcolor": "rgba(255, 255, 255, 0.8)",
+                    "font": {
+                        "color": "black"
+                    }
+                },
+                "margin": {
+                    "b": 65,
+                    "l": 60,
+                    "pad": 5,
+                    "r": 15,
+                    "t": 50
+                },
+                "showlegend": true,
+                "template": {
+                    "layout": {
+                        "colorway": [
+                            "#7cb5ec",
+                            "#434348",
+                            "#90ed7d",
+                            "#f7a35c",
+                            "#8085e9",
+                            "#f15c80",
+                            "#e4d354",
+                            "#2b908f",
+                            "#f45b5b",
+                            "#91e8e1"
+                        ],
+                        "font": {
+                            "family": "'Lucida Grande', 'Open Sans', verdana, arial, sans-serif"
+                        },
+                        "modebar": {
+                            "activecolor": "rgba(0, 0, 0, 1)",
+                            "bgcolor": "rgba(0, 0, 0, 0)",
+                            "color": "rgba(0, 0, 0, 0.5)"
+                        },
+                        "paper_bgcolor": "white",
+                        "plot_bgcolor": "white",
+                        "title": {
+                            "font": {
+                                "size": 20
+                            }
+                        },
+                        "xaxis": {
+                            "color": "rgba(0,0,0,0.3)",
+                            "gridcolor": "rgba(0,0,0,0.05)",
+                            "tickfont": {
+                                "color": "rgba(0,0,0,1)",
+                                "size": 10
+                            },
+                            "zerolinecolor": "rgba(0,0,0,0.05)"
+                        },
+                        "yaxis": {
+                            "color": "rgba(0,0,0,0.3)",
+                            "gridcolor": "rgba(0,0,0,0.05)",
+                            "tickfont": {
+                                "color": "rgba(0,0,0,1)",
+                                "size": 10
+                            },
+                            "zerolinecolor": "rgba(0,0,0,0.05)"
+                        }
+                    }
+                },
+                "title": {
+                    "text": "Bowtie 2: PE Alignment Scores",
+                    "x": 0.5,
+                    "xanchor": "center"
+                },
+                "xaxis": {
+                    "automargin": true
+                },
+                "yaxis": {
+                    "automargin": true,
+                    "showgrid": false,
+                    "categoryorder": "trace",
+                    "type": "category"
+                },
+                "barmode": "relative",
+                "bargroupgap": 0,
+                "bargap": 0.2,
+                "legend": {
+                    "tracegroupgap": 0,
+                    "traceorder": "normal"
+                },
+                "hovermode": "y unified"
+            },
+            "datasets": [
+                {
+                    "plot_id": "bowtie2_pe_plot",
+                    "label": "1",
+                    "uid": "bowtie2_pe_plot",
+                    "dconfig": {
+                        "title": "Bowtie 2: PE Alignment Scores",
+                        "subtitle": "18 samples"
+                    },
+                    "layout": {
+                        "title": {
+                            "text": "Bowtie 2: PE Alignment Scores<br><sup>18 samples</sup>"
+                        },
+                        "xaxis": {
+                            "title": {
+                                "text": "# Reads"
+                            },
+                            "hoverformat": ",.2f",
+                            "ticksuffix": "",
+                            "autorangeoptions": {
+                                "minallowed": 0,
+                                "maxallowed": 30869634.0
+                            }
+                        },
+                        "yaxis": {
+                            "title": null,
+                            "hoverformat": null,
+                            "ticksuffix": ""
+                        },
+                        "showlegend": true
+                    },
+                    "trace_params": {
+                        "hovertemplate": "<b></b>%{meta}: <b>%{x}</b><extra></extra>",
+                        "orientation": "h",
+                        "marker": {
+                            "line": {
+                                "width": 0
+                            }
+                        },
+                        "textposition": "inside",
+                        "insidetextanchor": "start"
+                    },
+                    "pct_range": {
+                        "xaxis": {
+                            "min": 0,
+                            "max": 100
+                        },
+                        "yaxis": {
+                            "min": 0,
+                            "max": 100
+                        }
+                    },
+                    "n_series": 18,
+                    "cats": [
+                        {
+                            "name": "PE mapped uniquely",
+                            "color": "rgb(32,86,143)",
+                            "data": [
+                                5507639.0,
+                                2528002.0,
+                                1158315.0,
+                                2750599.0,
+                                1733458.0,
+                                4518944.0,
+                                321294.0,
+                                1398903.0,
+                                2718012.0,
+                                703092.0,
+                                301090.0,
+                                1541296.0,
+                                225692.0,
+                                1937070.0,
+                                2317929.0,
+                                3674500.0,
+                                4491843.0,
+                                3680303.0
+                            ],
+                            "data_pct": [
+                                20.965924789217357,
+                                19.05571470481907,
+                                12.699938107379586,
+                                15.86864935049051,
+                                14.139054670976591,
+                                17.544334255117892,
+                                4.902872331123566,
+                                11.223519902991255,
+                                14.293892706244762,
+                                5.3214398946326265,
+                                3.6684659113754,
+                                5.627585485720892,
+                                3.507853004403079,
+                                11.533968303871273,
+                                17.980114997139616,
+                                12.126164249546527,
+                                14.551008282119573,
+                                12.73917078772027
+                            ]
+                        },
+                        {
+                            "name": "PE one mate mapped uniquely",
+                            "color": "rgb(149,206,256)",
+                            "data": [
+                                569635.5,
+                                255202.5,
+                                104732.0,
+                                234914.5,
+                                115538.5,
+                                407949.5,
+                                48654.5,
+                                142097.0,
+                                213947.0,
+                                63851.0,
+                                60747.0,
+                                165848.0,
+                                25341.0,
+                                154696.5,
+                                152305.0,
+                                420020.5,
+                                399113.0,
+                                294411.0
+                            ],
+                            "data_pct": [
+                                2.1684309829072355,
+                                1.9236796616286653,
+                                1.1482972402689067,
+                                1.355259646297335,
+                                0.942396739985987,
+                                1.5838218812200853,
+                                0.7424564474738138,
+                                1.1400565354819803,
+                                1.1251368510598734,
+                                0.4832642935948465,
+                                0.7401384925381828,
+                                0.6055448127003757,
+                                0.39386643294657503,
+                                0.9211151521214113,
+                                1.1814259257463664,
+                                1.3861035708740392,
+                                1.2928983868095099,
+                                1.0190878334701008
+                            ]
+                        },
+                        {
+                            "name": "PE multimapped",
+                            "color": "rgb(247,163,92)",
+                            "data": [
+                                11381521.0,
+                                6306276.0,
+                                2906825.0,
+                                6777552.0,
+                                4704239.0,
+                                10791691.0,
+                                723181.0,
+                                3506859.0,
+                                5402949.0,
+                                1510001.0,
+                                690732.0,
+                                2400094.0,
+                                648659.0,
+                                4663820.0,
+                                6596214.0,
+                                6758982.0,
+                                9173380.0,
+                                8588672.0
+                            ],
+                            "data_pct": [
+                                43.32602650117372,
+                                47.53579953886413,
+                                31.87086206168759,
+                                39.10079082509507,
+                                38.37040897808903,
+                                41.89762787101311,
+                                11.035575252865822,
+                                28.13583342339248,
+                                28.41384559866271,
+                                11.428631761327338,
+                                8.415845082520685,
+                                8.763231824883603,
+                                10.081883371954243,
+                                27.769957748021966,
+                                51.166660525728915,
+                                22.30521863974105,
+                                29.71651688516942,
+                                29.72922594898057
+                            ]
+                        },
+                        {
+                            "name": "PE one mate multimapped",
+                            "color": "rgb(256,235,117)",
+                            "data": [
+                                423684.5,
+                                214644.5,
+                                89091.0,
+                                202818.0,
+                                109891.5,
+                                367310.0,
+                                39334.5,
+                                113315.5,
+                                172638.0,
+                                48158.5,
+                                49007.0,
+                                118894.5,
+                                23023.0,
+                                135936.0,
+                                152481.5,
+                                317424.5,
+                                330407.5,
+                                249115.5
+                            ],
+                            "data_pct": [
+                                1.6128394328962303,
+                                1.6179593034176942,
+                                0.9768069876713628,
+                                1.170089760073273,
+                                0.8963366440811513,
+                                1.4260432116988733,
+                                0.6002353972018771,
+                                0.9091400687305736,
+                                0.9078948323335891,
+                                0.3644936411816168,
+                                0.5970989037124256,
+                                0.4341080250205298,
+                                0.35783855750479454,
+                                0.8094088057504608,
+                                1.1827950316581501,
+                                1.0475279966880342,
+                                1.0703317700494925,
+                                0.862299897690035
+                            ]
+                        },
+                        {
+                            "name": "PE neither mate aligned",
+                            "color": "rgb(152,25,25)",
+                            "data": [
+                                8386998.0,
+                                3962247.0,
+                                4861672.0,
+                                7367658.5,
+                                5596943.0,
+                                9671389.5,
+                                5420715.0,
+                                7302856.5,
+                                10507652.0,
+                                10887336.5,
+                                7105942.0,
+                                23162096.5,
+                                5511192.0,
+                                9902957.5,
+                                3672695.5,
+                                19131318.0,
+                                16474890.5,
+                                16077157.5
+                            ],
+                            "data_pct": [
+                                31.92677829380546,
+                                29.86684679127044,
+                                53.304095602992554,
+                                42.505210418043816,
+                                45.65180296686724,
+                                37.54817278095004,
+                                82.71886057133491,
+                                58.591450069403706,
+                                55.25923001169907,
+                                82.40217040926358,
+                                86.57845160985332,
+                                84.5695298516746,
+                                85.6585586331913,
+                                58.96554999023489,
+                                28.489003519726953,
+                                63.13498554315034,
+                                53.369244675852,
+                                55.65021553213902
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "30_mock_C_S18",
+                        "30_mock_B_S17",
+                        "30_mock_A_S16",
+                        "30_WNV_C_S15",
+                        "30_WNV_B_S14",
+                        "30_WNV_A_S13",
+                        "26_mock_C_S12",
+                        "26_mock_B_S11",
+                        "26_mock_A_S10",
+                        "26_WNV_C_S9",
+                        "26_WNV_B_S8",
+                        "26_WNV_A_S7",
+                        "22_mock_C_S6",
+                        "22_mock_B_S5",
+                        "22_mock_A_S4",
+                        "22_WNV_C_S3",
+                        "22_WNV_B_S2",
+                        "22_WNV_A_S1"
+                    ]
+                }
+            ],
+            "pconfig": {
+                "id": "bowtie2_pe_plot",
+                "title": "Bowtie 2: PE Alignment Scores",
+                "subtitle": null,
+                "anchor": null,
+                "table_title": null,
+                "height": null,
+                "width": null,
+                "square": false,
+                "logswitch": false,
+                "logswitch_active": false,
+                "logswitch_label": "Log10",
+                "cpswitch": true,
+                "cpswitch_c_active": true,
+                "cpswitch_counts_label": "Number of Reads",
+                "cpswitch_percent_label": "Percentages",
+                "xLog": null,
+                "yLog": null,
+                "xlog": false,
+                "ylog": false,
+                "data_labels": [],
+                "xTitle": null,
+                "yTitle": null,
+                "xlab": null,
+                "ylab": "# Reads",
+                "xsuffix": null,
+                "ysuffix": null,
+                "tt_suffix": null,
+                "xLabFormat": null,
+                "yLabFormat": null,
+                "xLabelFormat": null,
+                "yLabelFormat": null,
+                "xlab_format": null,
+                "ylab_format": null,
+                "tt_label": null,
+                "xDecimals": null,
+                "yDecimals": null,
+                "decimalPlaces": null,
+                "x_decimals": null,
+                "y_decimals": null,
+                "tt_decimals": null,
+                "xmin": null,
+                "xmax": null,
+                "ymin": null,
+                "ymax": null,
+                "xFloor": null,
+                "xCeiling": null,
+                "yFloor": null,
+                "yCeiling": null,
+                "x_clipmin": null,
+                "x_clipmax": null,
+                "y_clipmin": null,
+                "y_clipmax": null,
+                "save_data_file": true,
+                "showlegend": null,
+                "xMinRange": null,
+                "yMinRange": null,
+                "x_minrange": null,
+                "y_minrange": null,
+                "xPlotBands": null,
+                "yPlotBands": null,
+                "xPlotLines": null,
+                "yPlotLines": null,
+                "x_bands": null,
+                "y_bands": null,
+                "x_lines": null,
+                "y_lines": null,
+                "series_label": "samples",
+                "stacking": "relative",
+                "hide_empty": null,
+                "hide_zero_cats": true,
+                "sort_samples": true,
+                "use_legend": null,
+                "suffix": null,
+                "lab_format": null
+            },
+            "add_log_tab": false,
+            "add_pct_tab": true,
+            "l_active": false,
+            "p_active": false,
+            "pct_axis_update": {
+                "ticksuffix": "%",
+                "hoverformat": ".1f"
+            },
+            "axis_controlled_by_switches": [
+                "xaxis"
+            ],
+            "square": false,
+            "flat": false,
+            "defer_render": false,
+            "section_anchor": null,
+            "module_anchor": null
+        },
+        "general_stats_table": {
+            "id": "general_stats_table",
+            "anchor": "general_stats_table",
+            "plot_type": "violin plot",
+            "layout": {
+                "autosize": true,
+                "height": 500,
+                "hoverlabel": {
+                    "namelength": -1
+                },
+                "margin": {
+                    "b": 40,
+                    "l": 60,
+                    "pad": 0,
+                    "r": 15,
+                    "t": 50
+                },
+                "showlegend": false,
+                "template": {
+                    "layout": {
+                        "colorway": [
+                            "#7cb5ec",
+                            "#434348",
+                            "#90ed7d",
+                            "#f7a35c",
+                            "#8085e9",
+                            "#f15c80",
+                            "#e4d354",
+                            "#2b908f",
+                            "#f45b5b",
+                            "#91e8e1"
+                        ],
+                        "font": {
+                            "family": "'Lucida Grande', 'Open Sans', verdana, arial, sans-serif"
+                        },
+                        "modebar": {
+                            "activecolor": "rgba(0, 0, 0, 1)",
+                            "bgcolor": "rgba(0, 0, 0, 0)",
+                            "color": "rgba(0, 0, 0, 0.5)"
+                        },
+                        "paper_bgcolor": "white",
+                        "plot_bgcolor": "white",
+                        "title": {
+                            "font": {
+                                "size": 20
+                            }
+                        },
+                        "xaxis": {
+                            "color": "rgba(0,0,0,0.3)",
+                            "gridcolor": "rgba(0,0,0,0.05)",
+                            "tickfont": {
+                                "color": "rgba(0,0,0,1)",
+                                "size": 10
+                            },
+                            "zerolinecolor": "rgba(0,0,0,0.05)"
+                        },
+                        "yaxis": {
+                            "color": "rgba(0,0,0,0.3)",
+                            "gridcolor": "rgba(0,0,0,0.05)",
+                            "tickfont": {
+                                "color": "rgba(0,0,0,1)",
+                                "size": 10
+                            },
+                            "zerolinecolor": "rgba(0,0,0,0.05)"
+                        }
+                    }
+                },
+                "title": {
+                    "text": "General Statistics",
+                    "x": 0.5,
+                    "xanchor": "center"
+                },
+                "xaxis": {
+                    "automargin": false,
+                    "tickfont": {
+                        "size": 9,
+                        "color": "rgba(0,0,0,0.5)"
+                    },
+                    "gridcolor": "rgba(0,0,0,0.1)",
+                    "zerolinecolor": "rgba(0,0,0,0.1)"
+                },
+                "yaxis": {
+                    "automargin": true,
+                    "tickfont": {
+                        "size": 9,
+                        "color": "rgba(0,0,0,0.5)"
+                    },
+                    "gridcolor": "rgba(0,0,0,0.1)",
+                    "zerolinecolor": "rgba(0,0,0,0.1)"
+                },
+                "violingap": 0,
+                "grid": {
+                    "columns": 1,
+                    "roworder": "top to bottom",
+                    "ygap": 0.4
+                }
+            },
+            "datasets": [
+                {
+                    "plot_id": "general_stats_table",
+                    "label": "1",
+                    "uid": "general_stats_table",
+                    "dconfig": {
+                        "ylab": "",
+                        "title": "General Statistics",
+                        "subtitle": "18 samples"
+                    },
+                    "layout": {
+                        "title": {
+                            "text": "General Statistics<br><sup>18 samples</sup>"
+                        },
+                        "xaxis": {
+                            "hoverformat": null,
+                            "ticksuffix": "",
+                            "title": {
+                                "text": null
+                            },
+                            "rangemode": "normal",
+                            "autorangeoptions": {
+                                "clipmin": null,
+                                "clipmax": null,
+                                "minallowed": null,
+                                "maxallowed": null
+                            }
+                        },
+                        "yaxis": {
+                            "hoverformat": null,
+                            "ticksuffix": "",
+                            "title": {
+                                "text": ""
+                            },
+                            "rangemode": "normal",
+                            "autorangeoptions": {
+                                "clipmin": null,
+                                "clipmax": null,
+                                "minallowed": null,
+                                "maxallowed": null
+                            }
+                        }
+                    },
+                    "trace_params": {
+                        "hovertemplate": "<b>%{text}</b>: %{x}<extra></extra>",
+                        "orientation": "h",
+                        "box": {
+                            "visible": true
+                        },
+                        "meanline": {
+                            "visible": true
+                        },
+                        "fillcolor": "#b5b5b5",
+                        "line": {
+                            "width": 2,
+                            "color": "#b5b5b5"
+                        },
+                        "opacity": 0.5,
+                        "points": false,
+                        "hoveron": "points"
+                    },
+                    "pct_range": {
+                        "xaxis": {
+                            "min": 0,
+                            "max": 100
+                        },
+                        "yaxis": {
+                            "min": 0,
+                            "max": 100
+                        }
+                    },
+                    "n_series": 18,
+                    "metrics": [
+                        "bowtie_2_hisat2-overall_alignment_rate"
+                    ],
+                    "header_by_metric": {
+                        "bowtie_2_hisat2-overall_alignment_rate": {
+                            "title": "% Aligned",
+                            "description": "overall alignment rate",
+                            "suffix": "%",
+                            "dmin": 0.0,
+                            "dmax": 100.0,
+                            "hidden": false,
+                            "xaxis": {
+                                "ticksuffix": "%",
+                                "tickvals": null,
+                                "range": [
+                                    -0.5,
+                                    100.5025
+                                ]
+                            },
+                            "show_only_outliers": false,
+                            "show_points": true,
+                            "namespace": "Bowtie 2 / HiSAT2",
+                            "color": null,
+                            "hoverformat": ".2f"
+                        }
+                    },
+                    "violin_value_by_sample_by_metric": {
+                        "bowtie_2_hisat2-overall_alignment_rate": {
+                            "22_WNV_A_S1": 44.35,
+                            "22_WNV_B_S2": 46.63,
+                            "22_WNV_C_S3": 36.87,
+                            "22_mock_A_S4": 71.51,
+                            "22_mock_B_S5": 41.03,
+                            "22_mock_C_S6": 14.34,
+                            "26_WNV_A_S7": 15.43,
+                            "26_WNV_B_S8": 13.42,
+                            "26_WNV_C_S9": 17.6,
+                            "26_mock_A_S10": 44.74,
+                            "26_mock_B_S11": 41.41,
+                            "26_mock_C_S12": 17.28,
+                            "30_WNV_A_S13": 62.45,
+                            "30_WNV_B_S14": 54.35,
+                            "30_WNV_C_S15": 57.49,
+                            "30_mock_A_S16": 46.7,
+                            "30_mock_B_S17": 70.13,
+                            "30_mock_C_S18": 68.07
+                        }
+                    },
+                    "scatter_value_by_sample_by_metric": {
+                        "bowtie_2_hisat2-overall_alignment_rate": {}
+                    },
+                    "all_samples": [
+                        "22_WNV_A_S1",
+                        "22_WNV_B_S2",
+                        "22_WNV_C_S3",
+                        "22_mock_A_S4",
+                        "22_mock_B_S5",
+                        "22_mock_C_S6",
+                        "26_WNV_A_S7",
+                        "26_WNV_B_S8",
+                        "26_WNV_C_S9",
+                        "26_mock_A_S10",
+                        "26_mock_B_S11",
+                        "26_mock_C_S12",
+                        "30_WNV_A_S13",
+                        "30_WNV_B_S14",
+                        "30_WNV_C_S15",
+                        "30_mock_A_S16",
+                        "30_mock_B_S17",
+                        "30_mock_C_S18"
+                    ],
+                    "scatter_trace_params": {
+                        "mode": "markers",
+                        "marker": {
+                            "size": 4,
+                            "color": "#0b79e6"
+                        },
+                        "showlegend": false,
+                        "hovertemplate": "<b>%{text}</b>: %{x}<extra></extra>",
+                        "hoverlabel": {
+                            "bgcolor": "white"
+                        }
+                    },
+                    "dt": {
+                        "id": "general_stats_table",
+                        "anchor": "general_stats_table_table",
+                        "pconfig": {
+                            "id": "general_stats_table",
+                            "title": "General Statistics",
+                            "subtitle": null,
+                            "anchor": null,
+                            "table_title": null,
+                            "height": null,
+                            "width": null,
+                            "square": false,
+                            "logswitch": false,
+                            "logswitch_active": false,
+                            "logswitch_label": "Log10",
+                            "cpswitch": true,
+                            "cpswitch_c_active": true,
+                            "cpswitch_counts_label": "Counts",
+                            "cpswitch_percent_label": "Percentages",
+                            "xLog": null,
+                            "yLog": null,
+                            "xlog": false,
+                            "ylog": false,
+                            "data_labels": [],
+                            "xTitle": null,
+                            "yTitle": null,
+                            "xlab": null,
+                            "ylab": null,
+                            "xsuffix": null,
+                            "ysuffix": null,
+                            "tt_suffix": null,
+                            "xLabFormat": null,
+                            "yLabFormat": null,
+                            "xLabelFormat": null,
+                            "yLabelFormat": null,
+                            "xlab_format": null,
+                            "ylab_format": null,
+                            "tt_label": null,
+                            "xDecimals": null,
+                            "yDecimals": null,
+                            "decimalPlaces": null,
+                            "x_decimals": null,
+                            "y_decimals": null,
+                            "tt_decimals": null,
+                            "xmin": null,
+                            "xmax": null,
+                            "ymin": null,
+                            "ymax": null,
+                            "xFloor": null,
+                            "xCeiling": null,
+                            "yFloor": null,
+                            "yCeiling": null,
+                            "x_clipmin": null,
+                            "x_clipmax": null,
+                            "y_clipmin": null,
+                            "y_clipmax": null,
+                            "save_data_file": true,
+                            "showlegend": null,
+                            "xMinRange": null,
+                            "yMinRange": null,
+                            "x_minrange": null,
+                            "y_minrange": null,
+                            "xPlotBands": null,
+                            "yPlotBands": null,
+                            "xPlotLines": null,
+                            "yPlotLines": null,
+                            "x_bands": null,
+                            "y_bands": null,
+                            "x_lines": null,
+                            "y_lines": null,
+                            "series_label": "samples",
+                            "namespace": "",
+                            "save_file": true,
+                            "raw_data_fn": "multiqc_general_stats",
+                            "defaultsort": null,
+                            "sortRows": true,
+                            "sort_rows": true,
+                            "only_defined_headers": true,
+                            "col1_header": "Sample Name",
+                            "no_beeswarm": false,
+                            "no_violin": false,
+                            "scale": "GnBu",
+                            "min": null,
+                            "parse_numeric": true,
+                            "rows_are_samples": true
+                        },
+                        "section_by_id": {
+                            "bowtie2": {
+                                "column_by_key": {
+                                    "overall_alignment_rate": {
+                                        "rid": "bowtie_2_hisat2-overall_alignment_rate",
+                                        "clean_rid": "bowtie_2_hisat2-overall_alignment_rate",
+                                        "title": "% Aligned",
+                                        "description": "overall alignment rate",
+                                        "scale": "YlGn",
+                                        "hidden": false,
+                                        "placement": 1000.0,
+                                        "namespace": "Bowtie 2 / HiSAT2",
+                                        "colour": null,
+                                        "color": null,
+                                        "max": 100.0,
+                                        "dmax": 100.0,
+                                        "min": 0.0,
+                                        "dmin": 0.0,
+                                        "ceiling": null,
+                                        "floor": null,
+                                        "minRange": null,
+                                        "minrange": null,
+                                        "shared_key": null,
+                                        "tt_decimals": null,
+                                        "suffix": "%",
+                                        "cond_formatting_colours": [
+                                            {
+                                                "blue": "#337ab7"
+                                            },
+                                            {
+                                                "lbue": "#5bc0de"
+                                            },
+                                            {
+                                                "pass": "#5cb85c"
+                                            },
+                                            {
+                                                "warn": "#f0ad4e"
+                                            },
+                                            {
+                                                "fail": "#d9534f"
+                                            },
+                                            {
+                                                "male": "#5bc0de"
+                                            },
+                                            {
+                                                "female": "#d9534f"
+                                            }
+                                        ],
+                                        "cond_formatting_rules": {},
+                                        "bgcols": {},
+                                        "bars_zero_centrepoint": false,
+                                        "modify": null,
+                                        "format": null
+                                    }
+                                },
+                                "rows_by_sgroup": {
+                                    "22_WNV_A_S1": [
+                                        {
+                                            "sample": "22_WNV_A_S1",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 44.35,
+                                                    "mod": 44.35,
+                                                    "fmt": "44.4"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "22_WNV_B_S2": [
+                                        {
+                                            "sample": "22_WNV_B_S2",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 46.63,
+                                                    "mod": 46.63,
+                                                    "fmt": "46.6"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "22_WNV_C_S3": [
+                                        {
+                                            "sample": "22_WNV_C_S3",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 36.87,
+                                                    "mod": 36.87,
+                                                    "fmt": "36.9"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "22_mock_A_S4": [
+                                        {
+                                            "sample": "22_mock_A_S4",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 71.51,
+                                                    "mod": 71.51,
+                                                    "fmt": "71.5"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "22_mock_B_S5": [
+                                        {
+                                            "sample": "22_mock_B_S5",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 41.03,
+                                                    "mod": 41.03,
+                                                    "fmt": "41.0"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "22_mock_C_S6": [
+                                        {
+                                            "sample": "22_mock_C_S6",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 14.34,
+                                                    "mod": 14.34,
+                                                    "fmt": "14.3"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "26_WNV_A_S7": [
+                                        {
+                                            "sample": "26_WNV_A_S7",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 15.43,
+                                                    "mod": 15.43,
+                                                    "fmt": "15.4"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "26_WNV_B_S8": [
+                                        {
+                                            "sample": "26_WNV_B_S8",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 13.42,
+                                                    "mod": 13.42,
+                                                    "fmt": "13.4"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "26_WNV_C_S9": [
+                                        {
+                                            "sample": "26_WNV_C_S9",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 17.6,
+                                                    "mod": 17.6,
+                                                    "fmt": "17.6"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "26_mock_A_S10": [
+                                        {
+                                            "sample": "26_mock_A_S10",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 44.74,
+                                                    "mod": 44.74,
+                                                    "fmt": "44.7"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "26_mock_B_S11": [
+                                        {
+                                            "sample": "26_mock_B_S11",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 41.41,
+                                                    "mod": 41.41,
+                                                    "fmt": "41.4"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "26_mock_C_S12": [
+                                        {
+                                            "sample": "26_mock_C_S12",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 17.28,
+                                                    "mod": 17.28,
+                                                    "fmt": "17.3"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "30_WNV_A_S13": [
+                                        {
+                                            "sample": "30_WNV_A_S13",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 62.45,
+                                                    "mod": 62.45,
+                                                    "fmt": "62.5"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "30_WNV_B_S14": [
+                                        {
+                                            "sample": "30_WNV_B_S14",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 54.35,
+                                                    "mod": 54.35,
+                                                    "fmt": "54.4"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "30_WNV_C_S15": [
+                                        {
+                                            "sample": "30_WNV_C_S15",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 57.49,
+                                                    "mod": 57.49,
+                                                    "fmt": "57.5"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "30_mock_A_S16": [
+                                        {
+                                            "sample": "30_mock_A_S16",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 46.7,
+                                                    "mod": 46.7,
+                                                    "fmt": "46.7"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "30_mock_B_S17": [
+                                        {
+                                            "sample": "30_mock_B_S17",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 70.13,
+                                                    "mod": 70.13,
+                                                    "fmt": "70.1"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "30_mock_C_S18": [
+                                        {
+                                            "sample": "30_mock_C_S18",
+                                            "data": {
+                                                "overall_alignment_rate": {
+                                                    "raw": 68.07,
+                                                    "mod": 68.07,
+                                                    "fmt": "68.1"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "headers_in_order": {
+                            "1000.0": [
+                                [
+                                    0,
+                                    "overall_alignment_rate"
+                                ]
+                            ]
+                        }
+                    },
+                    "show_table_by_default": true,
+                    "is_downsampled": false
+                }
+            ],
+            "pconfig": {
+                "id": "general_stats_table",
+                "title": "General Statistics",
+                "subtitle": null,
+                "anchor": null,
+                "table_title": null,
+                "height": null,
+                "width": null,
+                "square": false,
+                "logswitch": false,
+                "logswitch_active": false,
+                "logswitch_label": "Log10",
+                "cpswitch": true,
+                "cpswitch_c_active": true,
+                "cpswitch_counts_label": "Counts",
+                "cpswitch_percent_label": "Percentages",
+                "xLog": null,
+                "yLog": null,
+                "xlog": false,
+                "ylog": false,
+                "data_labels": [],
+                "xTitle": null,
+                "yTitle": null,
+                "xlab": null,
+                "ylab": null,
+                "xsuffix": null,
+                "ysuffix": null,
+                "tt_suffix": null,
+                "xLabFormat": null,
+                "yLabFormat": null,
+                "xLabelFormat": null,
+                "yLabelFormat": null,
+                "xlab_format": null,
+                "ylab_format": null,
+                "tt_label": null,
+                "xDecimals": null,
+                "yDecimals": null,
+                "decimalPlaces": null,
+                "x_decimals": null,
+                "y_decimals": null,
+                "tt_decimals": null,
+                "xmin": null,
+                "xmax": null,
+                "ymin": null,
+                "ymax": null,
+                "xFloor": null,
+                "xCeiling": null,
+                "yFloor": null,
+                "yCeiling": null,
+                "x_clipmin": null,
+                "x_clipmax": null,
+                "y_clipmin": null,
+                "y_clipmax": null,
+                "save_data_file": true,
+                "showlegend": null,
+                "xMinRange": null,
+                "yMinRange": null,
+                "x_minrange": null,
+                "y_minrange": null,
+                "xPlotBands": null,
+                "yPlotBands": null,
+                "xPlotLines": null,
+                "yPlotLines": null,
+                "x_bands": null,
+                "y_bands": null,
+                "x_lines": null,
+                "y_lines": null,
+                "series_label": "samples",
+                "namespace": "",
+                "save_file": true,
+                "raw_data_fn": "multiqc_general_stats",
+                "defaultsort": null,
+                "sortRows": true,
+                "sort_rows": true,
+                "only_defined_headers": true,
+                "col1_header": "Sample Name",
+                "no_beeswarm": false,
+                "no_violin": false,
+                "scale": "GnBu",
+                "min": null,
+                "parse_numeric": true,
+                "rows_are_samples": true
+            },
+            "add_log_tab": false,
+            "add_pct_tab": false,
+            "l_active": false,
+            "p_active": false,
+            "pct_axis_update": {
+                "ticksuffix": "%",
+                "hoverformat": ".1f"
+            },
+            "axis_controlled_by_switches": [],
+            "square": false,
+            "flat": false,
+            "defer_render": false,
+            "section_anchor": null,
+            "module_anchor": null,
+            "violin_height": 70,
+            "extra_height": 63,
+            "no_violin": false,
+            "show_table": true,
+            "show_table_by_default": true,
+            "n_samples": 18,
+            "table_anchor": "general_stats_table_table"
+        }
+    },
+    "config_analysis_dir": [
+        "logs"
+    ],
+    "config_git_hash": null,
+    "config_intro_text": null,
+    "config_report_comment": null,
+    "config_report_header_info": null,
+    "config_script_path": "/nfs/home/dking/miniconda3/envs/ebel/lib/python3.12/site-packages/multiqc",
+    "config_short_version": "1.30",
+    "config_subtitle": null,
+    "config_title": null,
+    "config_version": "1.30",
+    "config_output_dir": "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2",
+    "config_analysis_dir_abs": [
+        "/nfs/home/rsbg/01_fastq/04_emily_ebel_bulk_midgut_data_eg_RNAseq/HunterPipeline/02_Hisat2/logs"
+    ],
+    "report_saved_raw_data": {
+        "multiqc_bowtie2": {
+            "22_WNV_A_S1": {
+                "total_reads": 28889659,
+                "paired_total": 28889659,
+                "paired_aligned_none": 16620684,
+                "paired_aligned_one": 3680303,
+                "paired_aligned_multi": 8588672,
+                "paired_aligned_mate_none": 32154315,
+                "paired_aligned_mate_one": 588822,
+                "paired_aligned_mate_multi": 498231,
+                "overall_alignment_rate": 44.35,
+                "paired_aligned_mate_multi_halved": 249115.5,
+                "paired_aligned_mate_none_halved": 16077157.5,
+                "paired_aligned_mate_one_halved": 294411.0
+            },
+            "22_WNV_B_S2": {
+                "total_reads": 30869634,
+                "paired_total": 30869634,
+                "paired_aligned_none": 17204411,
+                "paired_aligned_one": 4491843,
+                "paired_aligned_multi": 9173380,
+                "paired_aligned_mate_none": 32949781,
+                "paired_aligned_mate_one": 798226,
+                "paired_aligned_mate_multi": 660815,
+                "overall_alignment_rate": 46.63,
+                "paired_aligned_mate_multi_halved": 330407.5,
+                "paired_aligned_mate_none_halved": 16474890.5,
+                "paired_aligned_mate_one_halved": 399113.0
+            },
+            "22_WNV_C_S3": {
+                "total_reads": 30302245,
+                "paired_total": 30302245,
+                "paired_aligned_none": 19868763,
+                "paired_aligned_one": 3674500,
+                "paired_aligned_multi": 6758982,
+                "paired_aligned_mate_none": 38262636,
+                "paired_aligned_mate_one": 840041,
+                "paired_aligned_mate_multi": 634849,
+                "overall_alignment_rate": 36.87,
+                "paired_aligned_mate_multi_halved": 317424.5,
+                "paired_aligned_mate_none_halved": 19131318.0,
+                "paired_aligned_mate_one_halved": 420020.5
+            },
+            "22_mock_A_S4": {
+                "total_reads": 12891625,
+                "paired_total": 12891625,
+                "paired_aligned_none": 3977482,
+                "paired_aligned_one": 2317929,
+                "paired_aligned_multi": 6596214,
+                "paired_aligned_mate_none": 7345391,
+                "paired_aligned_mate_one": 304610,
+                "paired_aligned_mate_multi": 304963,
+                "overall_alignment_rate": 71.51,
+                "paired_aligned_mate_multi_halved": 152481.5,
+                "paired_aligned_mate_none_halved": 3672695.5,
+                "paired_aligned_mate_one_halved": 152305.0
+            },
+            "22_mock_B_S5": {
+                "total_reads": 16794480,
+                "paired_total": 16794480,
+                "paired_aligned_none": 10193590,
+                "paired_aligned_one": 1937070,
+                "paired_aligned_multi": 4663820,
+                "paired_aligned_mate_none": 19805915,
+                "paired_aligned_mate_one": 309393,
+                "paired_aligned_mate_multi": 271872,
+                "overall_alignment_rate": 41.03,
+                "paired_aligned_mate_multi_halved": 135936.0,
+                "paired_aligned_mate_none_halved": 9902957.5,
+                "paired_aligned_mate_one_halved": 154696.5
+            },
+            "22_mock_C_S6": {
+                "total_reads": 6433907,
+                "paired_total": 6433907,
+                "paired_aligned_none": 5559556,
+                "paired_aligned_one": 225692,
+                "paired_aligned_multi": 648659,
+                "paired_aligned_mate_none": 11022384,
+                "paired_aligned_mate_one": 50682,
+                "paired_aligned_mate_multi": 46046,
+                "overall_alignment_rate": 14.34,
+                "paired_aligned_mate_multi_halved": 23023.0,
+                "paired_aligned_mate_none_halved": 5511192.0,
+                "paired_aligned_mate_one_halved": 25341.0
+            },
+            "26_WNV_A_S7": {
+                "total_reads": 27388229,
+                "paired_total": 27388229,
+                "paired_aligned_none": 23446839,
+                "paired_aligned_one": 1541296,
+                "paired_aligned_multi": 2400094,
+                "paired_aligned_mate_none": 46324193,
+                "paired_aligned_mate_one": 331696,
+                "paired_aligned_mate_multi": 237789,
+                "overall_alignment_rate": 15.43,
+                "paired_aligned_mate_multi_halved": 118894.5,
+                "paired_aligned_mate_none_halved": 23162096.5,
+                "paired_aligned_mate_one_halved": 165848.0
+            },
+            "26_WNV_B_S8": {
+                "total_reads": 8207518,
+                "paired_total": 8207518,
+                "paired_aligned_none": 7215696,
+                "paired_aligned_one": 301090,
+                "paired_aligned_multi": 690732,
+                "paired_aligned_mate_none": 14211884,
+                "paired_aligned_mate_one": 121494,
+                "paired_aligned_mate_multi": 98014,
+                "overall_alignment_rate": 13.42,
+                "paired_aligned_mate_multi_halved": 49007.0,
+                "paired_aligned_mate_none_halved": 7105942.0,
+                "paired_aligned_mate_one_halved": 60747.0
+            },
+            "26_WNV_C_S9": {
+                "total_reads": 13212439,
+                "paired_total": 13212439,
+                "paired_aligned_none": 10999346,
+                "paired_aligned_one": 703092,
+                "paired_aligned_multi": 1510001,
+                "paired_aligned_mate_none": 21774673,
+                "paired_aligned_mate_one": 127702,
+                "paired_aligned_mate_multi": 96317,
+                "overall_alignment_rate": 17.6,
+                "paired_aligned_mate_multi_halved": 48158.5,
+                "paired_aligned_mate_none_halved": 10887336.5,
+                "paired_aligned_mate_one_halved": 63851.0
+            },
+            "26_mock_A_S10": {
+                "total_reads": 19015198,
+                "paired_total": 19015198,
+                "paired_aligned_none": 10894237,
+                "paired_aligned_one": 2718012,
+                "paired_aligned_multi": 5402949,
+                "paired_aligned_mate_none": 21015304,
+                "paired_aligned_mate_one": 427894,
+                "paired_aligned_mate_multi": 345276,
+                "overall_alignment_rate": 44.74,
+                "paired_aligned_mate_multi_halved": 172638.0,
+                "paired_aligned_mate_none_halved": 10507652.0,
+                "paired_aligned_mate_one_halved": 213947.0
+            },
+            "26_mock_B_S11": {
+                "total_reads": 12464031,
+                "paired_total": 12464031,
+                "paired_aligned_none": 7558269,
+                "paired_aligned_one": 1398903,
+                "paired_aligned_multi": 3506859,
+                "paired_aligned_mate_none": 14605713,
+                "paired_aligned_mate_one": 284194,
+                "paired_aligned_mate_multi": 226631,
+                "overall_alignment_rate": 41.41,
+                "paired_aligned_mate_multi_halved": 113315.5,
+                "paired_aligned_mate_none_halved": 7302856.5,
+                "paired_aligned_mate_one_halved": 142097.0
+            },
+            "26_mock_C_S12": {
+                "total_reads": 6553179,
+                "paired_total": 6553179,
+                "paired_aligned_none": 5508704,
+                "paired_aligned_one": 321294,
+                "paired_aligned_multi": 723181,
+                "paired_aligned_mate_none": 10841430,
+                "paired_aligned_mate_one": 97309,
+                "paired_aligned_mate_multi": 78669,
+                "overall_alignment_rate": 17.28,
+                "paired_aligned_mate_multi_halved": 39334.5,
+                "paired_aligned_mate_none_halved": 5420715.0,
+                "paired_aligned_mate_one_halved": 48654.5
+            },
+            "30_WNV_A_S13": {
+                "total_reads": 25757284,
+                "paired_total": 25757284,
+                "paired_aligned_none": 10446649,
+                "paired_aligned_one": 4518944,
+                "paired_aligned_multi": 10791691,
+                "paired_aligned_mate_none": 19342779,
+                "paired_aligned_mate_one": 815899,
+                "paired_aligned_mate_multi": 734620,
+                "overall_alignment_rate": 62.45,
+                "paired_aligned_mate_multi_halved": 367310.0,
+                "paired_aligned_mate_none_halved": 9671389.5,
+                "paired_aligned_mate_one_halved": 407949.5
+            },
+            "30_WNV_B_S14": {
+                "total_reads": 12260070,
+                "paired_total": 12260070,
+                "paired_aligned_none": 5822373,
+                "paired_aligned_one": 1733458,
+                "paired_aligned_multi": 4704239,
+                "paired_aligned_mate_none": 11193886,
+                "paired_aligned_mate_one": 231077,
+                "paired_aligned_mate_multi": 219783,
+                "overall_alignment_rate": 54.35,
+                "paired_aligned_mate_multi_halved": 109891.5,
+                "paired_aligned_mate_none_halved": 5596943.0,
+                "paired_aligned_mate_one_halved": 115538.5
+            },
+            "30_WNV_C_S15": {
+                "total_reads": 17333542,
+                "paired_total": 17333542,
+                "paired_aligned_none": 7805391,
+                "paired_aligned_one": 2750599,
+                "paired_aligned_multi": 6777552,
+                "paired_aligned_mate_none": 14735317,
+                "paired_aligned_mate_one": 469829,
+                "paired_aligned_mate_multi": 405636,
+                "overall_alignment_rate": 57.49,
+                "paired_aligned_mate_multi_halved": 202818.0,
+                "paired_aligned_mate_none_halved": 7367658.5,
+                "paired_aligned_mate_one_halved": 234914.5
+            },
+            "30_mock_A_S16": {
+                "total_reads": 9120635,
+                "paired_total": 9120635,
+                "paired_aligned_none": 5055495,
+                "paired_aligned_one": 1158315,
+                "paired_aligned_multi": 2906825,
+                "paired_aligned_mate_none": 9723344,
+                "paired_aligned_mate_one": 209464,
+                "paired_aligned_mate_multi": 178182,
+                "overall_alignment_rate": 46.7,
+                "paired_aligned_mate_multi_halved": 89091.0,
+                "paired_aligned_mate_none_halved": 4861672.0,
+                "paired_aligned_mate_one_halved": 104732.0
+            },
+            "30_mock_B_S17": {
+                "total_reads": 13266372,
+                "paired_total": 13266372,
+                "paired_aligned_none": 4432094,
+                "paired_aligned_one": 2528002,
+                "paired_aligned_multi": 6306276,
+                "paired_aligned_mate_none": 7924494,
+                "paired_aligned_mate_one": 510405,
+                "paired_aligned_mate_multi": 429289,
+                "overall_alignment_rate": 70.13,
+                "paired_aligned_mate_multi_halved": 214644.5,
+                "paired_aligned_mate_none_halved": 3962247.0,
+                "paired_aligned_mate_one_halved": 255202.5
+            },
+            "30_mock_C_S18": {
+                "total_reads": 26269478,
+                "paired_total": 26269478,
+                "paired_aligned_none": 9380318,
+                "paired_aligned_one": 5507639,
+                "paired_aligned_multi": 11381521,
+                "paired_aligned_mate_none": 16773996,
+                "paired_aligned_mate_one": 1139271,
+                "paired_aligned_mate_multi": 847369,
+                "overall_alignment_rate": 68.07,
+                "paired_aligned_mate_multi_halved": 423684.5,
+                "paired_aligned_mate_none_halved": 8386998.0,
+                "paired_aligned_mate_one_halved": 569635.5
+            }
+        },
+        "multiqc_general_stats": {
+            "22_WNV_A_S1": {
+                "bowtie_2_hisat2-overall_alignment_rate": 44.35
+            },
+            "22_WNV_B_S2": {
+                "bowtie_2_hisat2-overall_alignment_rate": 46.63
+            },
+            "22_WNV_C_S3": {
+                "bowtie_2_hisat2-overall_alignment_rate": 36.87
+            },
+            "22_mock_A_S4": {
+                "bowtie_2_hisat2-overall_alignment_rate": 71.51
+            },
+            "22_mock_B_S5": {
+                "bowtie_2_hisat2-overall_alignment_rate": 41.03
+            },
+            "22_mock_C_S6": {
+                "bowtie_2_hisat2-overall_alignment_rate": 14.34
+            },
+            "26_WNV_A_S7": {
+                "bowtie_2_hisat2-overall_alignment_rate": 15.43
+            },
+            "26_WNV_B_S8": {
+                "bowtie_2_hisat2-overall_alignment_rate": 13.42
+            },
+            "26_WNV_C_S9": {
+                "bowtie_2_hisat2-overall_alignment_rate": 17.6
+            },
+            "26_mock_A_S10": {
+                "bowtie_2_hisat2-overall_alignment_rate": 44.74
+            },
+            "26_mock_B_S11": {
+                "bowtie_2_hisat2-overall_alignment_rate": 41.41
+            },
+            "26_mock_C_S12": {
+                "bowtie_2_hisat2-overall_alignment_rate": 17.28
+            },
+            "30_WNV_A_S13": {
+                "bowtie_2_hisat2-overall_alignment_rate": 62.45
+            },
+            "30_WNV_B_S14": {
+                "bowtie_2_hisat2-overall_alignment_rate": 54.35
+            },
+            "30_WNV_C_S15": {
+                "bowtie_2_hisat2-overall_alignment_rate": 57.49
+            },
+            "30_mock_A_S16": {
+                "bowtie_2_hisat2-overall_alignment_rate": 46.7
+            },
+            "30_mock_B_S17": {
+                "bowtie_2_hisat2-overall_alignment_rate": 70.13
+            },
+            "30_mock_C_S18": {
+                "bowtie_2_hisat2-overall_alignment_rate": 68.07
+            }
+        }
+    }
+}

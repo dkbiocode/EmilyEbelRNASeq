@@ -4,6 +4,7 @@
 for fname in *.bam;
 do
     shortname=$(echo $fname | awk -F_ '{printf("%s_%s_%s.bam", $1, $2, $3) }')
-    cmd="mv $fname $shortname"
-    echo $cmd
+    cmd="mv -v $fname $shortname"
+    eval "$cmd"
+
 done

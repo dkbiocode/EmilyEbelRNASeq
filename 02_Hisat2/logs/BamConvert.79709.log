@@ -1,0 +1,164 @@
+[2025-10-28_11:03:23] BamConvert 
+Using SLURM_NTASKS=16 SLURM_NTASKS
+CxtConcordant/22_mock_A_S4_L003_R2_001.fastq.gz.sam => CxtConcordant/22_mock_A_S4_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/22_mock_A_S4_L003_R2_001.fastq.gz.sam > CxtConcordant/22_mock_A_S4_L003_R2_001.bam
+
+real	11m14.160s
+user	5m50.386s
+sys	0m28.049s
+samtools quickcheck CxtConcordant/22_mock_A_S4_L003_R2_001.bam && rm -v CxtConcordant/22_mock_A_S4_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/22_mock_A_S4_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/22_mock_B_S5_L003_R2_001.fastq.gz.sam => CxtConcordant/22_mock_B_S5_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/22_mock_B_S5_L003_R2_001.fastq.gz.sam > CxtConcordant/22_mock_B_S5_L003_R2_001.bam
+
+real	7m17.018s
+user	5m0.979s
+sys	0m21.963s
+samtools quickcheck CxtConcordant/22_mock_B_S5_L003_R2_001.bam && rm -v CxtConcordant/22_mock_B_S5_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/22_mock_B_S5_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/22_mock_C_S6_L003_R2_001.fastq.gz.sam => CxtConcordant/22_mock_C_S6_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/22_mock_C_S6_L003_R2_001.fastq.gz.sam > CxtConcordant/22_mock_C_S6_L003_R2_001.bam
+
+real	1m50.931s
+user	1m21.707s
+sys	0m6.507s
+samtools quickcheck CxtConcordant/22_mock_C_S6_L003_R2_001.bam && rm -v CxtConcordant/22_mock_C_S6_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/22_mock_C_S6_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/22_WNV_A_S1_L003_R2_001.fastq.gz.sam => CxtConcordant/22_WNV_A_S1_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/22_WNV_A_S1_L003_R2_001.fastq.gz.sam > CxtConcordant/22_WNV_A_S1_L003_R2_001.bam
+
+real	18m22.897s
+user	8m58.680s
+sys	0m39.900s
+samtools quickcheck CxtConcordant/22_WNV_A_S1_L003_R2_001.bam && rm -v CxtConcordant/22_WNV_A_S1_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/22_WNV_A_S1_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/22_WNV_B_S2_L003_R2_001.fastq.gz.sam => CxtConcordant/22_WNV_B_S2_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/22_WNV_B_S2_L003_R2_001.fastq.gz.sam > CxtConcordant/22_WNV_B_S2_L003_R2_001.bam
+
+real	14m25.668s
+user	9m12.470s
+sys	0m39.584s
+samtools quickcheck CxtConcordant/22_WNV_B_S2_L003_R2_001.bam && rm -v CxtConcordant/22_WNV_B_S2_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/22_WNV_B_S2_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/22_WNV_C_S3_L003_R2_001.fastq.gz.sam => CxtConcordant/22_WNV_C_S3_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/22_WNV_C_S3_L003_R2_001.fastq.gz.sam > CxtConcordant/22_WNV_C_S3_L003_R2_001.bam
+
+real	11m47.578s
+user	8m6.702s
+sys	0m34.356s
+samtools quickcheck CxtConcordant/22_WNV_C_S3_L003_R2_001.bam && rm -v CxtConcordant/22_WNV_C_S3_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/22_WNV_C_S3_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/26_mock_A_S10_L003_R2_001.fastq.gz.sam => CxtConcordant/26_mock_A_S10_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/26_mock_A_S10_L003_R2_001.fastq.gz.sam > CxtConcordant/26_mock_A_S10_L003_R2_001.bam
+
+real	10m24.079s
+user	6m9.162s
+sys	0m24.834s
+samtools quickcheck CxtConcordant/26_mock_A_S10_L003_R2_001.bam && rm -v CxtConcordant/26_mock_A_S10_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/26_mock_A_S10_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/26_mock_B_S11_L003_R2_001.fastq.gz.sam => CxtConcordant/26_mock_B_S11_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/26_mock_B_S11_L003_R2_001.fastq.gz.sam > CxtConcordant/26_mock_B_S11_L003_R2_001.bam
+
+real	6m50.059s
+user	4m0.425s
+sys	0m15.802s
+samtools quickcheck CxtConcordant/26_mock_B_S11_L003_R2_001.bam && rm -v CxtConcordant/26_mock_B_S11_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/26_mock_B_S11_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/26_mock_C_S12_L003_R2_001.fastq.gz.sam => CxtConcordant/26_mock_C_S12_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/26_mock_C_S12_L003_R2_001.fastq.gz.sam > CxtConcordant/26_mock_C_S12_L003_R2_001.bam
+
+real	1m56.987s
+user	1m19.617s
+sys	0m4.508s
+samtools quickcheck CxtConcordant/26_mock_C_S12_L003_R2_001.bam && rm -v CxtConcordant/26_mock_C_S12_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/26_mock_C_S12_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/26_WNV_A_S7_L003_R2_001.fastq.gz.sam => CxtConcordant/26_WNV_A_S7_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/26_WNV_A_S7_L003_R2_001.fastq.gz.sam > CxtConcordant/26_WNV_A_S7_L003_R2_001.bam
+
+real	6m50.427s
+user	4m59.591s
+sys	0m17.525s
+samtools quickcheck CxtConcordant/26_WNV_A_S7_L003_R2_001.bam && rm -v CxtConcordant/26_WNV_A_S7_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/26_WNV_A_S7_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/26_WNV_B_S8_L003_R2_001.fastq.gz.sam => CxtConcordant/26_WNV_B_S8_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/26_WNV_B_S8_L003_R2_001.fastq.gz.sam > CxtConcordant/26_WNV_B_S8_L003_R2_001.bam
+
+real	2m12.526s
+user	1m32.977s
+sys	0m5.317s
+samtools quickcheck CxtConcordant/26_WNV_B_S8_L003_R2_001.bam && rm -v CxtConcordant/26_WNV_B_S8_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/26_WNV_B_S8_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/26_WNV_C_S9_L003_R2_001.fastq.gz.sam => CxtConcordant/26_WNV_C_S9_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/26_WNV_C_S9_L003_R2_001.fastq.gz.sam > CxtConcordant/26_WNV_C_S9_L003_R2_001.bam
+
+real	3m55.002s
+user	2m49.149s
+sys	0m13.401s
+samtools quickcheck CxtConcordant/26_WNV_C_S9_L003_R2_001.bam && rm -v CxtConcordant/26_WNV_C_S9_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/26_WNV_C_S9_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/30_mock_A_S16_L003_R2_001.fastq.gz.sam => CxtConcordant/30_mock_A_S16_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/30_mock_A_S16_L003_R2_001.fastq.gz.sam > CxtConcordant/30_mock_A_S16_L003_R2_001.bam
+
+real	4m36.594s
+user	3m19.989s
+sys	0m13.971s
+samtools quickcheck CxtConcordant/30_mock_A_S16_L003_R2_001.bam && rm -v CxtConcordant/30_mock_A_S16_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/30_mock_A_S16_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/30_mock_B_S17_L003_R2_001.fastq.gz.sam => CxtConcordant/30_mock_B_S17_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/30_mock_B_S17_L003_R2_001.fastq.gz.sam > CxtConcordant/30_mock_B_S17_L003_R2_001.bam
+
+real	8m58.458s
+user	5m40.338s
+sys	0m25.758s
+samtools quickcheck CxtConcordant/30_mock_B_S17_L003_R2_001.bam && rm -v CxtConcordant/30_mock_B_S17_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/30_mock_B_S17_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/30_mock_C_S18_L003_R2_001.fastq.gz.sam => CxtConcordant/30_mock_C_S18_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/30_mock_C_S18_L003_R2_001.fastq.gz.sam > CxtConcordant/30_mock_C_S18_L003_R2_001.bam
+
+real	17m2.572s
+user	10m31.458s
+sys	0m51.758s
+samtools quickcheck CxtConcordant/30_mock_C_S18_L003_R2_001.bam && rm -v CxtConcordant/30_mock_C_S18_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/30_mock_C_S18_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/30_WNV_A_S13_L003_R2_001.fastq.gz.sam => CxtConcordant/30_WNV_A_S13_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/30_WNV_A_S13_L003_R2_001.fastq.gz.sam > CxtConcordant/30_WNV_A_S13_L003_R2_001.bam
+
+real	16m7.896s
+user	9m59.865s
+sys	0m40.616s
+samtools quickcheck CxtConcordant/30_WNV_A_S13_L003_R2_001.bam && rm -v CxtConcordant/30_WNV_A_S13_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/30_WNV_A_S13_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/30_WNV_B_S14_L003_R2_001.fastq.gz.sam => CxtConcordant/30_WNV_B_S14_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/30_WNV_B_S14_L003_R2_001.fastq.gz.sam > CxtConcordant/30_WNV_B_S14_L003_R2_001.bam
+
+real	6m48.981s
+user	4m28.306s
+sys	0m21.010s
+samtools quickcheck CxtConcordant/30_WNV_B_S14_L003_R2_001.bam && rm -v CxtConcordant/30_WNV_B_S14_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/30_WNV_B_S14_L003_R2_001.fastq.gz.sam'
+
+CxtConcordant/30_WNV_C_S15_L003_R2_001.fastq.gz.sam => CxtConcordant/30_WNV_C_S15_L003_R2_001.bam
+samtools view -bS -@15 CxtConcordant/30_WNV_C_S15_L003_R2_001.fastq.gz.sam > CxtConcordant/30_WNV_C_S15_L003_R2_001.bam
+
+real	9m31.851s
+user	6m21.792s
+sys	0m26.785s
+samtools quickcheck CxtConcordant/30_WNV_C_S15_L003_R2_001.bam && rm -v CxtConcordant/30_WNV_C_S15_L003_R2_001.fastq.gz.sam
+removed 'CxtConcordant/30_WNV_C_S15_L003_R2_001.fastq.gz.sam'
+

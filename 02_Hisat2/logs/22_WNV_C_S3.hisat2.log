@@ -1,0 +1,26 @@
+[2025-10-28_10:39:44] HisatArrayCxt 
+Using SLURM_NTASKS=32 SLURM_NTASKS
+Running SLURM_ARRAY_TASK_ID=5
+source /nfs/home/dking/miniconda3/bin/activate ebel
+
+real	0m5.444s
+user	0m0.540s
+sys	0m0.606s
+5: OUT=22_WNV_C_S3_L003_R2_001.fastq.gz
+hisat2 --rna-strandness RF -p 32 -x HisatIndices/CxT -1 ../01_Fastp/DeDupTrimmed/DeDupTrimmed.22_WNV_C_S3_L003_R1_001.fastq.gz -2 ../01_Fastp/DeDupTrimmed/DeDupTrimmed.22_WNV_C_S3_L003_R2_001.fastq.gz --no-discordant -S CxtConcordant/22_WNV_C_S3_L003_R2_001.fastq.gz.sam
+30302245 reads; of these:
+  30302245 (100.00%) were paired; of these:
+    19868763 (65.57%) aligned concordantly 0 times
+    3674500 (12.13%) aligned concordantly exactly 1 time
+    6758982 (22.31%) aligned concordantly >1 times
+    ----
+    19868763 pairs aligned 0 times concordantly or discordantly; of these:
+      39737526 mates make up the pairs; of these:
+        38262636 (96.29%) aligned 0 times
+        840041 (2.11%) aligned exactly 1 time
+        634849 (1.60%) aligned >1 times
+36.87% overall alignment rate
+
+real	13m15.180s
+user	393m43.541s
+sys	12m6.415s

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #SBATCH --nodes=1
-#SBATCH --ntasks=100
+#SBATCH --ntasks=32
 #SBATCH --time=120:00:00
 #SBATCH --qos=normal
 #SBATCH --partition=week-long-cpu
@@ -14,9 +14,8 @@ echo "Running SLURM_ARRAY_TASK_ID=${SLURM_ARRAY_TASK_ID:=0}"
 conda_activate ebel
 
 filename=FastqInputFileList.txt
-
 prefix="../01_Fastp/DeDupTrimmed/DeDupTrimmed."
-index_prefix="HisatIndices/Cxt"
+index_prefix="HisatIndices/CxT"
 linenum=0
 while read -r line
 do
@@ -28,7 +27,7 @@ do
       echo "$linenum: OUT=${OUT}"
       cmd="hisat2 --rna-strandness RF -p $SLURM_NTASKS -x $index_prefix -1 ${line} -2 ${TWO} --no-discordant -S CxtConcordant/$OUT.sam"
       echo $cmd
-      # time eval $cmd
+      time eval $cmd
     fi
     linenum=$((linenum + 1))
 done < $filename

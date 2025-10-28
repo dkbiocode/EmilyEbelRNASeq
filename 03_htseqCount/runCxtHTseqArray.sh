@@ -1,36 +1,35 @@
 #!/usr/bin/env bash
 #SBATCH --nodes=1
-#SBATCH --ntasks=2
-#SBATCH --time=04:00:00
+#SBATCH --ntasks=1
+#SBATCH --time=03:00:00
 #SBATCH --qos=normal
 #SBATCH --partition=day-long-cpu
 #SBATCH --job-name=hscountArrayCulex
-#SBATCH --mail-user=$USER
-#SBATCH --mail-type=all
 #SBATCH --output=%x.%A-%a.log # gives slurm.ID.log
+source $HOME/templates/common.rc
+echo "Using SLURM_NTASKS=${SLURM_NTASKS:=0} SLURM_NTASKS"
+echo "Running SLURM_ARRAY_TASK_ID=${SLURM_ARRAY_TASK_ID:=5}"
+conda_activate ebel
 
-echo "[$0] $SLURM_JOB_NAME $@" # log the command line
 
-module purge
-source activate base
-conda activate rnaPseudo
-
-date # timestamp
-
-filename=CulexHisatConcordant.txt # $1
+BAMLIST=bamFileList.txt
+GTF=../02_Hisat2/HisatBaseFiles/mrna_filtered.gtf
 
 linenum=0
 while read -r line
 do
     if [ $SLURM_ARRAY_TASK_ID -eq $linenum ]
     then
-      pref=${line/CxtConcordant\//hsCountsConcordantCxt\/}
+      echo "line $linenum: $line"
+      pref=hsCountsConcordantCxt/$(basename $line)
       suff=${pref/.bam/.HSCounts.txt}
-      #pref=${line::-4}
-      #pref=${pref:9}
-      echo ${pref}
-      echo ${suff}
-      htseq-count --stranded=yes $line CulexT.gtf > $suff
+      echo pref=${pref}
+      echo suff=${suff}
+      cmd="htseq-count --stranded=yes $line $GTF > $suff"
+      echo $cmd
+      time eval $cmd
+
+      break
     fi
     linenum=$((linenum + 1))
-done < $filename
+done < $BAMLIST

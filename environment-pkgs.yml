@@ -1,0 +1,28 @@
+name: ebel
+channels:
+  - defaults
+  - conda-forge
+  - bioconda
+dependencies:
+  - samtools
+  - kallisto
+  - biopython
+  - pandas
+  - cutadapt
+  - umi_tools
+  - seqtk
+  - fastp
+  - git
+  - bedtools
+  - ucsc-bigwigcorrelate
+  - hisat2
+  - salmon
+  - r-base
+  - subread
+  - fastq-screen
+  - multiqc
+  - ucsc-fasize
+  - seqkit
+  - agat
+  - htseq
+prefix: /nfs/home/dking/miniconda3/envs/ebel

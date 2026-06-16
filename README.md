@@ -18,4 +18,4 @@ Three replicates each of paired-end RNA-seq at three temperatures: 22, 26, and 3
 
 ## Analysis 
 
-Raw fastq files &rarr; [1. trim/filter](#1-trimmingfiltering) &rarr; [2. align](#2-alignment) &rarr; [3. count](#3-counts) &rarr; [4. differential expression](#4-differential-expression-analysis)
+Raw fastq files &rarr; [1. trim/filter](01_Fastp) &rarr; [2. align](02_Hisat2) &rarr; [3. count](03_htseqCount/) &rarr; [4. differential expression](04_DEseq2/)

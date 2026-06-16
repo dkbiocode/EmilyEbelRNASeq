@@ -1,3 +1,3 @@
 # Count file directory
 
-Countains the results of htseq-count
+Contains the results of htseq-count

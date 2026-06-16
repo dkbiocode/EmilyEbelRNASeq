@@ -5,3 +5,4 @@ WNV_virus_comparison/
 trash/
 *.sam
 *.bam
+.Rproj.user

@@ -1,0 +1,48 @@
+---
+title: "FastqScreen"
+author: "David"
+date: "2026-06-16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(magrittr)
+```
+
+
+## Data from fastq_screen
+
+You can also embed plots, for example:
+
+```{r data, echo=FALSE}
+x = read.table('fastq_screen_plot.txt', sep="\t", header=T)
+counts = x %>% pivot_longer(cols=-Sample,values_to = 'count')
+counts %<>% mutate(Sample=as.factor(Sample))
+counts %<>% mutate(name=as.factor(name))
+counts %<>% mutate(
+  Sample_short=
+    str_replace(
+   str_replace(
+     str_replace(
+       str_replace(Sample, "_S[0-9]+_L003", ""),
+       "DeDupTrimmed.", 
+       ""
+     ),
+     "_S[0-9]+_L003", 
+     ""
+   ),
+   "_001_screen",
+  "")
+)
+counts %<>% mutate("WNV Accession"=name)
+```
+
+## WNV check
+
+```{r}
+WNV_counts = counts %>% filter(str_detect(name, "WNV"))
+WNV_counts %>% ggplot(aes(y=Sample_short, x=count, fill=`WNV Accession`)) + geom_col() + ggtitle("West Nile Virus hits") + xlab("Read counts") + ylab("Sample")
+ggsave("WNV_breakdown.png")  
+```

@@ -6,3 +6,5 @@ trash/
 *.sam
 *.bam
 .Rproj.user
+*.Rproj
+

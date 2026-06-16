@@ -1,3 +1,4 @@
 Tue Jun 16 15:19:15 MDT 2026
 1. You must restore RawFastq directory and place or link fastq files there (cannot be added to repo)
-2. Moved JSON/HTML output directories to DeDupMultiQC (fastp originally wrote them to the current directory).
+2. You must restore DeDupTrimmed as the output from fastp, input to hisat2 (see ../02_Hisat2)
+3. Moved JSON/HTML output directories to DeDupMultiQC (fastp originally wrote them to the current directory).

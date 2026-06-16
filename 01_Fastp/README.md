@@ -1,4 +1,4 @@
-# 1 trimming and filtering
+# Trimming and filtering and quality reports of fastq files
 
 ## Software:
 

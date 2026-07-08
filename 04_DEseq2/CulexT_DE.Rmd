@@ -12,6 +12,7 @@ format: html
 
 
 ```{r setup, message=F, warning=F}
+stopifnot(basename(getwd()) == "04_DEseq2")
 knitr::opts_knit$set(root.dir = normalizePath("..")) # assuming wd is this file's directory: 04_DEseq2
 library(BiocManager)
 Biocpackages = c("DESeq2")
@@ -142,7 +143,7 @@ A p-adjust threshold of 0.1 was used uniformly on this dataset.
 # tabulate number of "significant" genes
 all_res %>%
   filter(is.finite(padj) & padj < 0.1) %>%
-  count(comparison, sort = TRUE)
+  dplyr::count(comparison, sort = TRUE)
 ```
 
 ```{r gene lists}
@@ -176,12 +177,12 @@ all_res_trunc <- all_res %>% mutate( # long format file doesn't need so much
     pvalue = round(pvalue, digits = 9),
     padj = round(padj, digits = 9)
 )
-DATADIR= "04_DEseq2/DCK_results"
+DATADIR= "./DCK_results"
 path = file.path(DATADIR, "EG_all_results_DCK.tsv")
 all_res_trunc %>% write.table(path, sep="\t", row.names=F, quote=F)
 
 path = file.path(DATADIR, "EG_all_results_table_DCK.tsv")
-all_table %>% write.table(path, sep="\t", quote=F)
+all_res_trunc %>% write.table(path, sep="\t", quote=F)
 
 path = file.path(DATADIR, "EG_sig_padj_DCK.tsv")
 sig_table_padj %>% write.table(path, sep="\t", quote=F)
@@ -238,4 +239,8 @@ for (Hfile in list.files(root_dir, pattern="*_FC.csv")) {
 }
 
 comparison_df
+```
+
+```{R Session Info}
+sessionInfo()
 ```

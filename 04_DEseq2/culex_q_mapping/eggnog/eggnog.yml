@@ -1,0 +1,8 @@
+name: eggnog
+channels:
+  - defaults
+  - conda-forge
+  - bioconda
+dependencies:
+  - eggnog-mapper
+prefix: /projects/.colostate.edu/dcking/software/anaconda/envs/eggnog

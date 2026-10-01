@@ -1,0 +1,587 @@
+---
+title: "Compare annotation mappings"
+author: "David"
+date: "2026-09-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(magrittr)
+library(readxl)
+```
+
+```{r emapper_to_df}
+read_emapper = function(path) {
+ lines <- readLines(path)
+ hdr   <- grep("^#query", lines)
+ emap  <- read_tsv(path, skip = hdr - 1)
+ names(emap)[1] <- "query"
+ emap
+}
+```
+
+```{r data my emapper}
+# lines <- readLines("../emapper-out/ctar.emapper.annotations")
+# hdr   <- grep("^#query", lines)
+# emap  <- read_tsv("../emapper-out/ctar.emapper.annotations", skip = hdr - 1)
+# names(emap)[1] <- "query"
+
+emap <- read_emapper("../emapper-out/ctar.emapper.annotations")
+# some trailing stats to filter out
+statrows = grepl("^#.+",emap[[1]])
+emap = emap[!statrows,]
+gene2go <- emap %>%
+  filter(GOs != "-") %>%
+  select(query, GOs) %>%
+  separate_rows(GOs, sep = ",")
+
+geneID2GO <- split(gene2go$GOs, gene2go$query)   # topGO
+```
+
+```{r fitz egg-nog from paper}
+#: S4 Original eggNOG-mapper output: the unaltered eggNOG-mapper results for all CDSs in the Cx. tarsalis annotation. This is a 4.6-MB XLSX file.
+S4 = read_xlsx('S4-journal.ppat.1012855.s022.xlsx', skip = 2)
+S5 = read_csv('S5-journal.ppat.1012855.s023.csv')
+```
+```{r join annotations}
+david_map = emap
+david_map %<>% rename(gene_id = query)
+comparison <- full_join(
+  S5 %>% rename_with(~ paste0("S5.", .x), -gene_id),
+  david_map %>% rename_with(~ paste0("D.", .x), -gene_id),
+  by = "gene_id"
+)
+comparison <- comparison %>%
+  relocate(
+    S5.seed_ortholog,
+    D.seed_ortholog,
+    S5.COG_category,
+    D.COG_category,
+    S5.Preferred_name,
+    D.Preferred_name,
+    .after = gene_id
+  )
+```
+
+```{r summarize taxonomic labels}
+comparison %<>%
+  mutate(
+    D.taxid = str_extract(D.seed_ortholog, "^\\d+")
+  ) %>%
+  relocate(D.taxid, .after = D.seed_ortholog)
+
+comparison %>% count(D.taxid, sort=T) 
+
+taxid_map <- comparison %>%
+  filter(!is.na(D.taxid)) %>%
+  distinct(D.taxid) %>%
+  mutate(
+    species = map_chr(
+      D.taxid,
+      ~ entrez_summary(db = "taxonomy", id = .x)$scientificname
+    )
+  )
+
+taxid_map %<>%
+  mutate(
+    group = case_when(
+      is.na(species) ~ "No match",
+      species %in% c(
+        "Culex quinquefasciatus",
+        "Aedes aegypti") ~ species,
+      
+      species %in% c(
+        "Anopheles gambiae",
+        "Anopheles darlingi"
+      ) ~ "Anopheles",
+
+      species %in% c(
+        "Danaus plexippus",
+        "Bombyx mori",
+        "Heliconius melpomene"
+      ) ~ "Lepidoptera",
+      
+      species %in% c(
+        "Drosophila mojavensis",
+        "Drosophila erecta",
+        "Drosophila ananassae",
+        "Drosophila melanogaster",
+        "Drosophila grimshawi",			
+        "Drosophila willistoni",
+        "Drosophila virilis"
+      ) ~ "Drosophila sp.",
+
+      TRUE ~ "Other Insect"
+    )
+  )
+
+comparison %<>%
+  left_join(taxid_map, by = "D.taxid")
+
+ortho_table <- comparison %>% count(group, sort=T)
+ortho_table[is.na(ortho_table$group), 'group'] <- 'No Ortholog'
+ortho_table
+```
+
+```{r read deseq results}
+all_res <- read.delim("../DCK_results/EG_all_results_table_DCK_noMT.tsv")   # first col is a row index
+all_res %<>% left_join(final, by="gene_id") %>%
+      relocate(CPIJ_final, STRINGDB, .after=gene_id)
+all_res_sig <- all_res %>% filter(!is.na(padj) & padj < .1)
+all_res_universe <- all_res %>% filter(!is.na(padj))
+```
+
+```{r annotation level in deseq2 genes}
+by_deseq_results <- comparison %>% select(gene_id, species, group, D.GOs, starts_with("D.KEGG")) %>% 
+                    mutate(deseq_tested = gene_id %in% all_res_universe$gene_id,
+                           deseq_sig = gene_id %in% all_res_sig$gene_id,
+                           GO = ifelse(D.GOs == '-', NA, D.GOs),
+                           hasGO = !is.na(GO),
+                           KEGG_ko = ifelse(D.KEGG_ko == '-', NA, D.KEGG_ko),
+                           KEGG_Pathway = ifelse(D.KEGG_Pathway == '-', NA, D.KEGG_Pathway),
+                           KEGG_Module = ifelse(D.KEGG_Module == '-', NA, D.KEGG_Module),
+                           KEGG_Reaction = ifelse(D.KEGG_Reaction == '-', NA, D.KEGG_Reaction),
+                           KEGG_rclass = ifelse(D.KEGG_rclass == '-', NA, D.KEGG_rclass),
+                           has_KEGG = !is.na(KEGG_ko) | !is.na(KEGG_Pathway) | !is.na(KEGG_Module) | !is.na(KEGG_Reaction) | !is.na(KEGG_rclass)
+                    ) %>%
+                           
+                    select(-D.GOs, -starts_with("D.KEGG"))
+                    
+
+by_deseq_results %>% filter(deseq_tested) %>% count(group, sort=T)
+by_deseq_results %>% filter(deseq_sig) %>% count(group, sort=T)
+```
+
+```{r plot breakdown}
+go_summary <- by_deseq_results %>%
+  mutate(
+    deseq_group = case_when(
+      !deseq_tested                  ~ "Untested",
+      deseq_tested & !deseq_sig      ~ "Tested, non-significant",
+      deseq_tested & deseq_sig       ~ "Significant"
+    ),
+    deseq_group = factor(
+      deseq_group,
+      levels = c(
+        "Untested",
+        "Tested, non-significant",
+        "Significant"
+      )
+    )
+  ) %>%
+  count(deseq_group, hasGO) %>%
+  group_by(deseq_group) %>%
+  mutate(
+    proportion = n / sum(n)
+  ) %>%
+  ungroup()
+
+library(ggplot2)
+
+ggplot(
+  go_summary,
+  aes(
+    x = deseq_group,
+    y = n,
+    fill = hasGO
+  )
+) +
+  geom_col() +
+  # scale_y_continuous(
+  #   labels = scales::percent_format()
+  # ) +
+  labs(
+    x = NULL,
+    y = "Genes",
+    fill = "GO annotation"
+  ) +
+  theme_classic()
+```
+
+```{r with contrasts}
+
+has_annotations <- by_deseq_results %>% 
+  select(
+        # retain has_GO, has_KEGG, etc., but not the input columns of those determinations
+         -GO, 
+         -starts_with('KEGG_'), 
+         # not resolved by contrast, so will be replaced with "all_res" in join
+         -deseq_tested, 
+         -deseq_sig
+         )
+
+go_summary_w_contrasts <- all_res %>% select(gene_id, comparison, padj) %>% 
+  mutate(deseq_tested=!is.na(padj), deseq_sig=deseq_tested & (padj < .1)) %>% 
+  select(-padj) %>% 
+  left_join(has_annotations, by='gene_id') %>% 
+  mutate(
+    deseq_group = case_when(
+      !deseq_tested                  ~ "Untested",
+      deseq_tested & !deseq_sig      ~ "Tested, non-significant",
+      deseq_tested & deseq_sig       ~ "Significant"
+    ),
+    deseq_group = factor(
+      deseq_group,
+      levels = c(
+        "Untested",
+        "Tested, non-significant",
+        "Significant"
+      )
+    )
+  ) %>%
+  count(comparison, deseq_group, hasGO)
+
+go_summary_w_contrasts %<>%  mutate(
+    contrast_type = case_when(
+      # Mock vs WNV at the same temperature
+      str_detect(
+        comparison,
+        "^(T\\d+)_mock vs \\1_WNV$"
+      ) ~ "mock/WNV same temp",
+
+      # Mock vs mock at different temperatures
+      str_detect(
+        comparison,
+        "^T\\d+_mock vs T\\d+_mock$"
+      ) ~ "compare mock",
+
+      # WNV vs WNV at different temperatures
+      str_detect(
+        comparison,
+        "^T\\d+_WNV vs T\\d+_WNV$"
+      ) ~ "compare WNV",
+
+      TRUE ~ "other"
+    )
+  )
+
+# go_summary_w_contrasts %>% filter(deseq_group == 'Significant') %>%
+# ggplot(
+#   aes(
+#     x = comparison,
+#     y = n,
+#     fill = hasGO
+#   )
+# ) +
+#   geom_col() +
+# 
+#   labs(
+#     x = NULL,
+#     y = "Genes",
+#     fill = "GO annotation"
+#   ) +
+#   theme_classic() + theme(
+#     axis.text.x = element_text(angle = 90, hjust = 1)
+#   ) 
+```
+
+```{r}
+library(cowplot)
+df = go_summary_w_contrasts %>% filter(deseq_group == 'Significant') %>% rename(contrast = comparison)
+
+p_mock <- df %>%
+  filter(contrast_type == "compare mock") %>%
+  ggplot(aes(x = contrast, y = n, fill = hasGO)) +
+  geom_col() +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+p_wnv <- df %>%
+  filter(contrast_type == "compare WNV") %>%
+  ggplot(aes(x = contrast, y = n, fill = hasGO)) +
+  geom_col() +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+p_same <- df %>%
+  filter(contrast_type == "mock/WNV same temp") %>%
+  ggplot(aes(x = contrast, y = n, fill = hasGO)) +
+  geom_col() +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+p_other <- df %>%
+  filter(contrast_type == "other") %>%
+  ggplot(aes(x = contrast, y = n, fill = hasGO)) +
+  geom_col() +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+plot_grid(
+  p_mock+  labs(title = "Compare mock btw temps", x = NULL, y = "gene count"),
+  p_wnv +  labs(title = "Compare WNV btw temps", x = NULL, y = NULL),
+  p_same + labs(title = "Mock/WNV same temp", x = NULL, y = "gene count"),
+  p_other + labs(title = "Mock/WNV different temps", x = NULL, y = NULL),
+  labels = "AUTO",
+  ncol = 2
+)
+
+ggsave('go_annotation_by_contrast.pdf')
+```
+
+```{r compare S5 to recent eggnog agreement}
+# any D hits in S5?
+comparison <- comparison %>%
+  mutate(
+    D_in_S5 = map2_lgl(
+      S5.seed_ortholog,
+      D.seed_ortholog,
+      ~ {
+        if (is.na(.x) || is.na(.y)) {
+          FALSE
+        } else {
+          .y %in% str_trim(str_split_1(.x, ","))
+        }
+      }
+    )
+  )
+
+comparison %>%
+  count(D_in_S5)
+
+comparison <- comparison %>%
+  mutate(
+    S5.seed_ortholog_first = map_chr(
+      str_split(S5.seed_ortholog, ","),
+      ~ {
+        x <- str_trim(.x)
+        x <- x[!is.na(x) & x != "NA"]
+        if (length(x) == 0) NA_character_ else x[1]
+      }
+    )
+  ) %>% 
+  relocate(S5.seed_ortholog_first, .before = D.seed_ortholog)
+
+comparison <- comparison %>%
+  mutate(
+    S5.CPIJ_all = map(
+      str_split(S5.seed_ortholog, ","),
+      ~ {
+        x <- str_trim(.x)
+        unique(x[str_detect(x, "^7176\\.CPIJ")])
+      }
+    ),
+    
+    S5.CPIJ = map_chr(
+      S5.CPIJ_all,
+      ~ if (length(.x) == 0) NA_character_ else .x[1]
+    ),
+    
+    S5.CPIJ_n = map_int(
+      S5.CPIJ_all,
+      length
+    )
+  )
+
+comparison <- comparison %>%
+  mutate(
+    D.CPIJ = if_else(
+      str_detect(D.seed_ortholog, "^7176\\.CPIJ"),
+      D.seed_ortholog,
+      NA_character_
+    )
+  )
+
+comparison <- comparison %>%
+  mutate(
+    CPIJ_status = case_when(
+
+      # Both identify the same Culex q gene
+      !is.na(D.CPIJ) &
+        S5.CPIJ_n == 1 &
+        D.CPIJ == S5.CPIJ
+        ~ "Consensus",
+
+      # New run has CPIJ, old run had none
+      !is.na(D.CPIJ) &
+        S5.CPIJ_n == 0
+        ~ "D only",
+
+      # S5 has one CPIJ, new run selected another organism
+      is.na(D.CPIJ) &
+        S5.CPIJ_n == 1
+        ~ "S5 only",
+
+      # S5 has several CPIJs and D identifies one of them
+      !is.na(D.CPIJ) &
+        S5.CPIJ_n > 1 &
+        map2_lgl(
+          S5.CPIJ_all,
+          D.CPIJ,
+          ~ .y %in% .x
+        )
+        ~ "D resolves S5 multiple",
+
+      # Both identify CPIJ but disagree
+      !is.na(D.CPIJ) &
+        S5.CPIJ_n == 1 &
+        D.CPIJ != S5.CPIJ
+        ~ "Conflict",
+
+      # S5 itself has multiple possibilities and D doesn't resolve it
+      is.na(D.CPIJ) &
+        S5.CPIJ_n > 1
+        ~ "S5 ambiguous",
+
+      TRUE ~ "No CPIJ"
+    )
+  )
+```
+
+```{r }
+comparison <- comparison %>%
+  mutate(
+    D.CPIJ = if_else(
+      str_detect(D.seed_ortholog, "^7176\\.CPIJ"),
+      D.seed_ortholog,
+      NA_character_
+    )
+  )
+comparison <- comparison %>%
+  mutate(
+    CPIJ_status = case_when(
+
+      # Both identify the same Culex q gene
+      !is.na(D.CPIJ) &
+        S5.CPIJ_n == 1 &
+        D.CPIJ == S5.CPIJ
+        ~ "Consensus",
+
+      # New run has CPIJ, old run had none
+      !is.na(D.CPIJ) &
+        S5.CPIJ_n == 0
+        ~ "D only",
+
+      # S5 has one CPIJ, new run selected another organism
+      is.na(D.CPIJ) &
+        S5.CPIJ_n == 1
+        ~ "S5 only",
+
+      # S5 has several CPIJs and D identifies one of them
+      !is.na(D.CPIJ) &
+        S5.CPIJ_n > 1 &
+        map2_lgl(
+          S5.CPIJ_all,
+          D.CPIJ,
+          ~ .y %in% .x
+        )
+        ~ "D resolves S5 multiple",
+
+      # Both identify CPIJ but disagree
+      !is.na(D.CPIJ) &
+        S5.CPIJ_n == 1 &
+        D.CPIJ != S5.CPIJ
+        ~ "Conflict",
+
+      # S5 itself has multiple possibilities and D doesn't resolve it
+      is.na(D.CPIJ) &
+        S5.CPIJ_n > 1
+        ~ "S5 ambiguous",
+
+      TRUE ~ "No CPIJ"
+    )
+  )
+```
+
+```{r derive mapping}
+comparison <- comparison %>%
+  mutate(
+    CPIJ_final = case_when(
+      CPIJ_status == "Consensus" ~ D.CPIJ,
+      CPIJ_status == "D only" ~ D.CPIJ,
+      CPIJ_status == "S5 only" ~ S5.CPIJ,
+      CPIJ_status == "D resolves S5 multiple" ~ D.CPIJ,
+
+      # deliberately do not resolve conflicts/ambiguities automatically
+      TRUE ~ NA_character_
+    )
+  )
+
+comparison %<>% relocate(CPIJ_final, .after=gene_id)
+comparison %<>% mutate(CPIJ_final=str_remove_all(CPIJ_final, "^\\d+\\.|-P[A-Z]$"))
+
+comparison %>%
+  count(CPIJ_status, sort = TRUE)
+```
+```{r produce file}
+final <- comparison %>%
+  mutate(
+    description = case_when(
+      CPIJ_status %in% c(
+        "Consensus",
+        "D only",
+        "D resolves S5 multiple"
+      ) ~ D.Description,
+
+      CPIJ_status == "S5 only" ~ S5.Description,
+
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(!is.na(CPIJ_final)) %>%
+  select(
+    gene_id,
+    CPIJ_final,
+    description,
+    CPIJ_status
+  )
+
+stringdb = read_tsv("CPIJ_to_STRING.v12.0.tsv")
+stringdb_sig = inner_join(CPIJ_sig, stringdb, by="CPIJ_final")
+final %<>% left_join(stringdb, by = "CPIJ_final") %>% 
+  mutate(STRINGDB = str_remove(STRING_id, "^7176\\.")) %>%
+  relocate(STRINGDB, .after=CPIJ_final)  
+
+final %>% write_csv("ctar_to_cqx.csv")
+```
+
+```{r get lists for shinyGO}
+## Get the genes that are significant in any given comparison
+
+
+# split DESeq2 sets by comparison
+results_sets <- split(all_res_sig, all_res_sig$comparison)
+universe_sets <- split(all_res_universe, all_res_universe$comparison)
+
+stringdb_fore = lapply(results_sets, function(x) { fore = x['STRINGDB']; fore[!is.na(fore)]})
+stringdb_back = lapply(universe_sets, function(x) { back = x['STRINGDB']; back[!is.na(back)]})
+
+# remove the 0 entry in fore
+stringdb_fore = stringdb_fore[sapply(stringdb_fore, function(x) length(x) > 0)]
+stringdb_back = stringdb_back[names(stringdb_fore)]
+
+combined = Map(function(f, b) list(fore = f, back = b), stringdb_fore, stringdb_back)
+```
+
+```{r export set lists}
+setdir = "for_shinyGO"
+if (! dir.exists(setdir)) { dir.create(setdir) }
+
+for (comparison in names(combined)) {
+  fbase = str_replace_all(comparison, ' ', '_')
+  fore_pth = file.path(setdir, str_c(fbase, "fore.list", sep="_"))
+  back_pth = file.path(setdir, str_c(fbase, "back.list", sep="_"))
+  write.table(combined[[comparison]][['fore']], fore_pth, row.names=F, col.names=F, quote=F)
+  write.table(combined[[comparison]][['back']], back_pth, row.names=F, col.names=F, quote=F)
+}
+
+```
+
+```{r add stringdb mappings}
+# stringdb = read_tsv("CPIJ_to_STRING.v12.0.tsv")
+# stringdb_sig = inner_join(CPIJ_sig, stringdb, by="CPIJ_final")
+# stringdb_universe = inner_join(CPIJ_universe, stringdb, by="CPIJ_final")
+```
+
+```{r export to Mac pasteboard}
+# choose culex quinquefasciatis from the species list at https://bioinformatics.sdstate.edu/go/
+
+# Mac pasteboard
+# click on "Background (recommended)" and paste the following into the text box that appears
+write.table(stringdb_universe %>% pull(STRING_id) %>% str_remove("^7176\\."), pipe("pbcopy"), sep = "\t", row.names = FALSE, quote=F, col.names=F)
+# paste the following into the main text box of the form
+write.table(stringdb_sig %>% pull(STRING_id) %>% str_remove("^7176\\."), pipe("pbcopy"), sep = "\t", row.names = FALSE, quote=F, col.names=F)
+```

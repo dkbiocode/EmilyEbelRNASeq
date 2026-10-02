@@ -30,7 +30,7 @@ Differential expression analysis was performed in DESeq2 (Love et al. 2014)[^1] 
 ### Functional term enrichment
 
 #### Ortholog mapping of *Culex tarsalis* genes
-Using the Ctark1 *Culex tarsalis* assembly (Main et al. 2020)[^2] coding gene predictions were aligned using diamondDB (**version xxxx**) in the eggnog/emapper pipeline (**version xxxx**) to assign orthologs to the closest annotated species in class Insecta. These mappings were combined with a previous mapping (**Fitzmeyer et al. 2023**)[^3], adding **1000** additional assignments to *Culex quinquefasciatus*, the phylogenetically closest, well annotated mosquito. 
+Using the Ctark1 *Culex tarsalis* assembly (Main et al. 2020)[^2] coding gene predictions were aligned using diamondDB (**version xxxx**) in the eggnog/emapper pipeline (2.1.15) to assign orthologs to the closest annotated species in class Insecta. 11,598 *Culex tarsalis* genes mapped to *Culex quinquefasciatus*, while 1375 mapped to other mosquitos, with 106 mapping to other insects. 1648 genes *Culex tarsalis* genes remained unassigned to an ortholog. These mappings were combined with a previous mapping (**Fitzmeyer et al. 2023**)[^3], adding **3007** additional assignments to *Culex quinquefasciatus*, the phylogenetically closest well-annotated mosquito. 
 
 This work utilized the Alpine High-Performance Computing resource at the University of Colorado Boulder. Alpine is jointly funded by the University of Colorado Boulder, the University of Colorado Anschutz, Colorado State University, and the National Science Foundation (award 2201538)[^4].
 

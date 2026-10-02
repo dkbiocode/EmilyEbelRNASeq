@@ -1,5 +1,5 @@
 ---
-title: "Compare annotation mappings"
+title: "Compare annotation mappings, summarize and export lists for shinyGO"
 author: "David"
 date: "2026-09-28"
 output: html_document
@@ -10,6 +10,10 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(magrittr)
 library(readxl)
+library(ggplot2)
+library(cowplot)
+library(rentrez) # BiocManager::install("rentrez")
+library(knitr) # for kable
 ```
 
 ```{r emapper_to_df}
@@ -28,7 +32,7 @@ read_emapper = function(path) {
 # emap  <- read_tsv("../emapper-out/ctar.emapper.annotations", skip = hdr - 1)
 # names(emap)[1] <- "query"
 
-emap <- read_emapper("../emapper-out/ctar.emapper.annotations")
+emap <- read_emapper("eggnog/emapper-out/ctar.emapper.annotations")
 # some trailing stats to filter out
 statrows = grepl("^#.+",emap[[1]])
 emap = emap[!statrows,]
@@ -39,6 +43,8 @@ gene2go <- emap %>%
 
 geneID2GO <- split(gene2go$GOs, gene2go$query)   # topGO
 ```
+
+### Read Fitzmeyer et al. 2023 supplemental files
 
 ```{r fitz egg-nog from paper}
 #: S4 Original eggNOG-mapper output: the unaltered eggNOG-mapper results for all CDSs in the Cx. tarsalis annotation. This is a 4.6-MB XLSX file.
@@ -64,6 +70,10 @@ comparison <- comparison %>%
     .after = gene_id
   )
 ```
+
+### Nearest taxonomic depth of Culex tarsalis mappings.
+
+Process the taxonomic IDs from the seed ortholog, get the species name from NCBI, and use convenient groupings for the species identified.
 
 ```{r summarize taxonomic labels}
 comparison %<>%
@@ -122,7 +132,183 @@ comparison %<>%
 
 ortho_table <- comparison %>% count(group, sort=T)
 ortho_table[is.na(ortho_table$group), 'group'] <- 'No Ortholog'
-ortho_table
+kable(ortho_table, caption="Deepest match by eggnog/emapper")
+```
+## Compare Fitz 2023 S5 table to recent eggnog
+
+### Join and resolve naming and missing values
+
+```{r compare S5 to recent eggnog agreement}
+# any D hits in S5?
+comparison <- comparison %>%
+  mutate(
+    D_in_S5 = map2_lgl(
+      S5.seed_ortholog,
+      D.seed_ortholog,
+      ~ {
+        if (is.na(.x) || is.na(.y)) {
+          FALSE
+        } else {
+          .y %in% str_trim(str_split_1(.x, ","))
+        }
+      }
+    )
+  )
+
+comparison %>%
+  count(D_in_S5)
+
+comparison <- comparison %>%
+  mutate(
+    S5.seed_ortholog_first = map_chr(
+      str_split(S5.seed_ortholog, ","),
+      ~ {
+        x <- str_trim(.x)
+        x <- x[!is.na(x) & x != "NA"]
+        if (length(x) == 0) NA_character_ else x[1]
+      }
+    )
+  ) %>% 
+  relocate(S5.seed_ortholog_first, .before = D.seed_ortholog)
+
+comparison <- comparison %>%
+  mutate(
+    S5.CPIJ_all = map(
+      str_split(S5.seed_ortholog, ","),
+      ~ {
+        x <- str_trim(.x)
+        unique(x[str_detect(x, "^7176\\.CPIJ")])
+      }
+    ),
+    
+    S5.CPIJ = map_chr(
+      S5.CPIJ_all,
+      ~ if (length(.x) == 0) NA_character_ else .x[1]
+    ),
+    
+    S5.CPIJ_n = map_int(
+      S5.CPIJ_all,
+      length
+    )
+  )
+
+comparison <- comparison %>%
+  mutate(
+    D.CPIJ = if_else(
+      str_detect(D.seed_ortholog, "^7176\\.CPIJ"),
+      D.seed_ortholog,
+      NA_character_
+    )
+  )
+```
+
+### Resolve agreement/disagreement between tables
+
+- Fitz's seed orthologs has multiple matches reported by comma-delimited strings
+- My output has the closest match; sometimes the match is included in the Fitz seed orthologs
+- When both tables resolve to a single CPIJ but disagree, they are in conflict
+
+```{r conflict/resolution rules}
+
+comparison <- comparison %>%
+  mutate(
+    CPIJ_status = case_when(
+
+      # Both identify the same Culex q gene
+      !is.na(D.CPIJ) &
+        S5.CPIJ_n == 1 &
+        D.CPIJ == S5.CPIJ
+        ~ "Consensus",
+
+      # New run has CPIJ, old run had none
+      !is.na(D.CPIJ) &
+        S5.CPIJ_n == 0
+        ~ "D only",
+
+      # S5 has one CPIJ, new run selected another organism
+      is.na(D.CPIJ) &
+        S5.CPIJ_n == 1
+        ~ "S5 only",
+
+      # S5 has several CPIJs and D identifies one of them
+      !is.na(D.CPIJ) &
+        S5.CPIJ_n > 1 &
+        map2_lgl(
+          S5.CPIJ_all,
+          D.CPIJ,
+          ~ .y %in% .x
+        )
+        ~ "D resolves S5 multiple",
+
+      # Both identify CPIJ but disagree
+      !is.na(D.CPIJ) &
+        S5.CPIJ_n == 1 &
+        D.CPIJ != S5.CPIJ
+        ~ "Conflict",
+
+      # S5 itself has multiple possibilities and D doesn't resolve it
+      is.na(D.CPIJ) &
+        S5.CPIJ_n > 1
+        ~ "S5 ambiguous",
+
+      TRUE ~ "No CPIJ"
+    )
+  )
+```
+
+
+```{r derive mapping for CPIJ final from CPIJ status}
+comparison <- comparison %>%
+  mutate(
+    CPIJ_final = case_when(
+      CPIJ_status == "Consensus" ~ D.CPIJ,
+      CPIJ_status == "D only" ~ D.CPIJ,
+      CPIJ_status == "S5 only" ~ S5.CPIJ,
+      CPIJ_status == "D resolves S5 multiple" ~ D.CPIJ,
+
+      # deliberately do not resolve conflicts/ambiguities automatically
+      TRUE ~ NA_character_
+    )
+  )
+
+comparison %<>% relocate(CPIJ_final, .after=gene_id)
+comparison %<>% mutate(CPIJ_final=str_remove_all(CPIJ_final, "^\\d+\\.|-P[A-Z]$"))
+
+comparison %>%
+  count(CPIJ_status, sort = TRUE) %>% kable()
+```
+
+
+```{r produce file}
+final <- comparison %>%
+  mutate(
+    description = case_when(
+      CPIJ_status %in% c(
+        "Consensus",
+        "D only",
+        "D resolves S5 multiple"
+      ) ~ D.Description,
+
+      CPIJ_status == "S5 only" ~ S5.Description,
+
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(!is.na(CPIJ_final)) %>%
+  select(
+    gene_id,
+    CPIJ_final,
+    description,
+    CPIJ_status
+  )
+
+stringdb = read_tsv("CPIJ_to_STRING.v12.0.tsv")
+#stringdb_sig = inner_join(CPIJ_sig, stringdb, by="CPIJ_final")
+final %<>% left_join(stringdb, by = "CPIJ_final") %>% 
+  mutate(STRINGDB = str_remove(STRING_id, "^7176\\.")) %>%
+  relocate(STRINGDB, .after=CPIJ_final)  
+
+final %>% write_csv("ctar_to_cqx.csv")
 ```
 
 ```{r read deseq results}
@@ -177,8 +363,6 @@ go_summary <- by_deseq_results %>%
     proportion = n / sum(n)
   ) %>%
   ungroup()
-
-library(ggplot2)
 
 ggplot(
   go_summary,
@@ -277,8 +461,7 @@ go_summary_w_contrasts %<>%  mutate(
 #   ) 
 ```
 
-```{r}
-library(cowplot)
+```{r cowplot of contrasts}
 df = go_summary_w_contrasts %>% filter(deseq_group == 'Significant') %>% rename(contrast = comparison)
 
 p_mock <- df %>%
@@ -322,222 +505,6 @@ plot_grid(
 ggsave('go_annotation_by_contrast.pdf')
 ```
 
-```{r compare S5 to recent eggnog agreement}
-# any D hits in S5?
-comparison <- comparison %>%
-  mutate(
-    D_in_S5 = map2_lgl(
-      S5.seed_ortholog,
-      D.seed_ortholog,
-      ~ {
-        if (is.na(.x) || is.na(.y)) {
-          FALSE
-        } else {
-          .y %in% str_trim(str_split_1(.x, ","))
-        }
-      }
-    )
-  )
-
-comparison %>%
-  count(D_in_S5)
-
-comparison <- comparison %>%
-  mutate(
-    S5.seed_ortholog_first = map_chr(
-      str_split(S5.seed_ortholog, ","),
-      ~ {
-        x <- str_trim(.x)
-        x <- x[!is.na(x) & x != "NA"]
-        if (length(x) == 0) NA_character_ else x[1]
-      }
-    )
-  ) %>% 
-  relocate(S5.seed_ortholog_first, .before = D.seed_ortholog)
-
-comparison <- comparison %>%
-  mutate(
-    S5.CPIJ_all = map(
-      str_split(S5.seed_ortholog, ","),
-      ~ {
-        x <- str_trim(.x)
-        unique(x[str_detect(x, "^7176\\.CPIJ")])
-      }
-    ),
-    
-    S5.CPIJ = map_chr(
-      S5.CPIJ_all,
-      ~ if (length(.x) == 0) NA_character_ else .x[1]
-    ),
-    
-    S5.CPIJ_n = map_int(
-      S5.CPIJ_all,
-      length
-    )
-  )
-
-comparison <- comparison %>%
-  mutate(
-    D.CPIJ = if_else(
-      str_detect(D.seed_ortholog, "^7176\\.CPIJ"),
-      D.seed_ortholog,
-      NA_character_
-    )
-  )
-
-comparison <- comparison %>%
-  mutate(
-    CPIJ_status = case_when(
-
-      # Both identify the same Culex q gene
-      !is.na(D.CPIJ) &
-        S5.CPIJ_n == 1 &
-        D.CPIJ == S5.CPIJ
-        ~ "Consensus",
-
-      # New run has CPIJ, old run had none
-      !is.na(D.CPIJ) &
-        S5.CPIJ_n == 0
-        ~ "D only",
-
-      # S5 has one CPIJ, new run selected another organism
-      is.na(D.CPIJ) &
-        S5.CPIJ_n == 1
-        ~ "S5 only",
-
-      # S5 has several CPIJs and D identifies one of them
-      !is.na(D.CPIJ) &
-        S5.CPIJ_n > 1 &
-        map2_lgl(
-          S5.CPIJ_all,
-          D.CPIJ,
-          ~ .y %in% .x
-        )
-        ~ "D resolves S5 multiple",
-
-      # Both identify CPIJ but disagree
-      !is.na(D.CPIJ) &
-        S5.CPIJ_n == 1 &
-        D.CPIJ != S5.CPIJ
-        ~ "Conflict",
-
-      # S5 itself has multiple possibilities and D doesn't resolve it
-      is.na(D.CPIJ) &
-        S5.CPIJ_n > 1
-        ~ "S5 ambiguous",
-
-      TRUE ~ "No CPIJ"
-    )
-  )
-```
-
-```{r }
-comparison <- comparison %>%
-  mutate(
-    D.CPIJ = if_else(
-      str_detect(D.seed_ortholog, "^7176\\.CPIJ"),
-      D.seed_ortholog,
-      NA_character_
-    )
-  )
-comparison <- comparison %>%
-  mutate(
-    CPIJ_status = case_when(
-
-      # Both identify the same Culex q gene
-      !is.na(D.CPIJ) &
-        S5.CPIJ_n == 1 &
-        D.CPIJ == S5.CPIJ
-        ~ "Consensus",
-
-      # New run has CPIJ, old run had none
-      !is.na(D.CPIJ) &
-        S5.CPIJ_n == 0
-        ~ "D only",
-
-      # S5 has one CPIJ, new run selected another organism
-      is.na(D.CPIJ) &
-        S5.CPIJ_n == 1
-        ~ "S5 only",
-
-      # S5 has several CPIJs and D identifies one of them
-      !is.na(D.CPIJ) &
-        S5.CPIJ_n > 1 &
-        map2_lgl(
-          S5.CPIJ_all,
-          D.CPIJ,
-          ~ .y %in% .x
-        )
-        ~ "D resolves S5 multiple",
-
-      # Both identify CPIJ but disagree
-      !is.na(D.CPIJ) &
-        S5.CPIJ_n == 1 &
-        D.CPIJ != S5.CPIJ
-        ~ "Conflict",
-
-      # S5 itself has multiple possibilities and D doesn't resolve it
-      is.na(D.CPIJ) &
-        S5.CPIJ_n > 1
-        ~ "S5 ambiguous",
-
-      TRUE ~ "No CPIJ"
-    )
-  )
-```
-
-```{r derive mapping}
-comparison <- comparison %>%
-  mutate(
-    CPIJ_final = case_when(
-      CPIJ_status == "Consensus" ~ D.CPIJ,
-      CPIJ_status == "D only" ~ D.CPIJ,
-      CPIJ_status == "S5 only" ~ S5.CPIJ,
-      CPIJ_status == "D resolves S5 multiple" ~ D.CPIJ,
-
-      # deliberately do not resolve conflicts/ambiguities automatically
-      TRUE ~ NA_character_
-    )
-  )
-
-comparison %<>% relocate(CPIJ_final, .after=gene_id)
-comparison %<>% mutate(CPIJ_final=str_remove_all(CPIJ_final, "^\\d+\\.|-P[A-Z]$"))
-
-comparison %>%
-  count(CPIJ_status, sort = TRUE)
-```
-```{r produce file}
-final <- comparison %>%
-  mutate(
-    description = case_when(
-      CPIJ_status %in% c(
-        "Consensus",
-        "D only",
-        "D resolves S5 multiple"
-      ) ~ D.Description,
-
-      CPIJ_status == "S5 only" ~ S5.Description,
-
-      TRUE ~ NA_character_
-    )
-  ) %>%
-  filter(!is.na(CPIJ_final)) %>%
-  select(
-    gene_id,
-    CPIJ_final,
-    description,
-    CPIJ_status
-  )
-
-stringdb = read_tsv("CPIJ_to_STRING.v12.0.tsv")
-stringdb_sig = inner_join(CPIJ_sig, stringdb, by="CPIJ_final")
-final %<>% left_join(stringdb, by = "CPIJ_final") %>% 
-  mutate(STRINGDB = str_remove(STRING_id, "^7176\\.")) %>%
-  relocate(STRINGDB, .after=CPIJ_final)  
-
-final %>% write_csv("ctar_to_cqx.csv")
-```
-
 ```{r get lists for shinyGO}
 ## Get the genes that are significant in any given comparison
 
@@ -577,11 +544,17 @@ for (comparison in names(combined)) {
 ```
 
 ```{r export to Mac pasteboard}
-# choose culex quinquefasciatis from the species list at https://bioinformatics.sdstate.edu/go/
+# # choose culex quinquefasciatis from the species list at https://bioinformatics.sdstate.edu/go/
+# 
+# # Mac pasteboard
+# # click on "Background (recommended)" and paste the following into the text box that appears
+# write.table(stringdb_universe %>% pull(STRING_id) %>% str_remove("^7176\\."), pipe("pbcopy"), sep = "\t", row.names = FALSE, quote=F, col.names=F)
+# # paste the following into the main text box of the form
+# write.table(stringdb_sig %>% pull(STRING_id) %>% str_remove("^7176\\."), pipe("pbcopy"), sep = "\t", row.names = FALSE, quote=F, col.names=F)
+```
 
-# Mac pasteboard
-# click on "Background (recommended)" and paste the following into the text box that appears
-write.table(stringdb_universe %>% pull(STRING_id) %>% str_remove("^7176\\."), pipe("pbcopy"), sep = "\t", row.names = FALSE, quote=F, col.names=F)
-# paste the following into the main text box of the form
-write.table(stringdb_sig %>% pull(STRING_id) %>% str_remove("^7176\\."), pipe("pbcopy"), sep = "\t", row.names = FALSE, quote=F, col.names=F)
+```{r sessioninfo}
+
+sessionInfo()
+
 ```

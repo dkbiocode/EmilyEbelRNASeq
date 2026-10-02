@@ -1,0 +1,205 @@
+---
+title: "GOTerms"
+author: "David"
+date: "2026-08-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#BiocManager::install('topGO')
+library(topGO)
+library(tidyverse)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+## Get the genes that are significant in any given comparison
+
+```{r data}
+res = read.table('DCK_results/EG_sig_padj_DCK.tsv', header=T, sep="\t", row.names = 1)
+
+all_res <- read.delim("DCK_results/EG_all_results_table_DCK_noMT.tsv")   # first col is a row index
+
+length(unique(all_res$gene_id))                              # everything
+length(unique(all_res$gene_id[!is.na(all_res$pvalue)]))      # got a test
+universe <- unique(all_res$gene_id[!is.na(all_res$padj)])    # eligible
+length(universe)
+
+sig <- unique(all_res$gene_id[!is.na(all_res$padj) & all_res$padj < 0.1])
+length(sig)
+```
+
+```{r GO terms found by emapper}
+lines <- readLines("emapper-out/ctar.emapper.annotations")
+hdr   <- grep("^#query", lines)
+emap  <- read_tsv("emapper-out/ctar.emapper.annotations", skip = hdr - 1)
+names(emap)[1] <- "query"
+
+gene2go <- emap %>%
+  filter(GOs != "-") %>%
+  select(query, GOs) %>%
+  separate_rows(GOs, sep = ",")
+
+geneID2GO <- split(gene2go$GOs, gene2go$query)   # topGO
+```
+
+
+```{r check the number annotated, echo=FALSE}
+gonames = names(table(gene2go$query))
+mean(universe %in% gonames)
+mean(sig %in% gonames)  
+# .62 < .74 implies significant genes are the ones that tend to be annotated, rather than uniform annotation
+```
+
+```{r annotated genes have a higher overall expression level}
+bm <- aggregate(baseMean ~ gene_id, data = all_res, FUN = mean)
+bm <- bm[bm$gene_id %in% universe, ]
+bm$annot <- bm$gene_id %in% gonames
+tapply(bm$baseMean, bm$annot, median)
+wilcox.test(baseMean ~ annot, data = bm)
+```
+
+```{r breakdown of coverage gap by expression}
+bm$sig <- bm$gene_id %in% sig
+bm$bin <- cut(bm$baseMean, quantile(bm$baseMean, seq(0, 1, 0.2)),
+              include.lowest = TRUE)
+
+t(sapply(split(bm, bm$bin), function(d)
+  c(n = nrow(d),
+    univ_annot = mean(d$annot),
+    sig_annot  = mean(d$annot[d$sig]),
+    n_sig      = sum(d$sig))))
+```
+```{r basic topGO run}
+allGenes <- factor(as.integer(universe %in% sig))
+names(allGenes) <- universe
+GOdata <- new("topGOdata",
+  ontology = "BP", allGenes = allGenes,
+  annot = annFUN.gene2GO, gene2GO = geneID2GO, nodeSize = 10)
+
+fisher_w01 <- runTest(GOdata, algorithm = "weight01", statistic = "fisher")
+```
+
+```{r do all ontos}
+run_onto <- function(onto, allGenes) {
+  gd <- new("topGOdata", ontology = onto, allGenes = allGenes,
+            annot = annFUN.gene2GO, gene2GO = geneID2GO, nodeSize = 10)
+
+  # DAG pruning avoids exhaustive testing but can't be subject to p.adjust
+  ft  <- runTest(gd, algorithm = "weight01", statistic = "fisher")
+  # exhaustive tests are more numerous, but independent, so p-values can be adjusted
+  ftc <- runTest(gd, algorithm = "classic",  statistic = "fisher")
+
+  w  <- score(ft)                      # named numeric, all scored terms
+  cs <- score(ftc)
+  fdr <- p.adjust(cs, "BH")            # across everything, not top 50
+
+  tb <- GenTable(gd, weight01 = ft, classic = ftc,
+                 orderBy = "weight01", topNodes = 50, numChar = 200)
+
+  tb$weight01_p  <- w[tb$GO.ID]        # numeric, no string parsing
+  tb$classic_p   <- cs[tb$GO.ID]
+  tb$classic_fdr <- fdr[tb$GO.ID]
+  tb$fold        <- tb$Significant / tb$Expected
+  tb$ontology    <- onto
+
+  sg  <- sigGenes(gd)
+  git <- genesInTerm(gd, tb$GO.ID)
+  tb$sig_genes <- sapply(git, function(g)
+                    paste(sort(intersect(g, sg)), collapse = ";"))
+
+  list(test = ft, test_classic = ftc, table = tb, n_scored = length(cs))
+}
+
+runs <- lapply(c("BP", "MF", "CC"), function(onto) {run_onto(onto, allGenes)})
+names(runs) <- c("BP", "MF", "CC")
+all_tab <- do.call(rbind, lapply(runs, `[[`, "table"))
+```
+
+```{r make gene lists}
+add_genes <- function(r) {
+  sg <- sigGenes(r$godata)
+  gt <- genesInTerm(r$godata, r$table$GO.ID)
+  r$table$sig_genes <- sapply(gt, function(g)
+    paste(sort(intersect(g, sg)), collapse = ";"))
+  r$table
+}
+all_tab <- do.call(rbind, lapply(runs, add_genes))
+```
+
+```{r prepare sets to do enrichment by condition}
+by_comp <- split(all_res, all_res$comparison)
+
+sets <- lapply(by_comp, function(d) {
+  u <- d$gene_id[!is.na(d$padj)]
+  list(universe = u,
+       sig      = d$gene_id[!is.na(d$padj) & d$padj < 0.1])
+})
+
+data.frame(
+  comparison = names(sets),
+  universe   = sapply(sets, function(s) length(s$universe)),
+  sig        = sapply(sets, function(s) length(s$sig)),
+  sig_annot  = sapply(sets, function(s) sum(s$sig %in% gonames))
+)
+```
+
+
+```{r run GO-term enrichment for comparables} 
+
+comparables = c("T22_mock vs T22_WNV",  "T26_mock vs T26_WNV",  "T30_mock vs T30_WNV",  # mock vs WNV at each temp
+                "T22_mock vs T26_mock", "T22_mock vs T30_mock", "T26_mock vs T30_mock", # temp effect in mock
+                "T22_WNV vs T26_WNV",   "T22_WNV vs T30_WNV",   "T26_WNV vs T30_WNV")   # temp effect in WNV
+
+MIN_SIG_ANNOT <- 20
+
+results_list = lapply(comparables, function(x) {
+  genesets = sets[[x]]
+  sig = genesets$sig
+  universe = genesets$universe
+  
+  n_annot <- sum(sig %in% gonames)
+  if (n_annot < MIN_SIG_ANNOT)
+  {
+    message(sprintf("%-24s skipped: %d annotated sig genes", x, n_annot))
+    # df row for failed due to not enough significant/annotated
+    # return metadata only
+    return(data.frame(comparison = x, n_sig = length(sig),
+                  n_sig_annot = n_annot, n_universe = length(universe),
+                  n_universe_annot = sum(universe %in% gonames),
+                  n_terms_scored = NA_integer_, status = "too_few",
+                  stringsAsFactors = FALSE))
+  }
+  
+  # remake a vector 0/1 of gene in significant category
+  allGenes <- factor(as.integer(universe %in% sig))
+  names(allGenes) <- universe
+  runs <- lapply(c("BP", "MF", "CC"), function(onto) {run_onto(onto, allGenes)})
+  names(runs) <- c("BP", "MF", "CC")
+  tab <- do.call(rbind, lapply(runs, `[[`, "table"))
+  data.frame(comparison = x, n_sig = length(sig), n_sig_annot = n_annot,
+             n_universe = length(universe), status = "ok",
+             tab, row.names = NULL, stringsAsFactors = FALSE)
+})
+
+combined <- bind_rows(results_list)
+
+```
+
+```{r combined summaries}
+combined$block <- ifelse(
+  grepl("mock vs T\\d+_WNV", combined$comparison), "infection effect",
+  ifelse(grepl("mock vs .*mock", combined$comparison),
+         "temperature effect (mock)", "temperature effect (WNV)"))
+
+combined$fold <- combined$Significant / combined$Expected
+
+combined <- combined[order(combined$block, combined$comparison,
+                           combined$ontology, combined$p_num), ]
+
+write.table(combined, "GO_enrichment_by_comparison.tsv",
+            sep = "\t", row.names = FALSE, quote = FALSE)
+```

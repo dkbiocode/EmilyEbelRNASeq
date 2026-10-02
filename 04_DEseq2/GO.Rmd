@@ -203,3 +203,7 @@ combined <- combined[order(combined$block, combined$comparison,
 write.table(combined, "GO_enrichment_by_comparison.tsv",
             sep = "\t", row.names = FALSE, quote = FALSE)
 ```
+
+```{r sessioninfo}
+sessionInfo()
+```
